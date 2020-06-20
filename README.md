@@ -1,24 +1,29 @@
-# README
+# 旅LOG
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+旅の記録や写真などを投稿、共有するSNS
+旅行の記録をつけるメモアプリという一面＋いろんな人の旅の体験談が見れるSNSという感じです。
 
-Things you may want to cover:
+### サイトテーマ
+旅行記録共有sns
 
-* Ruby version
+### テーマを選んだ理由
+ポートフォリオとして機能を盛り込むのに適切かなと思いSNSをえらびました。
+旅行の記録を共有するSNSはあまり見たことがないので個人的にも記録をつけれるのも、ほかの人の旅の様子を知れるのは便利だと思ったのでこのテーマにしました。
 
-* System dependencies
+### ターゲットユーザ
+旅好きな人な人
+男女問わず、大学生～60代くらいまで幅広い世代
 
-* Configuration
 
-* Database creation
+### 主な利用シーン
+旅行に行った人が旅の記録をつける。
+旅行中に写真などを投稿する。
+これから旅行に行くことを考えている人が投稿をみて計画の参考にする。
 
-* Database initialization
+## 設計書
 
-* How to run the test suite
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1GGRUWWRay82wwgqBfTCVej4Ku0bGtT16_QlVsAw-Q5A/edit#gid=0
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...

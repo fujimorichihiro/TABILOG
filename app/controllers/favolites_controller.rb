@@ -1,0 +1,2 @@
+class FavolitesController < ApplicationController
+end

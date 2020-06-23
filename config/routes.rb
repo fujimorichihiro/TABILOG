@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     resource :favolites, only: [:create, :destroy]
   end
 
-  resources :relationships, only: [:create, :destroy]
+  resource :relationships, only: [:create, :destroy]
   resources :postimages, only: [:index]
   resources :rooms, only: [:show]
   resources :messages, only: [:create, :destroy]

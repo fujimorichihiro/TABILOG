@@ -1,16 +1,23 @@
+<!-- ---------------------------------------プロフィール-------------------------------------------------- -->
+<!-- プロフィール画像 -->
 <div class="row mt-3">
   <div class="col-2">
     <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, class: "rounded-circle" %>
   </div>
   <div class="col-10"></div>
 </div>
+
+<!-- ユーザーネーム、ボタン系 -->
 <div class="row pt-2 pb-2">
   <div class="col-3">
     <h3><%= @user.name %></h3>
   </div>
   <div class="col-5"></div>
-  <div class="col-4">
-    <div class="btn btn-danger">follow</div>
+
+  <div class="col-2" id="follow_button">
+    <%= render :partial => "users/follow_button", :locals => {:user => @user} %>
+  </div>
+  <div class="col-2">
     <div class="btn btn-danger rounded-circle"><i class="fas fa-envelope text-white"></i></div>
     <% if @user == current_user %>
       <%= link_to edit_user_path(@user) do %>
@@ -19,6 +26,48 @@
     <% end %>
   </div>
 </div>
-<div class="row">
+
+<!-- 自己紹介 -->
+<div class="row mb-5">
   <%= @user.introduction %>
+</div>
+
+<!-- --------------------------------------------------------------------------------------------------- -->
+
+<!-- 投稿一覧 -->
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-11">
+    <% @user.articles.each do |post| %>
+      <div class="border border-light">
+        <div class="row">
+          <div class="col-1">
+            <%= link_to user_path(post.user) do %>
+              <%= attachment_image_tag post.user, :profile_image, :fill, 50, 50, class: "rounded-circle"%>
+            <% end %>
+          </div>
+          <div class="col-11">
+            <div class="row" style="height: 20px;"></div>
+            <p class="text-secondary">@<%= post.user.name %></p>
+            <%= post.title %>
+
+          </div>
+        </div>
+        <div class="row" style="height: 5px;"></div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-1">
+            <i class="fas fa-comment"></i>
+          </div>
+          <div class="col-7">
+            <i class="fas fa-heart"></i>
+          </div>
+          <div class="col-3">
+            <p><%= post.created_at %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
 </div>

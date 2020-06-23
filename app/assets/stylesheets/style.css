@@ -1,0 +1,24 @@
+
+.tokyo {
+  background-image: url(kyoto.jpg);
+  background-size: cover;
+  height: 200px
+}
+
+.kyoto {
+  background-image: url(nara.jpg);
+  background-size: cover;
+  height: 200px
+}
+
+.sizuoka {
+  background-image: url(sizuoka.jpg);
+  background-size: cover;
+  height: 200px
+}
+
+.nara {
+  background-image: url(tokyo-tag.jpg);
+  background-size: cover;
+  height: 200px
+}

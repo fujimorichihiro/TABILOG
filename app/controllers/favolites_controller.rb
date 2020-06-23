@@ -1,2 +1,3 @@
 class FavolitesController < ApplicationController
+  
 end

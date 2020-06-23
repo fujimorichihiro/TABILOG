@@ -1,0 +1,32 @@
+<div class="col-12">
+  <% @user.articles.each do |post| %>
+    <div class="border border-light">
+      <div class="row">
+        <div class="col-1">
+          <%= link_to user_path(post.user) do %>
+            <%= attachment_image_tag post.user, :profile_image, :fill, 50, 50, class: "rounded-circle"%>
+          <% end %>
+        </div>
+        <div class="col-11">
+          <div class="row" style="height: 20px;"></div>
+          <p class="text-secondary">@<%= post.user.name %></p>
+          <%= post.title %>
+
+        </div>
+      </div>
+      <div class="row" style="height: 5px;"></div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-1">
+          <i class="fas fa-comment"></i>
+        </div>
+        <div class="col-7">
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="col-3">
+          <p><%= post.created_at %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

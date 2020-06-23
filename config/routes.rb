@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update] do
     member do
-      get :follwer, :followed
+      get :following, :follower
     end
   end
   
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     resource :favolites, only: [:create, :destroy]
   end
 
-  resources :relationships, only: [:create, :destroy]
+  resource :relationships, only: [:create, :destroy]
   resources :postimages, only: [:index]
   resources :rooms, only: [:show]
   resources :messages, only: [:create, :destroy]

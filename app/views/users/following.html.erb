@@ -1,0 +1,27 @@
+
+<%= render :partial => "users/profile", :locals => {:user => @user} %>
+
+<div class="row">
+  <% @user.following.each do |following| %>
+    <div class="col-6 border border-light">
+      <div class="row">
+        <div class="col-3">
+          <%= attachment_image_tag following, :profile_image, :fill, 100, 100, class: "rounded-circle"%>
+        </div>
+        <div class="col-5">
+          <%= following.name %>
+        </div>
+        <div class="col-4" id="follow_button-<%= following.id %>">
+          <%= render :partial => "users/follow_button", :locals => {:user => following} %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+           <%= link_to following_user_path(following), class: "nav-link text-dark" do %><%= following.following.count %> follow<% end %>
+           <%= link_to follower_user_path(following), class: "nav-link text-dark"  do %><%= following.followers.count %> follower<% end %>
+        </div>
+        <div class="col-6"></div>
+      </div>
+    </div>
+  <% end %>
+</div>

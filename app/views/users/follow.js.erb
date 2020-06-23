@@ -1,1 +1,2 @@
-$("#follow_button").html('<%= j(render :partial => 'users/follow_button', :locals => {:user => @user}) %>')
+$("<%= @id_name1 %>").html('<%= j(render :partial => 'users/follow_button', :locals => {:user => @user}) %>')
+$("<%= @id_name2 %>").html('<%= j(render :partial => 'users/navbar', :locals => {:user => @user}) %>')

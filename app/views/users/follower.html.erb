@@ -1,2 +1,28 @@
-<h1>Users#follower</h1>
-<p>Find me in app/views/users/follower.html.erb</p>
+
+<%= render :partial => "users/profile", :locals => {:user => @user} %>
+
+<div class="row">
+  <% @user.followers.each do |follower| %>
+    <div class="col-6 border border-light">
+      <div class="row">
+        <div class="col-3">
+          <%= attachment_image_tag follower, :profile_image, :fill, 100, 100, class: "rounded-circle"%>
+        </div>
+        <div class="col-5">
+          <%= follower.name %>
+        </div>
+        <div class="col-4" id="follow_button-<%= follower.id %>">
+          <%= render :partial => "users/follow_button", :locals => {:user => follower} %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+           <%= link_to following_user_path(follower), class: "nav-link text-dark" do %><%= follower.following.count %> follow<% end %>
+           <%= link_to follower_user_path(follower), class: "nav-link text-dark"  do %><%= follower.followers.count %> follower<% end %>
+        </div>
+        <div class="col-6"></div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

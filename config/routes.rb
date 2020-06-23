@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
   
   resources :articles do
-    resources :comment, only: [:create. :destroy]
+    resources :comment, only: [:create, :destroy]
     resource :favolites, only: [:create, :destroy]
   end
 

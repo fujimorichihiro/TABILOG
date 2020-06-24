@@ -20,6 +20,8 @@ class ArticlesController < ApplicationController
   end
 
   def index
+    followings = current_user.following
+    @articles = Article.where(user_id: followings)
   end
 
   private

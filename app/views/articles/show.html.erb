@@ -1,2 +1,46 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<%= render :partial => "users/profile", :locals => {:user => @article.user} %>
+<div class="row mt-2">
+  <div class="col-12">
+    <h1><%= @article.title %></h1>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <p>
+      <%= @article.body %>
+    </p>
+  </div>
+  <div class="col-1"></div>
+</div>
+<% @article.comments.each do |comment| %>
+  <div class="row border border-lite">
+    <div class="col-1 pt-2">
+      <%= link_to user_path(comment.user) do %>
+        <%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, class: "rounded-circle"%>
+      <% end %>
+    </div>
+    <div class="col-8">
+      <div class="row" style="height: 20px;"></div>
+        <p class="text-secondary">@<%= comment.user.name %></p>
+        <%= comment.body %>
+      <div class="row">
+        <div class="col-9"></div>
+        <div class="col-3">
+          <%= comment.created_at.to_s(:datetime_jp)%>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row mt-3">
+  <div class="col-8">
+    <%= form_for [@article, @comment] do |f| %>
+      <%= f.text_area :body, class: "form-control mb-3" %>
+      <%= f.submit "コメントする", class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+  <div class="col-4">
+  </div>
+</div>

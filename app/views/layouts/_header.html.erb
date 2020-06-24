@@ -4,15 +4,19 @@
       <div class="col-3">
         <h3 class="text-white">TABILOG</h3>
       </div>
-      <div class="col-5">
-      </div>
       <div class="col-4">
+      </div>
+      <div class="col-5">
         <%= link_to root_path do %>
           <div class="btn btn-outline-warning"><i class="fas fa-home"></i></div>
         <% end%>
+        <!-- user側header -->
         <% if user_signed_in? %>
+          <%= link_to articles_path do %>
+            <div class="btn btn-outline-warning">Timeline</div>
+          <% end %>
           <%= link_to new_article_path do %>
-            <div class="btn btn-danger"><i class="fas fa-pen"></i></div>
+            <div class="btn btn-success"><i class="fas fa-pen"></i></div>
           <% end %>
           <%= link_to user_path(current_user) do %>
             <div class="btn btn-outline-warning">My page</div>
@@ -20,6 +24,9 @@
           <%= link_to destroy_user_session_path, method: :delete do %>
             <div class="btn btn-outline-warning">Log out</div>
           <% end %>
+        <!-- admin側header -->
+        <% elsif admin_signed_in? %>
+        <!-- 非会員header -->
         <% else %>
           <%= link_to new_user_session_path do %>
             <div class="btn btn-outline-warning">Log in</div>

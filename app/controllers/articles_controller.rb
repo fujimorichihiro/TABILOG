@@ -14,12 +14,17 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit
   end
 
   def index
+    followings = current_user.following
+    @articles = Article.where(user_id: followings)
+    @comment = Comment.new
   end
 
   private

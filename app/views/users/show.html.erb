@@ -1,0 +1,14 @@
+<!-- -----------------------プロフィール------------------------------------ -->
+<%= render :partial => "users/profile", :locals => {:user => @user} %>
+
+
+<!-- ------------------------------------------------------------------ -->
+
+<!-- 投稿一覧 -->
+<div class="row" id="profile-content">
+  <div class="col-12">
+    <% @user.articles.each do |article| %>
+     <%= render :partial => "users/articles", :locals => {:article => article, :comment => @comment} %>
+    <% end %>
+  </div>
+</div>

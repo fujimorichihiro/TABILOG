@@ -1,0 +1,41 @@
+<header class="bg-dark pt-2 pb-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <h3 class="text-white">TABILOG</h3>
+      </div>
+      <div class="col-4">
+      </div>
+      <div class="col-5">
+        <%= link_to root_path do %>
+          <div class="btn btn-outline-warning"><i class="fas fa-home"></i></div>
+        <% end%>
+        <!-- user側header -->
+        <% if user_signed_in? %>
+          <%= link_to articles_path do %>
+            <div class="btn btn-outline-warning">Timeline</div>
+          <% end %>
+          <%= link_to new_article_path do %>
+            <div class="btn btn-success"><i class="fas fa-pen"></i></div>
+          <% end %>
+          <%= link_to user_path(current_user) do %>
+            <div class="btn btn-outline-warning">My page</div>
+          <% end %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <div class="btn btn-outline-warning">Log out</div>
+          <% end %>
+        <!-- admin側header -->
+        <% elsif admin_signed_in? %>
+        <!-- 非会員header -->
+        <% else %>
+          <%= link_to new_user_session_path do %>
+            <div class="btn btn-outline-warning">Log in</div>
+          <% end %>
+          <%= link_to new_user_registration_path do %>
+            <div class="btn btn-outline-warning">Sign up</div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</header>

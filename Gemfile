@@ -3,8 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.7'
 
-gem 'rails', '~> 5.2.3'
-gem 'sqlite3'
+gem 'rails', '~> 5.2.0.rc1'
+gem 'sqlite3', '~> 1.3.6'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -29,6 +29,9 @@ gem 'dotenv-rails'
 gem 'rails-i18n'
 
 gem 'kaminari'
+
+gem 'summernote-rails', '~> 0.8.10.0'
+gem 'simple_form', '~> 3.5.1'
 
 
 #--------------------------------------------------------------

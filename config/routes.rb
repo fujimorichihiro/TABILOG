@@ -32,4 +32,13 @@ Rails.application.routes.draw do
   resources :postimages, only: [:index]
   resources :rooms, only: [:show]
   resources :messages, only: [:create, :destroy]
+
+# 管理者側----------------------------------------------
+  namespace :admins do
+    get 'home/top'
+
+    resources :users, only: [:show, :index, :edit, :update]
+  end
+#-------------------------------------------------------
+
 end

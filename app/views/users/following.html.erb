@@ -3,7 +3,7 @@
 
 <div class="row">
   <% @user.following.each do |following| %>
-    <div class="col-5 border border-light pt-3 pb-3 mb-5">
+    <div class="col-5 border border-light pt-3 pb-3 mb-5 bg-light">
       <div class="row">
         <div class="col-3">
           <%= link_to user_path(following) do %>

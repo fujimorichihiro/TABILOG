@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  skip_before_action :authenticate_user!, only: ["show"]
   def new
     @article = Article.new
   end
@@ -19,6 +20,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @article = Article.find(params[:id])
   end
 
   def index
@@ -29,6 +31,6 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :article_image)
   end
 end

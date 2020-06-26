@@ -27,9 +27,9 @@ gem 'refile-mini_magick'
 gem 'geocoder'
 gem 'dotenv-rails'
 gem 'rails-i18n'
-
 gem 'kaminari'
 
+# summernote
 gem 'summernote-rails', '~> 0.8.10.0'
 gem 'simple_form', '~> 3.5.1'
 

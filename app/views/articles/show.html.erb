@@ -35,12 +35,13 @@
 <% end %>
 
 <div class="row mt-3">
+  <div class="col-1"></div>
   <div class="col-8">
     <%= form_for [@article, @comment] do |f| %>
       <%= f.text_area :body, class: "form-control mb-3" %>
       <%= f.submit "コメントする", class: "btn btn-secondary" %>
     <% end %>
   </div>
-  <div class="col-4">
+  <div class="col-3">
   </div>
 </div>

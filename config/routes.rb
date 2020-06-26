@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   resource :relationships, only: [:create, :destroy]
   resources :postimages, only: [:index]
-  resources :rooms, only: [:show]
+  resources :rooms, only: [:show, :create]
   resources :messages, only: [:create, :destroy]
 
 # 管理者側----------------------------------------------

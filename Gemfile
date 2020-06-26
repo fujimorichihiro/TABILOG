@@ -31,7 +31,7 @@ gem 'kaminari'
 
 # summernote
 gem 'summernote-rails', '~> 0.8.10.0'
-gem 'simple_form', '~> 3.5.1'
+gem 'simple_form', '~> 5.0.0'
 
 
 #--------------------------------------------------------------

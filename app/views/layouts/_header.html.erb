@@ -7,11 +7,11 @@
       <div class="col-4">
       </div>
       <div class="col-5">
-        <%= link_to root_path do %>
-          <div class="btn btn-outline-warning"><i class="fas fa-home"></i></div>
-        <% end%>
         <!-- user側header -->
         <% if user_signed_in? %>
+          <%= link_to root_path do %>
+            <div class="btn btn-outline-warning"><i class="fas fa-home"></i></div>
+          <% end%>
           <%= link_to articles_path do %>
             <div class="btn btn-outline-warning">Timeline</div>
           <% end %>
@@ -26,8 +26,21 @@
           <% end %>
         <!-- admin側header -->
         <% elsif admin_signed_in? %>
+          <%= link_to admins_home_top_path do %>
+            <div class="btn btn-outline-warning"><i class="fas fa-home"></i></div>
+          <% end%>
+          <%= link_to admins_users_path do %>
+            <div class="btn btn-outline-warning">会員一覧</div>
+          <% end %>
+          <div class="btn btn-outline-danger">お問い合わせ</div>
+          <%= link_to destroy_admin_session_path, method: :delete do %>
+            <div class="btn btn-outline-warning">Log out</div>
+          <% end %>
         <!-- 非会員header -->
         <% else %>
+          <%= link_to root_path do %>
+            <div class="btn btn-outline-warning"><i class="fas fa-home"></i></div>
+          <% end%>
           <%= link_to new_user_session_path do %>
             <div class="btn btn-outline-warning">Log in</div>
           <% end %>

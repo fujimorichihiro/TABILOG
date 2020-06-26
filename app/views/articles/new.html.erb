@@ -9,10 +9,14 @@
         <%= a.text_field :title, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= a.text_area :body, class: "form-control"%>
+        <%= a.text_area :body, 'data-provider': :summernote%>
       </div>
       <div class="btn-danger mb-2">tag select追加</div>
       <div class="btn-danger mb-2">image form追加</div>
+      <div class="form-group">
+        <p>サムネイル画像</p>
+        <%= a.attachment_field :article_image %>
+      </div>
       <%= a.submit "投稿する", class: "btn btn-secondary btn-block" %>
     <% end %>
   </div>

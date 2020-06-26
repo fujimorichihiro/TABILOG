@@ -1,2 +1,30 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+<%= render :partial => "users/profile", :locals => {:user => @user} %>
+<div class="mt-5"></div>
+<div class="border bg-light">
+<% @messages.each do |message| %>
+  <% if message.user.id == current_user.id %>
+    <div class="row">
+      <div class="col-12">
+        <p class="text-right p-1"><%= message.body %></p>
+      </div>
+    </div>
+  <% else %>
+    <div class="row">
+      <div class="col-12">
+        <p class="text-left p-1"><%= message.body %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+</div>
+<div class="row mt-5">
+  <div class="col-1"></div>
+  <div class="col-8">
+  <%= form_for @message do |f| %>
+    <%= f.text_field :body, class: "form-control" %>
+    <%= f.hidden_field :room_id, :value => @room.id %>
+    <%= f.submit "送信", class: "btn btn-secondary"%>
+  <% end %>
+  </div>
+  <div class="col-3"></div>
+</div>

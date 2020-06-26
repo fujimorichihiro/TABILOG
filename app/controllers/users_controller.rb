@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user!, only: ["show", "following", "follower"]
   def show
     @user = User.find(params[:id])
     @comment = Comment.new

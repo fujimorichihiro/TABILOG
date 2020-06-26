@@ -1,11 +1,13 @@
-<% unless user == current_user %>
-  <% if current_user.following?(user) %>
-    <%= link_to relationships_path(followed_id: user.id), method: :delete, remote: true do %>
-      <div class="btn btn-danger">unfollow</div>
-    <% end %>
-  <% else %>
-    <%= link_to relationships_path(followed_id: user.id), method: :post, remote: true do %>
-      <div class="btn btn-outline-warning">follow</div>
+<% if user_signed_in? %>
+  <% unless user == current_user %>
+    <% if current_user.following?(user) %>
+      <%= link_to relationships_path(followed_id: user.id), method: :delete, remote: true do %>
+        <div class="btn btn-danger">unfollow</div>
+      <% end %>
+    <% else %>
+      <%= link_to relationships_path(followed_id: user.id), method: :post, remote: true do %>
+        <div class="btn btn-outline-warning">follow</div>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>

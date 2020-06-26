@@ -7,6 +7,8 @@ class Article < ApplicationRecord
 
   has_many :tags
 
+  attachment :article_image
+
 # いいね用メソッド
   def favolited_by?(user)
     favolites.where(user_id: user.id).exists?

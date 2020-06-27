@@ -14,23 +14,10 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require summernote/summernote-bs4.min
+//= require summernote-init
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 
 
-(function() {
-  $(document).on('turbolinks:load', function() {
-    return $('[data-provider="summernote"]').each(function() {
-      return $(this).summernote({
-        height: 300
-      });
-    });
-  });
-
-}).call(this);
-
-
-var title = "javascriptが使えました";
-alert(title);

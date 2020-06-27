@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   resources :postimages, only: [:index]
   resources :rooms, only: [:show, :create]
   resources :messages, only: [:create, :destroy]
+  resources :uploads, only: [:create, :destroy]
 
 # 管理者側----------------------------------------------
   namespace :admins do

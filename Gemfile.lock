@@ -111,6 +111,8 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     execjs (2.7.0)
+    faker (2.13.0)
+      i18n (>= 1.6, < 2)
     ffi (1.13.1)
     geocoder (1.6.3)
     globalid (0.4.2)
@@ -324,6 +326,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  faker
   geocoder
   jbuilder (~> 2.5)
   jquery-rails

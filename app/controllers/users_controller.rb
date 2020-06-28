@@ -30,6 +30,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def favolite
+    @favolite_articles = Article.joins(:favolites).where(favolites: {user_id: current_user})
+    @comment = Comment.new
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)

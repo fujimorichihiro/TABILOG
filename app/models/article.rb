@@ -13,4 +13,8 @@ class Article < ApplicationRecord
   def favolited_by?(user)
     favolites.where(user_id: user.id).exists?
   end
+
+# geocoder用メソッド
+  geocoded_by :address
+  after_validation :geocode
 end

@@ -1,23 +1,24 @@
-<h1 class="text-danger">Articles#new</h1>
-<p class="text-danger">記事投稿ページ</p>
-
-<div class="row">
+<div class="row mt-5">
   <div class="col-1"></div>
   <div class="col-10">
-    <%= form_for @article do |a| %>
+    <%= form_for @article do |f| %>
       <div class="form-group">
-        <%= a.text_field :title, class: "form-control" %>
+        <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
       </div>
       <div class="form-group">
-        <%= a.text_area :body, 'data-provider': :summernote %>
+        <%= f.text_area :body, 'data-provider': :summernote %>
       </div>
       <div class="btn-danger mb-2">tag select追加</div>
       <div class="btn-danger mb-2">image form追加</div>
       <div class="form-group">
-        <p>サムネイル画像</p>
-        <%= a.attachment_field :article_image %>
+      <p class="text-secondary"><i class="fas fa-map-marker-alt text-danger"></i> 位置情報</p>
+        <%= f.text_field :address, class: "form-control", placeholder: "位置情報が一つ追加できます。" %>
       </div>
-      <%= a.submit "投稿する", class: "btn btn-secondary btn-block" %>
+      <div class="form-group">
+        <p class="text-secondary">サムネイル画像</p>
+        <%= f.attachment_field :article_image %>
+      </div>
+      <%= f.submit "投稿する", class: "btn btn-secondary btn-block" %>
     <% end %>
   </div>
   <div class="col-1"></div>

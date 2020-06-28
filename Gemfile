@@ -15,7 +15,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
-# 追加機能------------------------------------------------------
+# 追加gem------------------------------------------------------
+# ログイン機能
 gem 'devise'
 
 gem 'bootstrap', '~> 4.1.1'
@@ -24,10 +25,16 @@ gem 'jquery-rails'
 gem 'refile', require: "refile/rails", github: 'manfe/refile'
 gem 'refile-mini_magick'
 
+# 緯度、経度割り出し
 gem 'geocoder'
+# 環境変数化
 gem 'dotenv-rails'
+# 多言語化
 gem 'rails-i18n'
+# ページング
 gem 'kaminari'
+#ダミーデータ作成
+gem 'faker'
 
 # summernote
 gem 'summernote-rails', '~> 0.8.10.0'

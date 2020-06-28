@@ -1,11 +1,18 @@
 en:
   articles:
     new:
-      title: 'title'
+      title: 'Title'
       location: 'Location'
       location-text: 'you can add a location information.'
       post: 'POST'
       image: 'Thumbnail'
-      edit: 'edit'
-      delete: 'delete'
-      comment: 'coment'
+    edit:
+      title: 'Title'
+      location: 'Location'
+      location-text: 'you can add a location information.'
+      edit: 'Edit'
+      image: 'Thumbnail'
+    show:
+      edit: 'Edit'
+      delete: 'Delete'
+      comment: 'Comment'

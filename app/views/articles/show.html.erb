@@ -1,6 +1,8 @@
 <%= render :partial => "users/profile", :locals => {:user => @article.user} %>
+<!-- ---------------記事詳細部分-------------------- -->
 <div class="row mt-2">
-  <div class="col-12">
+  <div class="col-1"></div>
+  <div class="col-11">
     <h1><%= @article.title %></h1>
   </div>
 </div>
@@ -13,6 +15,14 @@
   </div>
   <div class="col-1"></div>
 </div>
+<div class="row mt-3">
+  <div class="col-1"></div>
+  <div class="col-11">
+    <p><i class="fas fa-map-marker-alt text-secondary"></i> <%= @article.address %></p>
+  </div>
+</div>
+<!-- ----------------------------------------------- -->
+<!-- コメント部分 -->
 <% @article.comments.each do |comment| %>
   <div class="row border border-lite">
     <div class="col-1 pt-2">

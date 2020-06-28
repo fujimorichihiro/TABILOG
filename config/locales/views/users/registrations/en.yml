@@ -1,0 +1,9 @@
+ja:
+  users:
+    registratioins:
+      registration: 'Sign up'
+      name: 'Name'
+      email: 'Email'
+      password: 'Password'
+      confirmation: 'Password confirmation'
+      login: 'Log in'

@@ -1,0 +1,9 @@
+ja:
+  users:
+    registratioins:
+      registration: '会員登録'
+      name: 'ユーザーネーム'
+      email: 'メールアドレス'
+      password: 'パスワード'
+      confirmation: 'パスワード(確認)'
+      login: 'ログイン'

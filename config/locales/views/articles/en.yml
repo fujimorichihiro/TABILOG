@@ -1,0 +1,11 @@
+en:
+  articles:
+    new:
+      title: 'title'
+      location: 'Location'
+      location-text: 'you can add a location information.'
+      post: 'POST'
+      image: 'Thumbnail'
+      edit: 'edit'
+      delete: 'delete'
+      comment: 'coment'

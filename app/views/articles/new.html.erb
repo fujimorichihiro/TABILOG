@@ -3,7 +3,7 @@
   <div class="col-10">
     <%= form_for @article do |f| %>
       <div class="form-group">
-        <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
+        <%= f.text_field :title, class: "form-control", placeholder: "#{t '.title'}" %>
       </div>
       <div class="form-group">
         <%= f.text_area :body, 'data-provider': :summernote %>
@@ -11,14 +11,14 @@
       <div class="btn-danger mb-2">tag select追加</div>
       <div class="btn-danger mb-2">image form追加</div>
       <div class="form-group">
-      <p class="text-secondary"><i class="fas fa-map-marker-alt text-danger"></i> 位置情報</p>
-        <%= f.text_field :address, class: "form-control", placeholder: "位置情報が一つ追加できます。" %>
+      <p class="text-secondary"><i class="fas fa-map-marker-alt text-danger"></i> <%= t '.location' %></p>
+        <%= f.text_field :address, class: "form-control", placeholder: "#{t '.location-text'}" %>
       </div>
       <div class="form-group">
-        <p class="text-secondary">サムネイル画像</p>
+        <p class="text-secondary"><%= t '.image' %></p>
         <%= f.attachment_field :article_image %>
       </div>
-      <%= f.submit "投稿する", class: "btn btn-secondary btn-block" %>
+      <%= f.submit "#{t '.post'}", class: "btn btn-secondary btn-block" %>
     <% end %>
   </div>
   <div class="col-1"></div>

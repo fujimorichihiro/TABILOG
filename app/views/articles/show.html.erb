@@ -9,10 +9,10 @@
   <div class="col-3">
     <% if @article.user == current_user %>
       <%= link_to edit_article_path do %>
-        <div class="btn btn-success">編集する</div>
+        <div class="btn btn-success"><%= t '.edit' %></div>
       <% end %>
       <%= link_to article_path(@article), method: :delete do %>
-        <div class="btn btn-danger">削除</div>
+        <div class="btn btn-danger"><%= t '.delete' %></div>
       <% end %>
     <% end %>
   </div>
@@ -72,7 +72,7 @@
   <div class="col-8">
     <%= form_for [@article, @comment] do |f| %>
       <%= f.text_area :body, class: "form-control mb-3" %>
-      <%= f.submit "コメントする", class: "btn btn-secondary" %>
+      <%= f.submit "#{t '.comment'}", class: "btn btn-secondary" %>
     <% end %>
   </div>
   <div class="col-3">

@@ -1,0 +1,7 @@
+ja:
+  users:
+    shared:
+      links:
+        login: 'ログイン'
+        signup: '新規登録'
+        forget_password: 'パスワードをお忘れですか?'

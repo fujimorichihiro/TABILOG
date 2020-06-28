@@ -15,6 +15,11 @@ module TABILOG
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    # タイムゾーンを東京に変更
     config.time_zone = 'Tokyo'
+    # デフォルトを日本語に設定(i18n)
+    config.i18n.default_locale = :ja
+    # ロケールファイルが読み込まれるようにする(i18n)
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
   end
 end

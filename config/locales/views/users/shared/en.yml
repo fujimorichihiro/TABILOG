@@ -1,0 +1,7 @@
+en:
+  users:
+    shared:
+      link:
+        login: 'Log in'
+        signup: 'Sign up'
+        forget_password: 'Forgot your password?'

@@ -1,0 +1,9 @@
+en:
+  layouts:
+    header:
+      mypage: 'My Page'
+      message: 'Message'
+      favolite_article: 'favolites'
+      post: 'post'
+      timeline: 'Time Line'
+      logout: 'Log Out'

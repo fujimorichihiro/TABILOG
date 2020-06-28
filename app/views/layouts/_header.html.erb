@@ -13,13 +13,13 @@
             <div class="btn btn-outline-warning"><i class="fas fa-home"></i></div>
           <% end%>
           <%= link_to articles_path do %>
-            <div class="btn btn-outline-warning">Timeline</div>
+            <div class="btn btn-outline-warning"><%= t '.timeline' %></div>
           <% end %>
           <%= link_to new_article_path do %>
             <div class="btn btn-success"><i class="fas fa-pen"></i></div>
           <% end %>
           <%= link_to destroy_user_session_path, method: :delete do %>
-            <div class="btn btn-outline-warning">Log out</div>
+            <div class="btn btn-outline-warning"><%= t '.logout' %></div>
           <% end %>
         <!-- admin側header -->
         <% elsif admin_signed_in? %>
@@ -53,9 +53,9 @@
               <%= current_user.name %>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <%= link_to "My Page", user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "DM", rooms_path, class: "dropdown-item" %>
-              <%= link_to "いいね記事", favolite_user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "#{t '.mypage'}", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "#{t '.message'}", rooms_path, class: "dropdown-item" %>
+              <%= link_to "#{t '.favolite_article'}", favolite_user_path(current_user), class: "dropdown-item" %>
             </div>
           </div>
           <% end %>

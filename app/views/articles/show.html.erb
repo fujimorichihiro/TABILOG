@@ -1,9 +1,21 @@
 <%= render :partial => "users/profile", :locals => {:user => @article.user} %>
+<!-- ---------------記事詳細部分-------------------- -->
+<!-- 記事タイトル -->
 <div class="row mt-2">
-  <div class="col-12">
+  <div class="col-1"></div>
+  <div class="col-8">
     <h1><%= @article.title %></h1>
   </div>
+  <div class="col-3">
+    <%= link_to edit_article_path do %>
+      <div class="btn btn-success">編集する</div>
+    <% end %>
+    <%= link_to article_path(@article), method: :delete do %>
+      <div class="btn btn-danger">削除</div>
+    <% end %>
+  </div>
 </div>
+<!-- 記事本文 -->
 <div class="row mt-3">
   <div class="col-1"></div>
   <div class="col-10">
@@ -13,6 +25,25 @@
   </div>
   <div class="col-1"></div>
 </div>
+<!-- 位置情報、googlemaps-API -->
+<div class="row mt-3">
+  <div class="col-1"></div>
+  <div class="col-7">
+    <a class="text-secondary" data-toggle="collapse" href="#Googlemaps-API" role="button" aria-expanded="false" aria-controls="Googlemaps-API">
+      <i class="fas fa-map-marker-alt"></i> <%= @article.address %>
+    </a>
+    <div class="collapse" id="Googlemaps-API">
+      <div class="card card-body">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <%= @article.created_at.to_s(:datetime_jp) %>
+  </div>
+</div>
+<!-- ----------------------------------------------- -->
+<!-- コメント部分 -->
 <% @article.comments.each do |comment| %>
   <div class="row border border-lite">
     <div class="col-1 pt-2">
@@ -45,3 +76,20 @@
   <div class="col-3">
   </div>
 </div>
+
+
+<script>
+function initMap(){
+  var article_map = {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>};
+  let map = new google.maps.Map(document.getElementById('map'), {
+  center: article_map,
+  zoom: 8
+  });
+
+  var marker = new google.maps.Marker({
+    positioin: article_map,
+    map: map
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>

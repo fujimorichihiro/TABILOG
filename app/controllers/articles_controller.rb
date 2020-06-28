@@ -19,18 +19,33 @@ class ArticlesController < ApplicationController
     @comment = Comment.new
   end
 
-  def edit
-    @article = Article.find(params[:id])
-  end
-
   def index
     followings = current_user.following
     @articles = Article.where(user_id: followings)
     @comment = Comment.new
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to article_path(@article)
+    else
+     render 'edit'
+    end
+  end
+
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to user_path(current_user)
+  end
+
   private
   def article_params
-    params.require(:article).permit(:title, :body, :article_image)
+    params.require(:article).permit(:title, :body, :article_image, :address)
   end
 end

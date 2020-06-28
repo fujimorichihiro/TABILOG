@@ -1,2 +1,25 @@
-<h1>Articles#edit</h1>
-<p>Find me in app/views/articles/edit.html.erb</p>
+<div class="row mt-5">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <%= form_for @article do |f| %>
+      <div class="form-group">
+        <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
+      </div>
+      <div class="form-group">
+        <%= f.text_area :body, 'data-provider': :summernote %>
+      </div>
+      <div class="btn-danger mb-2">tag select追加</div>
+      <div class="btn-danger mb-2">image form追加</div>
+      <div class="form-group">
+      <p class="text-secondary"><i class="fas fa-map-marker-alt text-danger"></i> 位置情報</p>
+        <%= f.text_field :address, class: "form-control", placeholder: "位置情報が一つ追加できます。" %>
+      </div>
+      <div class="form-group">
+        <p class="text-secondary">サムネイル画像</p>
+        <%= f.attachment_field :article_image %>
+      </div>
+      <%= f.submit "編集する", class: "btn btn-success btn-block" %>
+    <% end %>
+  </div>
+  <div class="col-1"></div>
+</div>

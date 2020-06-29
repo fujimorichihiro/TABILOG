@@ -17,6 +17,18 @@
     <% end %>
   </div>
 </div>
+<!-- タグ -->
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+      <% @article.tags.each do |tag| %>
+        <%= link_to root_path, class: "badge badge-info" do %>
+          <%= tag.name %>
+        <% end %>
+      <% end %>
+  </div>
+  <div class="col-1"></div>
+</div>
 <!-- 記事本文 -->
 <div class="row mt-3">
   <div class="col-1"></div>

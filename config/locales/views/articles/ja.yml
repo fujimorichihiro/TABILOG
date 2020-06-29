@@ -6,6 +6,7 @@ ja:
       location-text: '位置情報が一つ追加できます。'
       post: '投稿する'
       image: 'サムネイル画像'
+      tag: 'タグ'
     edit:
       title: 'タイトル'
       location: '位置情報'

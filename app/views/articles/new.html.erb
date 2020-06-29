@@ -1,14 +1,22 @@
+<!-- 記事投稿ページ -->
 <div class="row mt-5">
   <div class="col-1"></div>
   <div class="col-10">
     <%= form_for @article do |f| %>
+    <!-- タイトル -->
       <div class="form-group">
         <%= f.text_field :title, class: "form-control", placeholder: "#{t '.title'}" %>
       </div>
+    <!-- タグ入力フォーム by tag-it -->
+      <div class="tag-form-field">
+        <%= f.label "#{t '.tag'}" %>
+        <ul id="tag-form">
+        </ul>
+      </div>
+    <!-- 本文（リッチテキストエディタ）by summernote -->
       <div class="form-group">
         <%= f.text_area :body, 'data-provider': :summernote %>
       </div>
-      <div class="btn-danger mb-2">tag select追加</div>
       <div class="btn-danger mb-2">image form追加</div>
       <div class="form-group">
       <p class="text-secondary"><i class="fas fa-map-marker-alt text-danger"></i> <%= t '.location' %></p>

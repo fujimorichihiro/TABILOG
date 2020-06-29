@@ -7,8 +7,10 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.user_id = current_user.id
+    tag_list = params[:tags].split(",")
     if @article.save
-      redirect_to user_path(current_user)
+      @article.save_tags(tag_list)
+      redirect_to article_path(@article)
     else
       render "new"
     end
@@ -27,11 +29,14 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    @tag_list = @article.tags.pluck(:name).join(",")
   end
 
   def update
     @article = Article.find(params[:id])
+    tag_list = params[:tags].split(",")
     if @article.update(article_params)
+      @article.save_tags(tag_list)
       redirect_to article_path(@article)
     else
      render 'edit'

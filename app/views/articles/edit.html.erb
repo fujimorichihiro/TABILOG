@@ -5,6 +5,11 @@
       <div class="form-group">
         <%= f.text_field :title, class: "form-control", placeholder: "#{t '.title'}" %>
       </div>
+      <div class="tag-form-field">
+        <%= f.label "#{t '.tag'}", class: "text-secondary" %>
+        <ul id="tag-form">
+        </ul>
+      </div>
       <div class="form-group">
         <%= f.text_area :body, 'data-provider': :summernote %>
       </div>

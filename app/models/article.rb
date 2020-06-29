@@ -5,7 +5,8 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favolites, dependent: :destroy
 
-  has_many :tags
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
 
   attachment :article_image
 
@@ -17,4 +18,22 @@ class Article < ApplicationRecord
 # geocoder用メソッド
   geocoded_by :address
   after_validation :geocode
+
+# tag保存用メソッド
+  def save_tags(tag_list)
+    current_tags = self.tags.pluck(:name) unless self.tags.nil?
+    old_tags = current_tags - tag_list
+    new_tags = tag_list - current_tags
+
+    # Destroy old taggings:
+    old_tags.each do |old_name|
+      self.tags.delete Tag.find_by(name:old_name)
+    end
+
+    # Create new taggings:
+    new_tags.each do |new_name|
+      article_tag = Tag.find_or_create_by(name:new_name)
+      self.tags << article_tag
+    end
+  end
 end

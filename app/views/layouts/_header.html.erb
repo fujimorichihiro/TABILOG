@@ -46,11 +46,12 @@
           <% end %>
         <% end %>
       </div>
+      <!-- ユーザーメニュー -->
       <div class="col-2">
         <% if user_signed_in? %>
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.name %>
+            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= attachment_image_tag current_user, :profile_image, :fill, 25, 25, class: "rounded-circle" %>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <%= link_to "#{t '.mypage'}", user_path(current_user), class: "dropdown-item" %>

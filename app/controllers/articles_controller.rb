@@ -22,9 +22,8 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    followings = current_user.following
-    @articles = Article.where(user_id: followings)
-    @comment = Comment.new
+    @search_tag = params[:search_tag]
+    @articles = Article.search(params[:search_tag])
   end
 
   def edit

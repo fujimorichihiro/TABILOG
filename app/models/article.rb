@@ -36,4 +36,8 @@ class Article < ApplicationRecord
       self.tags << article_tag
     end
   end
+# tag検索用メソッド
+  def self.search(search_tag)
+    self.joins(:tags).where(tags: {name: "#{search_tag}"})
+  end
 end

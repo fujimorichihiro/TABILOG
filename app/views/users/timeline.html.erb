@@ -1,0 +1,11 @@
+<%= render :partial => "users/profile", :locals => {:user => current_user} %>
+<h1 class="text-secondary">Timeline</h1>
+<P class="text-danger">ページング、新しい順に並び替え、自分の投稿を追加</P>
+
+<div class="row mt-5">
+  <div class="col-12">
+    <% @articles.each do |article| %>
+      <%= render :partial => "users/articles2", :locals => {:article => article} %>
+    <% end %>
+  </div>
+</div>

@@ -46,6 +46,6 @@
 
 <div class="row" id="profile-content">
   <% @articles.each do |article| %>
-    <%= render :partial => "users/articles2", :locals => {:article => article, :comment => @comment} %>
+    <%= render :partial => "users/articles2", :locals => {:article => article} %>
   <% end %>
 </div>

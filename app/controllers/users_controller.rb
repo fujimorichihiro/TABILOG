@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: ["show", "following", "follower"]
   def show
     @user = User.find(params[:id])
-    @comment = Comment.new
   end
 
 
@@ -32,13 +31,11 @@ class UsersController < ApplicationController
 
   def favolite
     @favolite_articles = Article.joins(:favolites).where(favolites: {user_id: current_user})
-    @comment = Comment.new
   end
 
   def timeline
     followings = current_user.following
     @articles = Article.where(user_id: followings)
-    @comment = Comment.new
   end
 
   private

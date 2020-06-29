@@ -35,6 +35,12 @@ class UsersController < ApplicationController
     @comment = Comment.new
   end
 
+  def timeline
+    followings = current_user.following
+    @articles = Article.where(user_id: followings)
+    @comment = Comment.new
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)

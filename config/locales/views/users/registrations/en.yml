@@ -1,0 +1,11 @@
+en:
+  users:
+    registrations:
+      new:
+        registration: 'Sign up'
+        name: 'Name'
+        email: 'Email'
+        password: 'Password'
+        characters: ' characters minimum'
+        confirmation: 'Password confirmation'
+        login: 'Log in'

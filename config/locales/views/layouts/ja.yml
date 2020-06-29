@@ -1,0 +1,9 @@
+ja:
+  layouts:
+    header:
+      mypage: 'マイページ'
+      message: 'メッセージ'
+      favolite_article: 'いいねした記事'
+      post: '投稿する'
+      timeline: 'タイムライン'
+      logout: 'ログアウト'

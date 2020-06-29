@@ -1,0 +1,8 @@
+ja:
+  users:
+    sessions:
+      new:
+        login: 'ログイン'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        remember: 'ログイン状態を保つ'

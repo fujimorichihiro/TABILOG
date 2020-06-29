@@ -10,6 +10,16 @@ class RoomsController < ApplicationController
     @message =Message.new
   end
 
+  def index
+    my_entries = current_user.entries
+    # current_userの属しているroom_idを配列にする。
+    room_ids = []
+    my_entries.each do |my_entry|
+      room_ids.push(my_entry.room_id)
+    end
+    @other_entries = Entry.where(room_id: room_ids).where.not(user_id: current_user.id)
+  end
+
   def create
     @user = User.find(params[:user_id])
     # roomが既に存在する場合-----

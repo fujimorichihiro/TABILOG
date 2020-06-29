@@ -1,0 +1,23 @@
+<div class="row mt-5">
+	<div class="col-1"></div>
+	<div class="col-10">
+		<% @other_entries.each do |another_entry| %>
+		  <%= link_to room_path(another_entry.room) do %>
+		    <div class="row mb-2 pb-2 pt-2 bg-light">
+		  	  <div class="col-1">
+		  		  <%= attachment_image_tag another_entry.user, :profile_image , :fill, 50, 50, class: "rounded-circle" %>
+		  	  </div>
+		  	  <div class="col-2">
+		  		  <%= another_entry.user.name %>
+		  	  </div>
+		  	  <div class="col-9">
+		  	  	<%= another_entry.room.messages %>
+		  	  </div>
+		  	</div>
+		  <% end %>
+		<% end %>
+	  <div class="row">
+	  </div>
+	</div>
+	<div class="col-1"></div>
+</div>

@@ -10,7 +10,7 @@ $(document).on 'turbolinks:load', ->
   $('#tag-form').tagit()
   tag_string = $("#tags_hidden").val()
   try
-    tags = tag_string.split(',')
+    tag_list = tag_string.split(',')
     for tag in tag_list
       $('#tag-form').tagit 'createTag', tag
   catch error

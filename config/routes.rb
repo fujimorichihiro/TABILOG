@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show, :edit, :update] do
       member do
-        get :following, :follower, :favolite
+        get :following, :follower, :favolite, :timeline
       end
     end
 

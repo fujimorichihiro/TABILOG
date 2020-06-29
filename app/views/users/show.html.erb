@@ -7,6 +7,6 @@
 <!-- 投稿一覧 -->
 <div class="row" id="profile-content">
     <% @user.articles.each do |article| %>
-     <%= render :partial => "users/articles2", :locals => {:article => article, :comment => @comment, :room_id => @room_id} %>
+     <%= render :partial => "users/articles2", :locals => {:article => article, :room_id => @room_id} %>
     <% end %>
 </div>

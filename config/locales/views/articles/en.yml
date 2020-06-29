@@ -6,12 +6,14 @@ en:
       location-text: 'you can add a location information.'
       post: 'POST'
       image: 'Thumbnail'
+      tag: 'Tag'
     edit:
       title: 'Title'
       location: 'Location'
       location-text: 'you can add a location information.'
       edit: 'Edit'
       image: 'Thumbnail'
+      tag: 'Tag'
     show:
       edit: 'Edit'
       delete: 'Delete'

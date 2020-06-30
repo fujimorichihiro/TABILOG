@@ -1,0 +1,12 @@
+en:
+  users:
+    passwords:
+      new:
+        remember: 'Forgot your password?'
+        email: 'Email'
+        button: 'Send me reset password instructions'
+      edit:
+        change_password: 'Change your password<'
+        password: 'New password'
+        password_confirmation: 'Confirm new password'
+        button: 'Change my password'

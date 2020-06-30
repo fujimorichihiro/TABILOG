@@ -9,4 +9,5 @@ en:
         change_password: 'Change your password<'
         password: 'New password'
         password_confirmation: 'Confirm new password'
+        characters: ' characters minimum'
         button: 'Change my password'

@@ -3,7 +3,8 @@ en:
     header:
       mypage: 'My Page'
       message: 'Message'
-      favolite_article: 'favolites'
-      post: 'post'
+      favolite_article: 'Favolites'
+      edit_registration: 'Edit infomation'
+      post: 'Post'
       timeline: 'Time Line'
       logout: 'Log Out'

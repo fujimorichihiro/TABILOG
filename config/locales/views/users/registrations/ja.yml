@@ -9,3 +9,16 @@ ja:
         characters: '文字以上'
         confirmation: 'パスワード(確認)'
         login: 'ログイン'
+      edit:
+        edit_user: '登録情報編集'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_message: '(変更しない場合入力しないで下さい)'
+        characters: '文字以上'
+        confirmation: 'パスワード(確認)'
+        current_password: '現在のパスワード'
+        confirmation_message: '(更新には入力が必要です)'
+        update_button: '更新'
+        cancel: 'アカウント消去'
+        cancel_button: ’消去する’
+        back: '戻る'

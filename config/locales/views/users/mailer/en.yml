@@ -1,0 +1,10 @@
+en:
+  users:
+    mailer:
+      confirmation_instructions:
+        welcome: 'Welcome'
+        message: 'You can confirm your account email through the link below'
+      email_changed:
+        hello: 'Hello'
+        comfirm_message: 'We are contacting you to notify you that your email is being changed to '
+        comfirmed_message: 'We are contacting you to notify you that your email has been changed to '

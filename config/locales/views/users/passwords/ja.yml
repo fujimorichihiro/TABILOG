@@ -9,4 +9,5 @@ ja:
         change_password: 'パスワード変更'
         password: '新しいパスワード'
         password_confirmation: '新しいパスワード(確認)'
+        characters: '文字以上'
         button: 'パスワードを変更する。'

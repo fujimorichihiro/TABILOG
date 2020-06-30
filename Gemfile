@@ -18,7 +18,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # 追加gem------------------------------------------------------
 # ログイン機能
 gem 'devise'
-
+# レイアウト
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 

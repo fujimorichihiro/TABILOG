@@ -9,3 +9,16 @@ en:
         characters: ' characters minimum'
         confirmation: 'Password confirmation'
         login: 'Log in'
+      edit:
+        edit_user: 'Edit User'
+        email: 'Email'
+        password: 'Password'
+        password_message: '(leave blank if you want to change it)'
+        characters: 'characters minimum'
+        confirmation: 'Password confirmation'
+        current_password: 'Current password'
+        confirmation_message: 'we need your current password to confirm your changes'
+        update_button: 'Update'
+        cancel: 'Cancel my account'
+        cancel_button: ’Cancel my account’
+        back: "Back"

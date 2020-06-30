@@ -4,6 +4,7 @@ ja:
       mypage: 'マイページ'
       message: 'メッセージ'
       favolite_article: 'いいねした記事'
+      edit_registration: '登録情報編集'
       post: '投稿する'
       timeline: 'タイムライン'
       logout: 'ログアウト'

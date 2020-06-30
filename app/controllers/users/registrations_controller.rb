@@ -11,8 +11,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   # def create
-  #   super
-  # end
+  #    super do
+  #      resource.update(confirmed_at: Time.now.jp)
+  #    end
+  #  end
 
   # GET /resource/edit
   # def edit

@@ -1,0 +1,10 @@
+ja:
+  users:
+    mailer:
+      confirmation_instructions:
+        welcome: 'ようこそ'
+        message: 'こちらのリンクを押してメールアドレスを確認してください'
+      email_changed:
+        hello: 'こんにちは'
+        comfirm_message: 'メールアドレスの変更を完了するには下記リンクにアクセスしてください'
+        comfirmed_message: 'メールアドレスの変更は完了しています'

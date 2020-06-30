@@ -57,6 +57,7 @@
               <%= link_to "#{t '.mypage'}", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "#{t '.message'}", rooms_path, class: "dropdown-item" %>
               <%= link_to "#{t '.favolite_article'}", favolite_user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "#{t '.edit_registration'}", edit_user_registration_path, class: "dropdown-item" %>
             </div>
           </div>
           <% end %>

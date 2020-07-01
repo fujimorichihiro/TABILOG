@@ -37,12 +37,14 @@ Rails.application.routes.draw do
     resources :rooms, only: [:show, :create, :index]
     resources :messages, only: [:create, :destroy]
     resources :uploads, only: [:create, :destroy]
+    resources :inquiries, only: [:new, :create]
 
   # 管理者側----------------------------------------------
     namespace :admins do
       get 'home/top'
 
       resources :users, only: [:show, :index, :edit, :update]
+      resources :inquiries, only: [:show, :index]
     end
 #-------------------------------------------------------
   end

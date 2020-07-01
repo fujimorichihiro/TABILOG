@@ -1,0 +1,8 @@
+en:
+  inquiries:
+    new:
+      inquiry: 'Inquiry'
+      email: 'Email'
+      body: 'Opinions & Requests'
+      button: 'send'
+      required: 'required'

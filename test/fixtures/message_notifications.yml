@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  receiver_id: 1
+  sender_id: 1
+  room_id: 1
+  checked_status: MyString
+  integer: MyString
+
+two:
+  receiver_id: 1
+  sender_id: 1
+  room_id: 1
+  checked_status: MyString
+  integer: MyString

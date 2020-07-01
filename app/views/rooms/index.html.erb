@@ -11,6 +11,7 @@
 		  		  <%= another_entry.user.name %>
 		  	  </div>
 		  	  <div class="col-9">
+		  	  	<h3><span class="badge badge-secondary"><%= current_user.room_message_count(another_entry.room) %></span></h3>
 		  	  	<%= another_entry.room.messages %>
 		  	  </div>
 		  	</div>

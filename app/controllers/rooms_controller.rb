@@ -8,6 +8,10 @@ class RoomsController < ApplicationController
     end
     @messages = Message.where(room_id: params[:id])
     @message =Message.new
+    notifications = MessageNotification.where(room_id: @room.id).where(sender_id: @user.id).where(checked_status: 0)
+    notifications.each do |notification|
+      notification.update(checked_status: 1)
+    end
   end
 
   def index

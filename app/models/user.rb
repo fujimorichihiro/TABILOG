@@ -35,6 +35,13 @@ class User < ApplicationRecord
                                    foreign_key: "sender_id",
                                    dependent: :destroy
 
+  has_many :message_receives, class_name: "MessageNotification",
+                                   foreign_key: "receiver_id",
+                                   dependent: :destroy
+  has_many :message_sends, class_name: "MessageNotification",
+                                   foreign_key: "sender_id",
+                                   dependent: :destroy
+
 # フォロー用メソッド--------------------------------------------------------------------
 
   def follow(other_user)
@@ -55,6 +62,14 @@ class User < ApplicationRecord
                         sender_id: self.id,
                         notification_type: 2
                         )
+  end
+# 新規メッセージカウント
+  def unchecked_messages_count
+    self.message_receives.where(checked_status: 0).count
+  end
+
+  def room_message_count(room)
+    self.message_receives.where(room_id: room.id).where(checked_status: 0).count
   end
 
 end

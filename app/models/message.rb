@@ -2,12 +2,12 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :room
 
-  def make_notification(message)
-  	notification = Notification.new
-  	notification.message_id = message.id
-  	other_entries = message.room.entries.where.not(user_id: message.user_id)
+  def make_notification
+  	notification = MessageNotification.new(room_id: self.room_id,
+                                    sender_id: self.user_id)
+  	other_entries = self.room.entries.where.not(user_id: self.user_id)
   	other_entries.each do |entry|
-  	  notification.user_id = entry.user_id
+  	  notification.receiver_id = entry.user_id
   	end
   	notification.save
   end

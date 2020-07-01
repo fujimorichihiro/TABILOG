@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.user_id = current_user.id
     if @message.save
-      # @message.make_notification(@message)
+      @message.make_notification
       redirect_to room_path(message_params[:room_id])
     else
       redirect_back(fallback_location: root_path)

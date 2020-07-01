@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+  	<table>
+  	  <thead>
+  		<th>問合わせ内容</th>
+  		<th>ステータス</th>
+  	  </thead>
+  	  <tbody>
+  	    <% @inquiries.each do |inquiry| %>
+  	      <tr>
+  	        <td><%= inquiry.body %></td>
+  	        <td><%= inquiry.status %></td>
+  	      </tr>
+  	    <% end %>
+  	  </tbody>
+  	</table>
+  </div>
+</div>

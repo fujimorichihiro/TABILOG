@@ -35,7 +35,7 @@ gem 'dotenv-rails'
 gem 'rails-i18n'
 # ページング
 gem 'kaminari'
-#ダミーデータ作成
+# ダミーデータ作成
 gem 'faker'
 
 # summernote
@@ -51,6 +51,7 @@ gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # capistrano,自動デプロイ
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano3-puma'

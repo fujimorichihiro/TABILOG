@@ -1,0 +1,8 @@
+ja:
+  inquiries:
+    new:
+      inquiry: 'お問い合わせ'
+      email: 'メールアドレス'
+      body: 'ご意見・ご要望'
+      button: '送信する'
+      required: '必須'

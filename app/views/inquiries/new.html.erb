@@ -1,0 +1,28 @@
+<div class="row mt-5">
+  <div class="col-2"></div>
+  <div class="col-8 p-5 mt-5 border border-secondary">
+    <div class="">
+      <h3 class="text-center mb-5"><%= t '.inquiry' %></h3>
+    </div>
+    <%= form_for @inquiry do |f| %>
+      <% unless user_signed_in? %>
+        <div class="field">
+          <%= f.label :email, "#{t '.email'}"  %>
+          <span class="badge badge-danger"><%= t '.required' %></span><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-3" %>
+        </div>
+      <% end %>
+
+      <div class="field mb-3">
+        <%= f.label :body, "#{t '.body'}" %>
+        <span class="badge badge-danger"><%= t '.required' %></span><br />
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "#{t '.button'}", class: "form-control btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-2"></div>
+</div>

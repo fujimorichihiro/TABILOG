@@ -11,6 +11,7 @@
 	User.create!(
 		name: Faker::Name.name,
 		email: "foo#{n+1}@tabilog",
-		password: "password"
+		password: "password",
+		confirmed_at: "2020-07-01 01:01:01"
 		)
 end

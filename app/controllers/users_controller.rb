@@ -38,6 +38,15 @@ class UsersController < ApplicationController
     @articles = Article.where(user_id: followings)
   end
 
+  def notifications
+    @new_notifications = current_user.receive_notifications.where(checked_status: 0).reverse_order
+    @checked_notifications = current_user.receive_notifications.where(checked_status: 1).reverse_order
+    render 'notifications'
+    @new_notifications.each do |notification|
+      notification.update(checked_status: 1)
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)

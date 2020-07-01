@@ -28,10 +28,18 @@ class User < ApplicationRecord
 
   has_many :entries, dependent: :destroy
 
+  has_many :receive_notifications, class_name: "Notification",
+                                   foreign_key: "receiver_id",
+                                   dependent: :destroy
+  has_many :send_notifications, class_name: "Notification",
+                                   foreign_key: "sender_id",
+                                   dependent: :destroy
+
 # フォロー用メソッド--------------------------------------------------------------------
 
   def follow(other_user)
     following << other_user
+    make_notification(other_user)
   end
 
   def unfollow(other_user)
@@ -40,6 +48,13 @@ class User < ApplicationRecord
 
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def make_notification(following)
+    Notification.create(receiver_id: following.id,
+                        sender_id: self.id,
+                        notification_type: 2
+                        )
   end
 
 end

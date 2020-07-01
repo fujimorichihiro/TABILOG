@@ -8,6 +8,8 @@ class Article < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
+  has_many :notifications, dependent: :destroy
+
   attachment :article_image
 
 # いいね用メソッド

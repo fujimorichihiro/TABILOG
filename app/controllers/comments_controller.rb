@@ -4,7 +4,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.article_id = @article.id
-    @comment.save
+    if @comment.save
+      @comment.make_notification
+    end
     redirect_back(fallback_location: root_path)
   end
 

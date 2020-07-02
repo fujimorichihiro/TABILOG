@@ -40,7 +40,7 @@
   <div class="col-1"></div>
 </div>
 <!-- 位置情報、googlemaps-API -->
-<div class="row mt-3">
+<div class="row mt-3 mb-5">
   <div class="col-1"></div>
   <div class="col-7">
     <a class="text-secondary" data-toggle="collapse" href="#Googlemaps-API" role="button" aria-expanded="false" aria-controls="Googlemaps-API">
@@ -59,29 +59,38 @@
 <!-- ----------------------------------------------- -->
 <!-- コメント部分 -->
 <% @article.comments.each do |comment| %>
-  <div class="row border border-lite">
-    <div class="col-1 pt-2">
-      <%= link_to user_path(comment.user) do %>
-        <%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, class: "rounded-circle"%>
-      <% end %>
-    </div>
+  <div class="row">
+    <div class="col-1"></div>
     <div class="col-8">
-      <div class="row" style="height: 20px;"></div>
-        <p class="text-secondary">@<%= comment.user.name %></p>
-        <%= comment.body %>
-      <div class="row">
-        <div class="col-9"></div>
-        <div class="col-3">
-          <%= comment.created_at.to_s(:datetime_jp)%>
+      <div class="row border border-lite">
+        <div class="col-2 pt-2">
+          <%= link_to user_path(comment.user) do %>
+            <%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, class: "rounded-circle"%>
+          <% end %>
+        </div>
+        <div class="col-10 pt-3">
+          <p class="text-secondary">@<%= comment.user.name %></p>
+          <%= comment.body %>
+          <div class="row">
+            <div class="col-7"></div>
+            <div class="col-5 text-right">
+              <%= comment.created_at.to_s(:datetime_jp)%>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="col-3"></div>
   </div>
 <% end %>
 
+<!-- コメント入力フォーム -->
 <div class="row mt-3">
   <div class="col-1"></div>
-  <div class="col-8">
+  <div class="col-1">
+    <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, class: "rounded-circle"%>
+  </div>
+  <div class="col-7">
     <%= form_for [@article, @comment] do |f| %>
       <%= f.text_area :body, class: "form-control mb-3" %>
       <%= f.submit "#{t '.comment'}", class: "btn btn-secondary" %>
@@ -99,7 +108,7 @@ function initMap(){
   center: article_map,
   zoom: 16
   });
-// article_mapの位置にマーカーを表示する。
+// article_mapの位置にマーカーを表示する
   marker = new google.maps.Marker({
     position: article_map,
     map: map

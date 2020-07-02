@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :users, skip: [ :session, :password, :registratioin, :confirmatioin ],
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
   # ロケールの指定がなければデフォルトのロケールを使用する。
   # http://localhost:3000/en/articlesのように指定する。
   scope "(:locale)", locale: /ja|en/ do
@@ -10,10 +13,15 @@ Rails.application.routes.draw do
       registrations: 'admins/registrations'
     }
 
-    devise_for :users, controllers: {
+    get 'omniauth/:provider' => 'users/omniauth#localized', as: :localized_omniauth
+    devise_for :users,
+    skip: :omniauth_callbacks,
+    controllers: {
       sessions:      'users/sessions',
       passwords:     'users/passwords',
-      registrations: 'users/registrations'
+      registrations: 'users/registrations',
+      confirmations: 'users/confirmations',
+      omniauth_callbacks: 'users/omniauth_callbacks'
     }
   #------------------------------------------------
 

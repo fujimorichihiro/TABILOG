@@ -43,20 +43,20 @@ class User < ApplicationRecord
                                    dependent: :destroy
 
 # フォロー用メソッド--------------------------------------------------------------------
-
+  # フォローする
   def follow(other_user)
     following << other_user
     make_notification(other_user)
   end
-
+  # フォローを外す
   def unfollow(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
-
+  # フォローしているか判定する。
   def following?(other_user)
     following.include?(other_user)
   end
-
+  # フォロー通知を作成する。
   def make_notification(following)
     Notification.create(receiver_id: following.id,
                         sender_id: self.id,
@@ -67,7 +67,7 @@ class User < ApplicationRecord
   def unchecked_messages_count
     self.message_receives.where(checked_status: 0).count
   end
-
+# メッセージ相手ごとの新規メッセージ数をカウント
   def room_message_count(room)
     self.message_receives.where(room_id: room.id).where(checked_status: 0).count
   end

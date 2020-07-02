@@ -2,20 +2,25 @@
 	<div class="col-1"></div>
 	<div class="col-10">
 		<% @other_entries.each do |another_entry| %>
-		  <%= link_to room_path(another_entry.room) do %>
-		    <div class="row mb-2 pb-2 pt-2 bg-light">
-		  	  <div class="col-1">
-		  		  <%= attachment_image_tag another_entry.user, :profile_image , :fill, 50, 50, class: "rounded-circle" %>
-		  	  </div>
-		  	  <div class="col-2">
-		  		  <%= another_entry.user.name %>
-		  	  </div>
-		  	  <div class="col-9">
-		  	  	<h3><span class="badge badge-secondary"><%= current_user.room_message_count(another_entry.room) %></span></h3>
-		  	  	<%= another_entry.room.messages %>
-		  	  </div>
+		  <div class="row mb-2 pb-2 pt-2 bg-light position-relative">
+		  	<div class="col-1">
+		      <%= attachment_image_tag another_entry.user, :profile_image , :fill, 50, 50, class: "rounded-circle" %>
 		  	</div>
-		  <% end %>
+		  	<div class="col-2">
+		      <%= another_entry.user.name %>
+		  	</div>
+		  	<div class="col-7">
+		  	  <span><%= another_entry.room.messages.last.body %></span>
+		  	</div>
+		  	<div class="col-2">
+		  	  <% unless current_user.room_message_count(another_entry.room) == 0 %>
+		  	    <h4><span class="badge badge-info badge-pill"><%= current_user.room_message_count(another_entry.room) %></span></h4>
+		  	  <% end %>
+		  	</div>
+		  	<%= link_to room_path(another_entry.room), style: "text-decoration: none;", class: "text-secondary" do %>
+		  	  <div class="position-absolute link-box"></div>
+		  	<% end %>
+		   </div>
 		<% end %>
 	  <div class="row">
 	  </div>

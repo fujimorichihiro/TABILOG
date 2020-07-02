@@ -39,7 +39,11 @@ class Article < ApplicationRecord
     end
   end
 # tag検索用メソッド
-  def self.search(search_tag)
-    self.joins(:tags).where(tags: {name: "#{search_tag}"})
+  def self.search_tag(search)
+    self.joins(:tags).where(tags: {name: "#{search}"})
+  end
+# title検索用メソッド
+  def self.search_title(search)
+    self.where('title LIKE ?',"%#{search}%")
   end
 end

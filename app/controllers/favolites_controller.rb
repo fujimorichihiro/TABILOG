@@ -1,7 +1,9 @@
 class FavolitesController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
-    favolite = Favolite.create!({user_id: current_user.id, article_id: @article.id})
+    if favolite = Favolite.create!({user_id: current_user.id, article_id: @article.id})
+      favolite.make_notification
+    end
     @id_name = "#favolite-#{@article.id}"
     render "articles/favolite"
   end

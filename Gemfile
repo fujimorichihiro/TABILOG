@@ -18,6 +18,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # 追加gem------------------------------------------------------
 # ログイン機能
 gem 'devise'
+#SNS認証
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 # レイアウト
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
@@ -35,7 +39,7 @@ gem 'dotenv-rails'
 gem 'rails-i18n'
 # ページング
 gem 'kaminari'
-#ダミーデータ作成
+# ダミーデータ作成
 gem 'faker'
 
 # summernote
@@ -51,6 +55,7 @@ gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # capistrano,自動デプロイ
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano3-puma'

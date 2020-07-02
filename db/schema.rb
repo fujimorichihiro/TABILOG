@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_29_073639) do
+ActiveRecord::Schema.define(version: 2020_07_02_073140) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -65,10 +65,39 @@ ActiveRecord::Schema.define(version: 2020_06_29_073639) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "inquiries", force: :cascade do |t|
+    t.text "body"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "status"
+  end
+
+  create_table "message_notifications", force: :cascade do |t|
+    t.integer "receiver_id"
+    t.integer "sender_id"
+    t.integer "room_id"
+    t.string "checked_status"
+    t.string "integer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "messages", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "room_id", null: false
     t.string "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "receiver_id", null: false
+    t.integer "sender_id", null: false
+    t.integer "article_id"
+    t.text "comment_body"
+    t.integer "notification_type", null: false
+    t.integer "checked_status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -125,6 +154,8 @@ ActiveRecord::Schema.define(version: 2020_06_29_073639) do
     t.string "name"
     t.string "introduction"
     t.string "profile_image_id"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

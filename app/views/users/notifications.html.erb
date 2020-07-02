@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="co-2"></div>
+  <div class="col-8">
+  	<% @new_notifications.each do |notification| %>
+  	  <% if notification.notification_type == "いいね" %>
+  	    <div class="row border border-lite bg-warning">
+          <div class="col-1 pt-2">
+            <%= attachment_image_tag notification.sender, :profile_image, :fill, 60, 60, class: "rounded-circle"%>
+          </div>
+          <div class="col-8 pt-2">
+            <p class="text-secondary">@<%= notification.sender.name %>さんがいいねしました。</p>
+          </div>
+        </div>
+  	  <%elsif notification.notification_type == "コメント" %>
+  	    <div class="row border border-lite bg-warning">
+          <div class="col-1 pt-2">
+            <%= attachment_image_tag notification.sender, :profile_image, :fill, 60, 60, class: "rounded-circle"%>
+          </div>
+          <div class="col-8 pt-2">
+            <p class="text-secondary">@<%= notification.sender.name %>さんがコメントしました。</p>
+          </div>
+        </div>
+  	  <% else %>
+  	    <div class="row border border-lite bg-warning">
+          <div class="col-1 pt-2">
+            <%= attachment_image_tag notification.sender, :profile_image, :fill, 60, 60, class: "rounded-circle"%>
+          </div>
+          <div class="col-8 pt-2">
+            <p class="text-secondary">@<%= notification.sender.name %>さんがあなたをフォローしました。</p>
+          </div>
+        </div>
+  	  <% end %>
+  	<% end %>
+    </div>
+  <div class="col-2"></div>
+</div>
+<div class="row">
+  <div class="co-2"></div>
+  <div class="col-8">
+    <% @checked_notifications.each do |checked| %>
+      <% if checked.notification_type == "いいね" %>
+        <div class="row border border-lite">
+          <div class="col-1 pt-2">
+            <%= attachment_image_tag checked.sender, :profile_image, :fill, 60, 60, class: "rounded-circle"%>
+          </div>
+          <div class="col-8 pt-2">
+            <p class="text-secondary">@<%= checked.sender.name %>さんがいいねしました。</p>
+          </div>
+        </div>
+      <%elsif checked.notification_type == "コメント"%>
+        <div class="row border border-lite">
+          <div class="col-1 pt-2">
+            <%= attachment_image_tag checked.sender, :profile_image, :fill, 60, 60, class: "rounded-circle"%>
+          </div>
+          <div class="col-8 pt-2">
+            <p class="text-secondary">@<%= checked.sender.name %>さんが[<%= checked.article.title %>]にコメントしました。</p>
+          </div>
+        </div>
+      <% else %>
+        <div class="row border border-lite">
+          <div class="col-1 pt-2">
+            <%= attachment_image_tag checked.sender, :profile_image, :fill, 60, 60, class: "rounded-circle"%>
+          </div>
+          <div class="col-8 pt-2">
+            <p class="text-secondary">@<%= checked.sender.name %>さんがあなたをフォローしました</p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-2"></div>
+</div>

@@ -4,27 +4,31 @@
 <% @messages.each do |message| %>
   <% if message.user.id == current_user.id %>
     <div class="row">
-      <div class="col-12">
-        <p class="text-right p-1"><%= message.body %></p>
+      <div class="col-7"></div>
+      <div class="col-5 ">
+        <div class="d-flex flex-row-reverse">
+          <div class="alert alert-info pt-3 pl-3 pr-3 mr-2"><%= simple_format(message.body) %></div>
+        </div>
       </div>
     </div>
   <% else %>
     <div class="row">
-      <div class="col-12">
-        <p class="text-left p-1"><%= message.body %></p>
+      <div class="col-5">
+        <div class="d-flex flex-row">
+          <div class="alert alert-dark pt-3 pl-3 pr-3 ml-2"><%= simple_format(message.body) %></div>
+        </div>
       </div>
+      <div class="col-7"></div>
     </div>
   <% end %>
 <% end %>
 </div>
 <div class="row mt-5">
-  <div class="col-1"></div>
-  <div class="col-8">
+  <div class="col-12">
   <%= form_for @message do |f| %>
-    <%= f.text_field :body, class: "form-control" %>
+    <%= f.text_area :body, class: "form-control mb-2" %>
     <%= f.hidden_field :room_id, :value => @room.id %>
     <%= f.submit "送信", class: "btn btn-secondary"%>
   <% end %>
   </div>
-  <div class="col-3"></div>
 </div>

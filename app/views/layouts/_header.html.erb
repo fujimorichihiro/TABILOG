@@ -46,8 +46,11 @@
           <% end %>
         <% end %>
       </div>
+      <div class="col-1">
+        <h3><i class="far fa-bell text-secondary"></i></h3>
+      </div>
       <!-- ユーザーメニュー -->
-      <div class="col-2">
+      <div class="col-1">
         <% if user_signed_in? %>
         <div class="dropdown">
             <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,9 +58,10 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <%= link_to "#{t '.mypage'}", user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "#{t '.message'}", rooms_path, class: "dropdown-item" %>
+              <%= link_to "#{t '.message'} #{ current_user.unchecked_messages_count }", rooms_path, class: "dropdown-item" %>
               <%= link_to "#{t '.favolite_article'}", favolite_user_path(current_user), class: "dropdown-item" %>
               <%= link_to "#{t '.edit_registration'}", edit_user_registration_path, class: "dropdown-item" %>
+              <span class="dropdown-item"><%= link_to notifications_user_path(current_user) do %><i class="far fa-bell text-secondary"></i><%= current_user.receive_notifications.not_checked_number %></span><% end %>
             </div>
           </div>
           <% end %>

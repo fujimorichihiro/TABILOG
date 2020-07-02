@@ -99,9 +99,9 @@ function initMap(){
   center: article_map,
   zoom: 16
   });
-
-  var marker = new google.maps.Marker({
-    positioin: article_map,
+// article_mapの位置にマーカーを表示する。
+  marker = new google.maps.Marker({
+    position: article_map,
     map: map
   });
 }

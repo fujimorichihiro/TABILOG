@@ -1,9 +1,14 @@
-<h1 class="text-secondary">Tag検索</h1>
-<P class="text-danger">ページング、新しい順に並び替え、自分の投稿を追加</P>
+<%= render 'layouts/search_form' %>
+<% if @search_tag %>
+  <h3 class="text-secondary">Tag検索 : <%= @search_tag %></h3>
+<% elsif @search_title %>
+  <h3 class="text-secondary">Title検索 : <%= @search_title %></h3>
+<% end %>
 
 <div class="row mt-5">
    <% @articles.each do |article| %>
     <%= render :partial => "users/articles2", :locals => {:article => article} %>
    <% end %>
+   <%= paginate @articles %>
 </div>
 

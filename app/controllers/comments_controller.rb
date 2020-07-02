@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
       @comment.make_notification
     end
-    redirect_back(fallback_location: root_path)
+    render 'create'
   end
 
   def destroy

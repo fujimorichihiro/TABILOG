@@ -19,7 +19,7 @@
             </div>
           </div>
           <div class="row mt-2">
-              <div class="col-2">
+              <div class="col-3">
                 <button type="button" class="btn btn-link text-secondary" data-toggle="modal" data-target="#commentModal<%= article.id%>" data-whatever="@mdo">
                   <i class="fas fa-comment"></i> <%= article.comments.count %>
                 </button>
@@ -70,7 +70,7 @@
                 </div>
                 <!---------------------------------------------- ---------- ---------------------------------------->
               </div>
-              <div class="col-7 pt-2" id="favolite-<%= article.id %>">
+              <div class="col-9 pt-2" id="favolite-<%= article.id %>">
                 <% if user_signed_in? %>
                   <%= render :partial => "articles/favolite", :locals => {:article => article} %>
                 <% else %>

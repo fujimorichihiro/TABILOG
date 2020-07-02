@@ -36,6 +36,12 @@
     <% end %>
 
     >><%= render "users/shared/links" %>
+    <h5 class="text-center mt-5 mb-4">Googleアカウントで<%= t '.registration' %></h5>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+        <button type="button" class="btn btn-info btn-block"><i class="fab fa-google"></i></button>
+      <% end %>
+    <% end %>
   </div>
   <div class="col-2"></div>
 </div>

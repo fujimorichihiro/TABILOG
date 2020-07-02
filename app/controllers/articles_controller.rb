@@ -22,8 +22,14 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @search_tag = params[:search_tag]
-    @articles = Article.search(params[:search_tag])
+    option = params[:option]
+    if option == "2"
+      @search_title = params[:search]
+      @articles = Article.search_title(params[:search]).page(params[:page]).per(20).reverse_order
+    else
+      @search_tag = params[:search]
+      @articles = Article.search_tag(params[:search]).page(params[:page]).per(20).reverse_order
+    end
   end
 
   def edit

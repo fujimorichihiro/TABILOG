@@ -18,6 +18,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # 追加gem------------------------------------------------------
 # ログイン機能
 gem 'devise'
+#SNS認証
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 # レイアウト
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'

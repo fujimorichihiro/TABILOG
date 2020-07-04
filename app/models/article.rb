@@ -1,23 +1,29 @@
 class Article < ApplicationRecord
+
+# アソシエーション ---------------------------------
   belongs_to :user
 
   has_many :article_images, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favolites, dependent: :destroy
-
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
-
   has_many :notifications, dependent: :destroy
 
+# バリデーション------------------------------------
+  validates :title, presence: true, length: { maximum: 30 }
+  validates :body, presence: true
+  validates :address, length: { maximum: 50 }
+
+# refile用
   attachment :article_image
 
-# いいね用メソッド
+# いいねしているかどうか判別
   def favolited_by?(user)
     favolites.where(user_id: user.id).exists?
   end
 
-# geocoder用メソッド
+# geocoder用メソッド,address作成、変更時に緯度、経度を算出
   geocoded_by :address
   after_validation :geocode
 
@@ -38,10 +44,12 @@ class Article < ApplicationRecord
       self.tags << article_tag
     end
   end
+
 # tag検索用メソッド
   def self.search_tag(search)
     self.joins(:tags).where(tags: {name: "#{search}"})
   end
+
 # title検索用メソッド
   def self.search_title(search)
     self.where('title LIKE ?',"%#{search}%")

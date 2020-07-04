@@ -41,6 +41,8 @@ class User < ApplicationRecord
   has_many :message_sends, class_name: "MessageNotification",
                                    foreign_key: "sender_id",
                                    dependent: :destroy
+# バリデーション
+  validates :name, presence: true, length: { maximum: 20 }
 # SNS認証用コールバックメソッド
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

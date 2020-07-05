@@ -54,7 +54,7 @@ Rails.application.routes.draw do
       get 'home/top'
 
       resources :users, only: [:show, :index, :edit, :update]
-      resources :inquiries, only: [:show, :index]
+      resources :inquiries, only: [:show, :index, :update]
     end
 #-------------------------------------------------------
   end

@@ -48,3 +48,19 @@
 .link-box:hover {
 	background-color: rgba(80, 80, 80, 0.1);
 }
+
+.has-error {
+  display: contents;
+  input {
+  @extend .is-invalid;
+  }
+  textarea {
+  @extend .is-invalid;
+  }
+}
+
+.has-error {
+  .note-editor {
+  border: 0.1px solid red;
+  }
+}

@@ -3,6 +3,7 @@ en:
     new:
       inquiry: 'Inquiry'
       email: 'Email'
+      title: 'Title'
       body: 'Opinions & Requests'
       button: 'send'
       required: 'required'

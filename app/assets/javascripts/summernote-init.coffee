@@ -14,7 +14,7 @@ sendFile = (file, toSummernote) ->
       img.src = data.url
       console.log data
       img.setAttribute('id', "sn-image-#{data.upload_id}")
-      toSummernote.summernote 'insertNode', img      
+      toSummernote.summernote 'insertNode', img
 
 deleteFile = (file_id) ->
   $.ajax

@@ -1,15 +1,21 @@
-<div class="row">
+<div class="mt-5">
   <div class="col-1"></div>
   <div class="col-10">
-  	<table>
+  	<table class="table">
   	  <thead>
+      <th>お問い合わせ日時</th>
   		<th>問合わせ内容</th>
   		<th>ステータス</th>
   	  </thead>
   	  <tbody>
   	    <% @inquiries.each do |inquiry| %>
   	      <tr>
-  	        <td><%= inquiry.body %></td>
+            <td><%= inquiry.created_at.to_s(:datetime_jp)%></td>
+  	        <td>
+              <%= link_to admins_inquiry_path(inquiry) do %>
+                <%= inquiry.title %>
+              <% end %>
+            </td>
   	        <td><%= inquiry.status %></td>
   	      </tr>
   	    <% end %>

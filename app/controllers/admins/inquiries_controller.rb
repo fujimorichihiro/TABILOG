@@ -8,4 +8,15 @@ class Admins::InquiriesController < ApplicationController
   def index
   	@inquiries = Inquiry.page(params[:page]).per(10).reverse_order
   end
+
+  def update
+    @inquiry = Inquiry.find(params[:id])
+    @inquiry.update(inquiry_params)
+    redirect_to admins_inquiries_path
+  end
+
+  private
+  def inquiry_params
+    params.require(:inquiry).permit(:status)
+  end
 end

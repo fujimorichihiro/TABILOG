@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      article: '投稿'
+    attributes:
+      article:
+        title: 'タイトル'
+        body: '本文'
+        address: '位置情報'
+      user:
+        name: 'ユーザーネーム'
+        email: 'メールアドレス'
+        password: 'パスワード'
+      inquiry:
+        email: 'メールアドレス'
+        title: '件名'
+        body: '内容'

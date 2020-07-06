@@ -48,7 +48,6 @@ gem 'simple_form'
 
 gem 'carrierwave'
 
-gem 'jcanvas-rails'
 
 
 #--------------------------------------------------------------

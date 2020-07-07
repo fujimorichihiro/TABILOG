@@ -3,6 +3,7 @@ ja:
     new:
       inquiry: 'お問い合わせ'
       email: 'メールアドレス'
+      title: '件名'
       body: 'ご意見・ご要望'
       button: '送信する'
       required: '必須'

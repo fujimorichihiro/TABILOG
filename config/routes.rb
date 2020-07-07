@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, skip: [ :session, :password, :registratioin, :confirmatioin ],
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  post '/language' => 'locales#change_locale'
+
   # ロケールの指定がなければデフォルトのロケールを使用する。
   # http://localhost:3000/en/articlesのように指定する。
   scope "(:locale)", locale: /ja|en/ do
@@ -52,7 +54,7 @@ Rails.application.routes.draw do
       get 'home/top'
 
       resources :users, only: [:show, :index, :edit, :update]
-      resources :inquiries, only: [:show, :index]
+      resources :inquiries, only: [:show, :index, :update]
     end
 #-------------------------------------------------------
   end

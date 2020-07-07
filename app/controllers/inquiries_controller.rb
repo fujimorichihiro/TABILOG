@@ -12,7 +12,7 @@ class InquiriesController < ApplicationController
   	end
   	if @inquiry.save
   	  InquiryMailer.inquiry_mail(@inquiry).deliver
-  	  redirect_to user_path(current_user)
+  	  redirect_to root_path
   	else
   	  render 'new'
   	end
@@ -20,6 +20,6 @@ class InquiriesController < ApplicationController
 
   private
   def inquiry_params
-  	params.require(:inquiry).permit(:email, :body)
+  	params.require(:inquiry).permit(:title, :email, :body)
   end
 end

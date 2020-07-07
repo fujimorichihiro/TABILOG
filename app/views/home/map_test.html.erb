@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10 mt-5">
+    <div id="map_test"></div>
+  </div>
+  <div class="col-1"></div>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
+
+<script>
+    let map;
+
+  function initMap() {
+    // 位置情報を取得
+    navigator.geolocation.getCurrentPosition(function (position) {
+    LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+      // 取得した位置情報を中心に表示
+      map = new google.maps.Map(document.getElementById('map_test'), {
+        center: LatLng,
+        zoom: 15
+      });
+      marker = new google.maps.Marker({
+      position: LatLng,
+      map: map
+      });
+    });
+  }
+</script>

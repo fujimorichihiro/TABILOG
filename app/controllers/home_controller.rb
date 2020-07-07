@@ -6,4 +6,7 @@ class HomeController < ApplicationController
     @comment = Comment.new
   end
 
+  def map_test
+  end
+
 end

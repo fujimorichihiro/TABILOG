@@ -24,7 +24,7 @@
 //= require_tree .
 
 
-
+// Japan-Map 用
 $(document).on('turbolinks:load', function(){
         
         var areaLinks = {
@@ -145,4 +145,284 @@ $(document).on('turbolinks:load', function(){
             });
 
         });
+
+// Google Maps API, 現在地
+
+function initMap() {
+    // 現在地を取得
+  navigator.geolocation.getCurrentPosition(function (position) {
+  LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+
+  var styleCustom = [
+    {
+        "featureType": "administrative",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#444444"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.neighborhood",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.land_parcel",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.attraction",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.school",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.school",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": "-17"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "saturation": "-64"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#acc4ce"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+]
+
+
+
+
+
+
+
+      // 取得した現在地を中心に表示
+  var map = new google.maps.Map(document.getElementById('map_test'), {
+    center: LatLng,
+    zoom: 14
+    });
+  // 現在地にピンを立てる
+  var my_marker = new google.maps.Marker({
+    position: LatLng,
+    map: map,
+    icon: {
+        fillColor: "#87ceeb",
+        fillOpacity: 1.0,
+        path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW,
+        scale: 10,
+        strokeColor: "#87ceeb",
+        strokeWeight: 0.8
+    }
+    });
+  });
+}
+
+// Google Maps API, 現在地
+
+
+
+
+
+// function initMap(){
+//   for (var i = 0; i < @articles.length; i++) {
+//     var article_map[i] = {lat: <%= @articles[i].latitude %>, lng: <%= @article.longitude %>};
+//   }
+//   let map = new google.maps.Map(document.getElementById('usermap'), {
+//   center: { lat: 35.6585, lng: 139.7486 },
+//   zoom: 13
+//   });
+// // article_mapの位置にマーカーを表示する
+//   marker = new google.maps.Marker({
+//     position: article_map,
+//     map: map
+//   });
+// }
+
+
 

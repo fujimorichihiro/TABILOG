@@ -39,6 +39,11 @@ class UsersController < ApplicationController
     @articles = Kaminari.paginate_array(@articles).page(params[:page]).per(20)
   end
 
+  def map
+    @user = User.find(params[:id])
+    gon.articles = Article.where(user_id: @user.id)
+  end
+
   def notifications
     @new_notifications = current_user.receive_notifications.where(checked_status: 0).reverse_order
     @checked_notifications = current_user.receive_notifications.where(checked_status: 1).reverse_order

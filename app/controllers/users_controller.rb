@@ -31,6 +31,7 @@ class UsersController < ApplicationController
 
   def favolite
     @favolite_articles = Article.joins(:favolites).where(favolites: {user_id: current_user})
+    gon.favolites = Article.joins(:favolites).where(favolites: {user_id: current_user})
   end
 
   def timeline
@@ -41,7 +42,9 @@ class UsersController < ApplicationController
 
   def map
     @user = User.find(params[:id])
+    @articles = Article.where(user_id: @user.id)
     gon.articles = Article.where(user_id: @user.id)
+    gon.favolites = Article.joins(:favolites).where(favolites: {user_id: @user})
   end
 
   def notifications

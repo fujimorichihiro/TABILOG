@@ -7,6 +7,7 @@ class HomeController < ApplicationController
   end
 
   def map_test
+    gon.articles = Article.all
   end
 
 end

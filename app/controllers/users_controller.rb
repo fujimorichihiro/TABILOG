@@ -34,6 +34,11 @@ class UsersController < ApplicationController
     gon.favolites = Article.joins(:favolites).where(favolites: {user_id: current_user})
   end
 
+  def stock
+    @stock_articles = Article.joins(:stocks).where(stocks: {user_id: current_user})
+    gon.stocks = Article.joins(:stocks).where(stocks: {user_id: current_user})
+  end
+
   def timeline
     followings = current_user.following
     @articles = Article.where(user_id: followings) + Article.where(user_id: current_user.id)
@@ -44,7 +49,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @articles = Article.where(user_id: @user.id)
     gon.articles = Article.where(user_id: @user.id)
-    gon.favolites = Article.joins(:favolites).where(favolites: {user_id: @user})
+    gon.stocks = Article.joins(:stocks).where(stocks: {user_id: @user})
   end
 
   def notifications

@@ -1,9 +1,9 @@
 <%= include_gon %>
 <div class="row mt-3">
-	<h3>お気に入り記事</h3>
+  <h3>ストック記事</h3>
 </div>
 <div class="row mt-3">
-  <% @favolite_articles.each do |article| %>
+  <% @stock_articles.each do |article| %>
     <%= render :partial => "users/articles2", :locals => {:article => article, :comment => @comment} %>
   <% end %>
 </div>
@@ -15,9 +15,10 @@
   let map
   let marker = []; // マーカーを複数表示させたいので、配列化
   let infoWindow = []; // 吹き出しを複数表示させたいので、配列化
-  let markerData = gon.favolites;
+  let markerData = gon.stocks;
 
   function initMap() {
+
      map = new google.maps.Map(document.getElementById('favolite-map'), {
       center: { lat: 36.04722222, lng: 138.1108333 }, // 東京タワーを中心に表示させている
       zoom: 5,
@@ -192,6 +193,8 @@
     }
 ]
     });
+
+
     // 繰り返し処理でマーカーと吹き出しを複数表示させる
     for (var i = 0; i < markerData.length; i++) {
       let id = markerData[i]['id']
@@ -202,30 +205,32 @@
       // 各地点のマーカーを作成
       marker[i] = new google.maps.Marker({
         position: markerLatLng,
-        map: map
+        map: map,
+        icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'
       });
-      // // 各地点の吹き出しを作成
+
+      // 各地点の吹き出しを作成
       infoWindow[i] = new google.maps.InfoWindow({
-         // 吹き出しの内容
-        maxWidth: 100
+        // 吹き出しの内容
+        content: markerData[i]['address']
       });
-      infoWindow[i].setContent(
-        '<div class="infowindow">' +
-        '<a href="/articles/' + markerData[i]['id'] + '">' +
-        markerData[i]['title'] +
-        '</a>' +
-        '</div>'
-        );
+
       // マーカーにクリックイベントを追加
       markerEvent(i);
     }
   }
+
   // マーカーをクリックしたら吹き出しを表示
   function markerEvent(i) {
     marker[i].addListener('click', function () {
       infoWindow[i].open(map, marker[i]);
     });
   }
+
+
+
+
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
 

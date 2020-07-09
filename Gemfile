@@ -31,8 +31,9 @@ gem 'jquery-ui-rails'
 gem 'refile', require: "refile/rails", github: 'manfe/refile'
 gem 'refile-mini_magick'
 
-# 緯度、経度割り出し
+# 緯度、経度割り出し,位置情報検索
 gem 'geocoder'
+gem 'geokit-rails'
 # 環境変数化
 gem 'dotenv-rails'
 # 多言語化

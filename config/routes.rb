@@ -34,13 +34,14 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show, :edit, :update] do
       member do
-        get :following, :follower, :favolite, :timeline, :notifications, :map
+        get :following, :follower, :favolite, :timeline, :notifications, :map, :stock
       end
     end
 
     resources :articles do
       resources :comments, only: [:create, :destroy]
       resource :favolites, only: [:create, :destroy]
+      resource :stocks, only: [:create, :destroy]
     end
 
     resource :relationships, only: [:create, :destroy]

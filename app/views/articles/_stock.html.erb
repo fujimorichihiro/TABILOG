@@ -1,0 +1,10 @@
+<% if article.stocked_by?(current_user) %>
+  <%= link_to article_stocks_path(article), method: :delete, remote: true do %>
+    <i class="fas fa-bookmark text-danger"></i>
+  <% end %>
+<% else %>
+  <%= link_to article_stocks_path(article), method: :post, remote: true do %>
+    <i class="fas fa-bookmark text-secondary"></i>
+  <% end %>
+<% end %>
+<%= article.stocks.count %>

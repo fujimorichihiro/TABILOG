@@ -146,198 +146,203 @@ $(document).on('turbolinks:load', function(){
 
         });
 
-// Google Maps API, 現在地
+// Google Maps API, 現在地, Montreal soft vintage
 
-function initMap() {
-    // 現在地を取得
-  navigator.geolocation.getCurrentPosition(function (position) {
-  LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+// function initMap() {
+//     // 現在地を取得
+//   navigator.geolocation.getCurrentPosition(function (position) {
+//   LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-      // 取得した現在地を中心に表示
-  var map = new google.maps.Map(document.getElementById('map_test'), {
-    center: LatLng,
-    zoom: 7,
-    styles: [
-    {
-        "featureType": "all",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "saturation": 36
-            },
-            {
-                "color": "#3b332e"
-            },
-            {
-                "lightness": "42"
-            }
-        ]
-    },
-    {
-        "featureType": "all",
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "color": "#ffffff"
-            },
-            {
-                "lightness": 16
-            }
-        ]
-    },
-    {
-        "featureType": "all",
-        "elementType": "labels.icon",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#c9bcac"
-            },
-            {
-                "lightness": "80"
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "lightness": 21
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            },
-            {
-                "lightness": "55"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.park",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#d1e5d9"
-            },
-            {
-                "lightness": "3"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#ffffff"
-            },
-            {
-                "lightness": 17
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#ffffff"
-            },
-            {
-                "lightness": 29
-            },
-            {
-                "weight": 0.2
-            }
-        ]
-    },
-    {
-        "featureType": "road.arterial",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#ffffff"
-            },
-            {
-                "lightness": 18
-            }
-        ]
-    },
-    {
-        "featureType": "road.local",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#ffffff"
-            },
-            {
-                "lightness": 16
-            }
-        ]
-    },
-    {
-        "featureType": "transit",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#f2f2f2"
-            },
-            {
-                "lightness": 19
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#acc4ce"
-            },
-            {
-                "visibility": "on"
-            }
-        ]
-    }
-]
+//       // 取得した現在地を中心に表示
+//   var map = new google.maps.Map(document.getElementById('map_test'), {
+//     center: LatLng,
+//     zoom: 7,
+//     styles: [
+//     {
+//         "featureType": "all",
+//         "elementType": "labels.text.fill",
+//         "stylers": [
+//             {
+//                 "saturation": 36
+//             },
+//             {
+//                 "color": "#3b332e"
+//             },
+//             {
+//                 "lightness": "42"
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "all",
+//         "elementType": "labels.text.stroke",
+//         "stylers": [
+//             {
+//                 "visibility": "on"
+//             },
+//             {
+//                 "color": "#ffffff"
+//             },
+//             {
+//                 "lightness": 16
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "all",
+//         "elementType": "labels.icon",
+//         "stylers": [
+//             {
+//                 "visibility": "off"
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "administrative",
+//         "elementType": "all",
+//         "stylers": [
+//             {
+//                 "visibility": "off"
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "landscape",
+//         "elementType": "geometry",
+//         "stylers": [
+//             {
+//                 "color": "#c9bcac"
+//             },
+//             {
+//                 "lightness": "80"
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "poi",
+//         "elementType": "geometry",
+//         "stylers": [
+//             {
+//                 "lightness": 21
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "poi",
+//         "elementType": "labels",
+//         "stylers": [
+//             {
+//                 "visibility": "simplified"
+//             },
+//             {
+//                 "lightness": "55"
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "poi.park",
+//         "elementType": "geometry",
+//         "stylers": [
+//             {
+//                 "color": "#d1e5d9"
+//             },
+//             {
+//                 "lightness": "3"
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "road.highway",
+//         "elementType": "geometry.fill",
+//         "stylers": [
+//             {
+//                 "color": "#ffffff"
+//             },
+//             {
+//                 "lightness": 17
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "road.highway",
+//         "elementType": "geometry.stroke",
+//         "stylers": [
+//             {
+//                 "color": "#ffffff"
+//             },
+//             {
+//                 "lightness": 29
+//             },
+//             {
+//                 "weight": 0.2
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "road.arterial",
+//         "elementType": "geometry",
+//         "stylers": [
+//             {
+//                 "color": "#ffffff"
+//             },
+//             {
+//                 "lightness": 18
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "road.local",
+//         "elementType": "geometry",
+//         "stylers": [
+//             {
+//                 "color": "#ffffff"
+//             },
+//             {
+//                 "lightness": 16
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "transit",
+//         "elementType": "geometry",
+//         "stylers": [
+//             {
+//                 "color": "#f2f2f2"
+//             },
+//             {
+//                 "lightness": 19
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "water",
+//         "elementType": "all",
+//         "stylers": [
+//             {
+//                 "color": "#acc4ce"
+//             },
+//             {
+//                 "visibility": "on"
+//             }
+//         ]
+//     }
+// ]
     
-    });
+//     });
 
-  // 現在地にピンを立てる
-  var my_marker = new google.maps.Marker({
-    position: LatLng,
-    map: map,
-    icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'
-    });
-  });
-}
+//   // 現在地にピンを立てる
+//   var my_marker = new google.maps.Marker({
+//     position: LatLng,
+//     map: map,
+//     icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+//     });
+//   var tower_marker = new google.maps.Marker({
+//     position: { lat: 36.04722222, lng: 138.1108333 },
+//     map: map,
+//     icon: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png'
+//     });
+//   });
+// }
 
 // Google Maps API, 現在地
 

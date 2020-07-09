@@ -26,6 +26,8 @@ class User < ApplicationRecord
 
   has_many :favolites, dependent: :destroy
 
+  has_many :stocks, dependent: :destroy
+
   has_many :entries, dependent: :destroy
 
   has_many :receive_notifications, class_name: "Notification",

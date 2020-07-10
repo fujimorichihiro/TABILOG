@@ -48,6 +48,7 @@ gem 'summernote-rails', '~> 0.8.10.0'
 gem 'simple_form'
 
 gem 'carrierwave'
+gem 'fog-aws'
 
 gem 'gon'
 

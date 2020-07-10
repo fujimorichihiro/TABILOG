@@ -1,0 +1,6 @@
+ja:
+  users:
+    confirmations:
+      new:
+        email: 'メールアドレス'
+        resend: 'アカウント確認用メールを再送する'

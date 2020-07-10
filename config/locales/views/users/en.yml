@@ -1,0 +1,7 @@
+en:
+  users:
+    edit:
+      name: 'Name'
+      introduction: 'Introduction'
+      edit: 'Edit'
+      profileimage: 'Profile Image'

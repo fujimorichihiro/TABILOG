@@ -39,15 +39,15 @@
             <div class="btn btn-outline-warning"><i class="fas fa-home"></i></div>
           <% end%>
           <%= link_to new_user_session_path do %>
-            <div class="btn btn-outline-warning">Log in</div>
+            <div class="btn btn-outline-warning"><%= t '.login' %></div>
           <% end %>
           <%= link_to new_user_registration_path do %>
-            <div class="btn btn-outline-warning">Sign up</div>
+            <div class="btn btn-outline-warning"><%= t '.signup' %></div>
           <% end %>
         <% end %>
       </div>
       <div class="col-1">
-        <h3><i class="far fa-bell text-secondary"></i></h3>
+        <div id="getposition" class="btn btn-outline-light"><i class="fas fa-map-marked-alt"></i></div>
       </div>
       <!-- ユーザーメニュー -->
       <div class="col-1">
@@ -70,4 +70,14 @@
     </div>
   </div>
 </header>
-
+<script>
+$(function(){
+  $('#getposition').on('click',function initMap() {
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        window.location.href = "/users/<%= current_user.id %>/map?latitude="+position.coords.latitude+"&longitude="+position.coords.longitude
+      }
+    );
+  });
+});
+</script>

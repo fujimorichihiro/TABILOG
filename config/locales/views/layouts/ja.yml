@@ -8,4 +8,10 @@ ja:
       edit_registration: '登録情報編集'
       post: '投稿する'
       timeline: 'タイムライン'
+      login: 'ログイン'
+      signup: '新規登録'
       logout: 'ログアウト'
+    search_form:
+      tagsearch: 'タグ'
+      titlesearch: '記事名検索'
+      search: '検索'

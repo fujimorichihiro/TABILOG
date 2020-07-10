@@ -11,7 +11,7 @@
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+  <%= link_to "#{t '.resend_confirmation_mail' }", new_confirmation_path(resource_name) %><br />
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
@@ -20,6 +20,8 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+    <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+      <button type="button" class="btn btn-info btn-block mt-3"><span><%= t '.sns_sign_in_en' %> <%= OmniAuth::Utils.camelize(provider) %><%= t '.sns_sign_in_ja' %></span></button>
+    <% end %>
   <% end %>
 <% end %>

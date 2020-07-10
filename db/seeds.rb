@@ -15,3 +15,17 @@
 		confirmed_at: "2020-07-01 01:01:01"
 		)
 end
+
+# テストユーザーアカウント
+User.create!(
+  name: "たびログ太郎",
+  email: "foo@tabilog.com",
+  password: "password",
+  confirmed_at: "2020-07-01 01:01:01"
+)
+
+# テスト管理者アカウント
+Admin.create!(
+  email: "admin@tabilog.com",
+  password: "password"
+)

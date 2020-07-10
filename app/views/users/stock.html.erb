@@ -211,16 +211,21 @@
 
       // 各地点の吹き出しを作成
       infoWindow[i] = new google.maps.InfoWindow({
-        // 吹き出しの内容
-        content: markerData[i]['address']
+        maxWidth: 100
       });
-
-      // マーカーにクリックイベントを追加
+      // 吹き出しの内容に記事へのリンクを追加する。
+      infoWindow[i].setContent(
+        '<div class="infowindow">' +
+        '<a href="/articles/' + markerData[i]['id'] + '">' +
+        markerData[i]['title'] +
+        '</a>' +
+        '</div>'
+      );
       markerEvent(i);
     }
   }
 
-  // マーカーをクリックしたら吹き出しを表示
+  // マーカーをクリックしたら吹き出しを表示する。
   function markerEvent(i) {
     marker[i].addListener('click', function () {
       infoWindow[i].open(map, marker[i]);

@@ -3,6 +3,7 @@ en:
     header:
       mypage: 'My Page'
       message: 'Message'
+      stock: 'Stocked article'
       favolite_article: 'Favolites'
       edit_registration: 'Edit infomation'
       post: 'Post'

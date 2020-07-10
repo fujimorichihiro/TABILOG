@@ -59,6 +59,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <%= link_to "#{t '.mypage'}", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "#{t '.message'} #{ current_user.unchecked_messages_count }", rooms_path, class: "dropdown-item" %>
+              <%= link_to "#{t '.stock'}", stock_user_path(current_user), class: "dropdown-item" %>
               <%= link_to "#{t '.favolite_article'}", favolite_user_path(current_user), class: "dropdown-item" %>
               <%= link_to "#{t '.edit_registration'}", edit_user_registration_path, class: "dropdown-item" %>
               <span class="dropdown-item"><%= link_to notifications_user_path(current_user) do %><i class="far fa-bell text-secondary"></i><%= current_user.receive_notifications.not_checked_number %></span><% end %>

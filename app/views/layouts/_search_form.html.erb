@@ -3,9 +3,9 @@
   <div class="col-6">
   	<%= form_tag(articles_path, :method => 'get' ) do %>
   	  <%= text_field_tag :search, "", class: "form-control mb-2" %>
-  	  <%= select_tag(:option, options_for_select([["タグ検索","1"],["記事名検索","2"]]), class: "form-control form-control-sm mb-2")%>
+  	  <%= select_tag(:option, options_for_select([["#{t '.tagsearch'}","1"],["#{t '.titlesearch'}","2"]]), class: "form-control form-control-sm mb-2")%>
   	  <div class="d-flex flex-row-reverse">
-  	  	<%= submit_tag "検索", class: "btn btn-info" %>
+  	  	<%= submit_tag "#{t '.search'}", class: "btn btn-info" %>
   	  </div>
   	<% end %>
   </div>

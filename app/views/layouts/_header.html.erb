@@ -39,15 +39,14 @@
             <div class="btn btn-outline-warning"><i class="fas fa-home"></i></div>
           <% end%>
           <%= link_to new_user_session_path do %>
-            <div class="btn btn-outline-warning">Log in</div>
+            <div class="btn btn-outline-warning"><%= t '.login' %></div>
           <% end %>
           <%= link_to new_user_registration_path do %>
-            <div class="btn btn-outline-warning">Sign up</div>
+            <div class="btn btn-outline-warning"><%= t '.signup' %></div>
           <% end %>
         <% end %>
       </div>
       <div class="col-1">
-        <h3><i class="far fa-bell text-secondary"></i></h3>
       </div>
       <!-- ユーザーメニュー -->
       <div class="col-1">

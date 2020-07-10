@@ -66,7 +66,7 @@
 <!-- コメント部分 -->
 <div class="row">
   <div class="col-1"></div>
-  <div class="col-10 border-bottom border-lite pb-2 mb-3"><h5>コメント</h5></div>
+  <div class="col-10 border-bottom border-lite pb-2 mb-3"><h5><%= t '.comment' %></h5></div>
 </div>
 <div id="comment-area">
   <%= render :partial => "articles/comment", :locals => {:article => @article} %>

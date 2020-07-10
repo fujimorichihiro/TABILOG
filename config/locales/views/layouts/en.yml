@@ -8,4 +8,10 @@ en:
       edit_registration: 'Edit infomation'
       post: 'Post'
       timeline: 'Time Line'
+      login: 'Log in'
+      signup: 'Sign up'
       logout: 'Log Out'
+    search_form:
+      tagsearch: 'Search by Tag name'
+      titlesearch: 'Search by Title'
+      search: 'Search'

@@ -40,6 +40,9 @@ ja:
 #      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
       confirmed: 'アカウントを登録しました。'
 #      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+    omniauth_callbacks:
+      failure: "%{kind}アカウントでの認証に失敗しました。\"%{reason}\"."
+      success: "%{kind}アカウントでの認証に成功しました。"
     registrations:
       signed_up: 'アカウント登録を受け付けました。確認のメールをお送りします。'
       signed_up_but_unconfirmed: 'アカウント登録を受け付けました。確認メールから認証をお願いします。'

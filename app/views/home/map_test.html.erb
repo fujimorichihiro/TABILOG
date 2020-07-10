@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10 mt-5">
+    <div id="map_test"></div>
+  </div>
+  <div class="col-1"></div>
+</div>
+
+<script>
+function initMap() {
+  navigator.geolocation.getCurrentPosition(function (position) {
+  // 現在地を取得
+  LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+  // Mapを作成、現在地を中心に表示
+  var map = new google.maps.Map(document.getElementById('map_test'), {
+    center: LatLng,
+    zoom: 7
+    });
+
+  // 現在地にピンを立てる
+  var my_marker = new google.maps.Marker({
+    position: LatLng,
+    map: map,
+    icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+    });
+
+  // 周辺の投稿情報を取得
+  let nearmarker = [];
+  let nearmarkerData = gon.articles.within(5, origin: [LatLng['lat'], LatLng['lng']]);
+  let nearinfoWindow = [];
+
+  // 周辺の記事情報のマーカーを作成
+  for (var i = 0; i < nearmarkerData.length; i++) {
+      let id = nearmarkerData[i]['id']
+
+      // 各地点の緯度経度を算出
+      var nearmarkerLatLng = {lat: nearmarkerData[i]['latitude'], lng: nearmarkerData[i]['longitude']};
+
+      // 各地点のマーカーを作成
+      nearmarker[i] = new google.maps.Marker({
+        position: nearmarkerLatLng,
+        map: map,
+        icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'
+      });
+
+      // 各地点の吹き出しを作成
+      nearinfoWindow[i] = new google.maps.InfoWindow({
+        // 吹き出しの内容
+        content: nearmarkerData[i]['address']
+      });
+
+      // マーカーにクリックイベントを追加
+      nearmarkerEvent(i);
+    }
+  });
+}
+
+function nearmarkerEvent(i) {
+  nearmarker[i].addListener('click', function () {
+    nearinfoWindow[i].open(map, nearmarker[i]);
+  });
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>

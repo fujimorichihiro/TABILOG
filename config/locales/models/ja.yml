@@ -11,6 +11,7 @@ ja:
         name: 'ユーザーネーム'
         email: 'メールアドレス'
         password: 'パスワード'
+        password_confirmation: 'パスワード(確認)'
       inquiry:
         email: 'メールアドレス'
         title: '件名'

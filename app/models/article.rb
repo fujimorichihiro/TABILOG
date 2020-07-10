@@ -4,7 +4,6 @@ class Article < ApplicationRecord
   belongs_to :user
 
   has_many :article_images, dependent: :destroy
-  has_many :uploads, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favolites, dependent: :destroy
   has_many :stocks, dependent: :destroy
@@ -60,4 +59,12 @@ class Article < ApplicationRecord
   def self.search_title(search)
     self.where('title LIKE ?',"%#{search}%")
   end
+# 現在地周辺の記事検索用メソッド
+   def self.within_box(distance, latitude, longitude)
+    distance = distance
+    center_point = [latitude, longitude]
+    box = Geocoder::Calculations.bounding_box(center_point, distance)
+    self.within_bounding_box(box)
+  end
+
 end

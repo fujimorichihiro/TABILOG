@@ -47,6 +47,7 @@
         <% end %>
       </div>
       <div class="col-1">
+        <div id="getposition" class="btn btn-outline-light"><i class="fas fa-map-marked-alt"></i></div>
       </div>
       <!-- ユーザーメニュー -->
       <div class="col-1">
@@ -69,4 +70,14 @@
     </div>
   </div>
 </header>
-
+<script>
+$(function(){
+  $('#getposition').on('click',function initMap() {
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        window.location.href = "/users/<%= current_user.id %>/map?latitude="+position.coords.latitude+"&longitude="+position.coords.longitude
+      }
+    );
+  });
+});
+</script>

@@ -6,4 +6,8 @@ class HomeController < ApplicationController
     @comment = Comment.new
   end
 
+  def map_test
+    gon.articles = Article.all
+  end
+
 end

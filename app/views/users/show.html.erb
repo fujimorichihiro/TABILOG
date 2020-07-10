@@ -1,12 +1,237 @@
-<!-- -----------------------プロフィール------------------------------------ -->
+<!-- ユーザーページ -->
+<!-- プロフィール -->
 <%= render :partial => "users/profile", :locals => {:user => @user} %>
 
-
-<!-- ------------------------------------------------------------------ -->
-
-<!-- 投稿一覧 -->
-<div class="row" id="profile-content">
+<!-- 地図＋投稿一覧 -->
+<div class="row mt-5">
+  <div class="col-6">
+    <div id="user-show-map"></div>
+  </div>
+  <div class="col-6">
     <% @user.articles.each do |article| %>
-     <%= render :partial => "users/articles2", :locals => {:article => article, :room_id => @room_id} %>
+      <%= render :partial => "users/articles", :locals => {:article => article} %>
     <% end %>
+  </div>
 </div>
+
+<script>
+  let map
+  let marker = []; // 配列にマーカーを複数入れていく
+  let infoWindow = []; // マーカーの吹き出し
+  let markerData = gon.articles; //コントローラからユーザーの記事情報を受け取る。
+
+  function initMap() {
+     map = new google.maps.Map(document.getElementById('user-show-map'), {
+      center: { lat: 36.04722222, lng: 138.1108333 }, //長野県諏訪湖
+      zoom: 5,
+      styles: [ //地図のスタイル
+       {
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "saturation": 36
+            },
+            {
+                "color": "#3b332e"
+            },
+            {
+                "lightness": "42"
+            }
+          ]
+        },
+        {
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#ffffff"
+            },
+            {
+                "lightness": 16
+            }
+          ]
+        },
+        {
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+          ]
+        },
+        {
+        "featureType": "administrative",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+          ]
+        },
+        {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#c9bcac"
+            },
+            {
+                "lightness": "80"
+            }
+          ]
+        },
+        {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "lightness": 21
+            }
+          ]
+        },
+        {
+        "featureType": "poi",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "lightness": "55"
+            }
+          ]
+        },
+        {
+        "featureType": "poi.park",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#d1e5d9"
+            },
+            {
+                "lightness": "3"
+            }
+          ]
+        },
+        {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "lightness": 17
+            }
+          ]
+        },
+        {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "lightness": 29
+            },
+            {
+                "weight": 0.2
+            }
+          ]
+        },
+        {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "lightness": 18
+            }
+          ]
+        },
+        {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "lightness": 16
+            }
+          ]
+        },
+        {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            },
+            {
+                "lightness": 19
+            }
+          ]
+        },
+        {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#acc4ce"
+            },
+            {
+                "visibility": "on"
+            }
+          ]
+        }
+      ]
+    });
+    // 繰り返し処理でマーカーと吹き出しを複数表示させる
+    for (var i = 0; i < markerData.length; i++) {
+      let id = markerData[i]['id']
+
+      // 各地点の緯度経度を算出
+      var markerLatLng = {lat: markerData[i]['latitude'], lng: markerData[i]['longitude']};
+
+      // 各地点のマーカーを作成
+      marker[i] = new google.maps.Marker({
+        position: markerLatLng,
+        map: map
+      });
+
+      // 各地点の吹き出しを作成
+      infoWindow[i] = new google.maps.InfoWindow({
+        maxWidth: 100
+      });
+      // 吹き出しの内容に記事へのリンクを追加する。
+      infoWindow[i].setContent(
+        '<div class="infowindow container">' +
+        '<a href="/articles/' + markerData[i]['id'] + '">' +
+        markerData[i]['title'] +
+        '</a>' +
+        '</div>'
+      );
+      // マーカーにクリックイベントを追加
+      markerEvent(i);
+    }
+  }
+
+  // マーカーをクリックしたら吹き出しを表示
+  function markerEvent(i) {
+    marker[i].addListener('click', function () {
+      infoWindow[i].open(map, marker[i]);
+    });
+  }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
+

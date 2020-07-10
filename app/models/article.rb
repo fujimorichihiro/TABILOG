@@ -6,6 +6,7 @@ class Article < ApplicationRecord
   has_many :article_images, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favolites, dependent: :destroy
+  has_many :stocks, dependent: :destroy
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_many :notifications, dependent: :destroy
@@ -21,6 +22,10 @@ class Article < ApplicationRecord
 # いいねしているかどうか判別
   def favolited_by?(user)
     favolites.where(user_id: user.id).exists?
+  end
+
+  def stocked_by?(user)
+    stocks.where(user_id: user.id).exists?
   end
 
 # geocoder用メソッド,address作成、変更時に緯度、経度を算出

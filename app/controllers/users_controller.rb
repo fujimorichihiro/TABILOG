@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: ["show", "following", "follower"]
   def show
     @user = User.find(params[:id])
+    gon.articles = Article.where(user_id: params[:id])
   end
 
 
@@ -31,12 +32,25 @@ class UsersController < ApplicationController
 
   def favolite
     @favolite_articles = Article.joins(:favolites).where(favolites: {user_id: current_user})
+    gon.favolites = Article.joins(:favolites).where(favolites: {user_id: current_user})
+  end
+
+  def stock
+    @stock_articles = Article.joins(:stocks).where(stocks: {user_id: current_user})
+    gon.stocks = Article.joins(:stocks).where(stocks: {user_id: current_user})
   end
 
   def timeline
     followings = current_user.following
     @articles = Article.where(user_id: followings) + Article.where(user_id: current_user.id)
     @articles = Kaminari.paginate_array(@articles).page(params[:page]).per(20)
+  end
+
+  def map
+    @user = User.find(params[:id])
+    @articles = Article.where(user_id: @user.id)
+    gon.articles = Article.where(user_id: @user.id)
+    gon.stocks = Article.joins(:stocks).where(stocks: {user_id: @user})
   end
 
   def notifications

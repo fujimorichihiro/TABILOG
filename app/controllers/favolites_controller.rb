@@ -1,6 +1,6 @@
 class FavolitesController < ApplicationController
   def create
-    @article = Article.find(params[:article_id])
+    @article = Article.find(params[:id])
     if favolite = Favolite.create!({user_id: current_user.id, article_id: @article.id})
       favolite.make_notification
     end
@@ -9,7 +9,7 @@ class FavolitesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:article_id])
+    @article = Article.find(params[:id])
     favolite = current_user.favolites.find_by(article_id: @article.id)
     favolite.destroy
     @id_name = "#favolite-#{@article.id}"

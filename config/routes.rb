@@ -30,16 +30,18 @@ Rails.application.routes.draw do
   #root path
     get '/:locale' => 'home#top'
     root 'home#top'
+    get 'maptest' => 'home#map_test'
 
     resources :users, only: [:show, :edit, :update] do
       member do
-        get :following, :follower, :favolite, :timeline, :notifications
+        get :following, :follower, :favolite, :timeline, :notifications, :map, :stock
       end
     end
 
     resources :articles do
       resources :comments, only: [:create, :destroy]
       resource :favolites, only: [:create, :destroy]
+      resource :stocks, only: [:create, :destroy]
     end
 
     resource :relationships, only: [:create, :destroy]

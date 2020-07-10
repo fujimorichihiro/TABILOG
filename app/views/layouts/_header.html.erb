@@ -70,6 +70,7 @@
     </div>
   </div>
 </header>
+<% if user_signed_in? %>
 <script>
 $(function(){
   $('#getposition').on('click',function initMap() {
@@ -81,3 +82,4 @@ $(function(){
   });
 });
 </script>
+<% end %>

@@ -1,0 +1,7 @@
+ja:
+  users:
+    edit:
+      name: '名前'
+      introduction: '自己紹介'
+      edit: '更新する'
+      profileimage: 'プロフィール画像'

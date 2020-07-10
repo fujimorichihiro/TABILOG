@@ -1,0 +1,6 @@
+ja:
+  users:
+    confirmation:
+      new:
+        email: 'Email'
+        resend: 'Resend confirmation instructions'

@@ -26,7 +26,6 @@
 
 // Japan-Map 用
 $(document).on('turbolinks:load', function(){
-        
         var areaLinks = {
          1:"articles/?option=1&search=北海道",
          2:"articles/?option=1&search=青森",
@@ -143,8 +142,11 @@ $(document).on('turbolinks:load', function(){
               location.href = areaLinks[data.area.code];
                 }
             });
-
         });
+
+// 現在地の取得
+
+
 
 // Google Maps API, 現在地, Montreal soft vintage
 

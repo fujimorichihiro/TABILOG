@@ -8,7 +8,7 @@
     <div id="user-show-map"></div>
   </div>
   <div class="col-6">
-    <% @user.articles.each do |article| %>
+    <% @articles.each do |article| %>
       <%= render :partial => "users/articles", :locals => {:article => article} %>
     <% end %>
   </div>

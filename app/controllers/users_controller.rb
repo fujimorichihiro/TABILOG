@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: ["show", "following", "follower"]
   def show
     @user = User.find(params[:id])
+    @articles = Article.order(created_at: :desc).limit(4)
     gon.articles = Article.where(user_id: params[:id])
   end
 
@@ -47,10 +48,16 @@ class UsersController < ApplicationController
   end
 
   def map
+    latitude = params[:latitude].to_f
+    longitude = params[:longitude].to_f
+    gon.articles = Article.within_box(6.21371, latitude, longitude)
+    gon.latlng = [latitude, longitude]
     @user = User.find(params[:id])
-    @articles = Article.where(user_id: @user.id)
-    gon.articles = Article.where(user_id: @user.id)
-    gon.stocks = Article.joins(:stocks).where(stocks: {user_id: @user})
+    @articles = Article.within_box(6.21371, latitude, longitude)
+  end
+
+  def gallery
+
   end
 
   def notifications

@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   #root path
     get '/:locale' => 'home#top'
     root 'home#top'
-    get 'maptest' => 'home#map_test'
+    get 'map' => 'home#map'
 
     resources :users, only: [:show, :edit, :update] do
       member do

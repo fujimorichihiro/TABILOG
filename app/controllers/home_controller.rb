@@ -6,8 +6,12 @@ class HomeController < ApplicationController
     @comment = Comment.new
   end
 
-  def map_test
-    gon.articles = Article.all
+  def map
+    latitude = params[:latitude].to_f
+    longitude = params[:longitude].to_f
+    gon.articles = Article.within_box(6.21371, latitude, longitude)
+    gon.latlng = [latitude, longitude]
+    @articles = Article.within_box(6.21371, latitude, longitude)
   end
 
 end

@@ -21,12 +21,11 @@
 //= require tag-it
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 
 
 // Japan-Map 用
-$(document).on('turbolinks:load', function(){
+$(document).ready(function(){
         var areaLinks = {
          1:"articles/?option=1&search=北海道",
          2:"articles/?option=1&search=青森",

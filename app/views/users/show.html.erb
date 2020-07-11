@@ -13,14 +13,13 @@
     <% end %>
   </div>
 </div>
-
 <script>
-  let map
-  let marker = []; // 配列にマーカーを複数入れていく
-  let infoWindow = []; // マーカーの吹き出し
-  let markerData = gon.articles; //コントローラからユーザーの記事情報を受け取る。
+  var map
+  var marker = []; // 配列にマーカーを複数入れていく
+  var infoWindow = []; // マーカーの吹き出し
+  var markerData = gon.articles; //コントローラからユーザーの記事情報を受け取る。
 
-  $(document).on('turbolinks:load', function initMap() {
+  $(document).ready( function initMap() {
      map = new google.maps.Map(document.getElementById('user-show-map'), {
       center: { lat: 36.04722222, lng: 138.1108333 }, //長野県諏訪湖
       zoom: 5,
@@ -233,5 +232,6 @@
   }
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap"></script>
+
 

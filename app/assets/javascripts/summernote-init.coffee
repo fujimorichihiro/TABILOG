@@ -24,7 +24,7 @@ deleteFile = (file_id) ->
     contentType: false
     processData: false
 
-$(document).on 'turbolinks:load', ->
+$(document).ready ->
   $('[data-provider="summernote"]').each ->
     $(this).summernote
       lang: 'ko-KR'

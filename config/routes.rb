@@ -50,6 +50,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create, :destroy]
     resources :uploads, only: [:create, :destroy]
     resources :inquiries, only: [:new, :create]
+    resources :photos, only: [:new, :show, :create]
 
   # 管理者側----------------------------------------------
     namespace :admins do

@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require popper
 //= require bootstrap-sprockets
+//= require header
 //= require summernote/summernote-bs4.min
 //= require summernote-init
 //= require tag-it

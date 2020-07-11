@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   def timeline
     followings = current_user.following
-    @articles = Article.where(user_id: followings) + Article.where(user_id: current_user.id)
+    @articles = Article.where(user_id: followings) + Article.where(user_id: current_user.id) #フォロワーの投稿＋自分の投稿
     @articles = Kaminari.paginate_array(@articles).page(params[:page]).per(20)
   end
 

@@ -4,9 +4,8 @@
     <title>TABILOG</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
-    <%= include_gon %>
-    <script src="https://kit.fontawesome.com/f2ca94efa4.js" crossorigin="anonymous"></script>
+
+    <%= include_gon %><!-- javascriptへの変数受け渡し -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -19,6 +18,7 @@
         <%= yield %>
       </div>
       <%= render 'layouts/footer'%>
+      <%= render 'layouts/loading'%>
     </div>
   </body>
 </html>

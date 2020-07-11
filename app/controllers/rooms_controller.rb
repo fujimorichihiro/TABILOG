@@ -16,7 +16,7 @@ class RoomsController < ApplicationController
 
   def index
     my_entries = current_user.entries
-    # current_userの属しているroom_idを配列にする。
+    # current_userの属しているroom_idを配列に入れていく
     room_ids = []
     my_entries.each do |my_entry|
       room_ids.push(my_entry.room_id)
@@ -38,7 +38,7 @@ class RoomsController < ApplicationController
         end
       end
     end
-    # roomが存在しない------------
+    # roomが存在しない場合------------
     unless @room
       @room = Room.create!
       my_entry = Entry.create(user_id: current_user.id, room_id: @room.id)

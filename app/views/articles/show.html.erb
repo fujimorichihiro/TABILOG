@@ -15,10 +15,19 @@
         <div class="btn btn-danger"><%= t '.delete' %></div>
       <% end %>
     <% else %>
-      <div id="stock-<%= @article.id %>">
-        <% if user_signed_in? %>
-          <%= render :partial => "articles/stock", :locals => {:article => @article} %>
-        <% end %>
+      <div class="row">
+        <div class="col-6" id="favolite-<%= @article.id %>">
+          <% if user_signed_in? %>
+            <%= render :partial => "articles/favolite", :locals => {:article => @article} %>
+          <% else %>
+            <i class="fas fa-heart text-secondary"></i><%= article.favolites.count %>
+           <% end %>
+        </div>
+        <div class="col-6" id="stock-<%= @article.id %>">
+          <% if user_signed_in? %>
+            <%= render :partial => "articles/stock", :locals => {:article => @article} %>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>

@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show, :edit, :update] do
       member do
-        get :following, :follower, :favolite, :timeline, :notifications, :map, :stock, :gallery
+        get :following, :follower, :favolite, :timeline, :notifications, :stock, :gallery
       end
     end
 

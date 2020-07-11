@@ -15,16 +15,17 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
-# 追加gem------------------------------------------------------
 # ログイン機能
 gem 'devise'
-#SNS認証
+#SNS認証(google, twitter)
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
-# レイアウト
+# レイアウトなど
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+# font-awesome
+gem 'font-awesome-sass'
 
 gem 'jquery-ui-rails'
 
@@ -46,16 +47,13 @@ gem 'faker'
 # summernote
 gem 'summernote-rails', '~> 0.8.10.0'
 gem 'simple_form'
-
+# carrierwave + S3
 gem 'carrierwave'
 gem 'fog-aws'
-
+# javascript 変数受け渡し
 gem 'gon'
-
-
-
-#--------------------------------------------------------------
-
+# デバッグ
+gem 'pry-byebug'
 
 
 group :development, :test do

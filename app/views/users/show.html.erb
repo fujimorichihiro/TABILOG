@@ -20,7 +20,7 @@
   let infoWindow = []; // マーカーの吹き出し
   let markerData = gon.articles; //コントローラからユーザーの記事情報を受け取る。
 
-  function initMap() {
+  $(document).on('turbolinks:load', function initMap() {
      map = new google.maps.Map(document.getElementById('user-show-map'), {
       center: { lat: 36.04722222, lng: 138.1108333 }, //長野県諏訪湖
       zoom: 5,
@@ -223,7 +223,7 @@
       // マーカーにクリックイベントを追加
       markerEvent(i);
     }
-  }
+  });
 
   // マーカーをクリックしたら吹き出しを表示
   function markerEvent(i) {

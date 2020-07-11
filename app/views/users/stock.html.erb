@@ -17,7 +17,7 @@
   let infoWindow = []; // 吹き出しを複数表示させたいので、配列化
   let markerData = gon.stocks;
 
-  function initMap() {
+  $(document).ready( function initMap() {
 
      map = new google.maps.Map(document.getElementById('favolite-map'), {
       center: { lat: 36.04722222, lng: 138.1108333 }, // 東京タワーを中心に表示させている
@@ -223,7 +223,7 @@
       );
       markerEvent(i);
     }
-  }
+  });
 
   // マーカーをクリックしたら吹き出しを表示する。
   function markerEvent(i) {

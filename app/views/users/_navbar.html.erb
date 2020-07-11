@@ -11,10 +11,10 @@
         <%= link_to user_path(user), class: "nav-link text-dark" do %><i class="fas fa-pen"></i>投稿 <%=user.articles.count %>件<% end %>
       </li>
       <li class="nav-item">
-        <%= link_to gallery_user_path, class: "nav-link text-dark"  do %><i class="fas fa-camera"></i><% end %>
+        <%= link_to gallery_user_path(user), class: "nav-link text-dark"  do %><i class="fas fa-camera"></i><% end %>
       </li>
       <li class="nav-item">
-        <%= link_to map_user_path(user), class: "nav-link text-dark"  do %>map<% end %>
+        <%= link_to map_path, class: "nav-link text-dark"  do %>map<% end %>
       </li>
     </ul>
   </div>

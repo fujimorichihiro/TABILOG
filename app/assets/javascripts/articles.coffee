@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-$(document).on 'turbolinks:load', ->
+$(document).ready ->
   $('#tag-form').tagit
     fieldName:   'tags'
     singleField: true

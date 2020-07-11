@@ -18,7 +18,7 @@
   let markerData = gon.articles;
   let currentposition = gon.latlng;//コントローラからユーザーの記事情報を受け取る。
 
-  function initMap() {
+  $(document).ready(function initMap() {
      currentmap = new google.maps.Map(document.getElementById('current-map'), {
       center: { lat: currentposition[0], lng: currentposition[1] },
       zoom: 12,
@@ -227,7 +227,7 @@
       // マーカーにクリックイベントを追加
       markerEvent(i);
     }
-  }
+  });
 
   // マーカーをクリックしたら吹き出しを表示
   function markerEvent(i) {

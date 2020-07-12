@@ -16,6 +16,8 @@
  *= require_self
  */
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "bootstrap";
 @import "summernote-bs4";
 
@@ -60,6 +62,9 @@
 #current-map {
   height: 500px;
   width: 500px;
+}
+.loading {
+  text-height: 100vh;
 }
 
 .link-box {
@@ -112,4 +117,23 @@ left: 0;
 
 .alerttag {
   @extend .alert-danger;
+}
+
+#loading-filter {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(50,50,50,0.3);
+  display: none;
+}
+
+.notification-circle {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  background-color: red;
+  width: 13px;
+  height: 13px;
 }

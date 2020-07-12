@@ -196,6 +196,10 @@
     var mymarker = new google.maps.Marker({
       position: { lat: currentposition[0], lng: currentposition[1] },
       map: currentmap,
+      icon: {
+        url: "https://tabilogarticle.s3-ap-northeast-1.amazonaws.com/uploads/photo/image/4/marker1.png",
+        scaledSize: new google.maps.Size(60, 60)  // サイズを指定
+        }
     });
 
     // 繰り返し処理でマーカーと吹き出しを複数表示させる
@@ -209,7 +213,13 @@
       marker[i] = new google.maps.Marker({
         position: markerLatLng,
         map: currentmap,
-        icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+        icon: {
+          fillColor: "#c71585",
+          fillOpacity: 0.6,
+          scale: 16,
+          strokeColor: "#c71585",
+          strokeWeight: 0.2
+        }
       });
 
       // 各地点の吹き出しを作成
@@ -232,7 +242,7 @@
   // マーカーをクリックしたら吹き出しを表示
   function markerEvent(i) {
     marker[i].addListener('click', function () {
-      infoWindow[i].open(map, marker[i]);
+      infoWindow[i].open(currentmap, marker[i]);
     });
   }
 

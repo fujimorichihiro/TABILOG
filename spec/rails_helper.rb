@@ -32,6 +32,11 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  # driven_by :selenium_chrome_headless
+  # caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {
+  #    "args" => %w(--headless --disable-gpu --no-sandbox)
+  # })
+  # driven_by :selenium, using: :chrome, options: { desired_capabilities: caps }
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

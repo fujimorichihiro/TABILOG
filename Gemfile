@@ -35,16 +35,16 @@ gem 'refile-mini_magick'
 # 緯度、経度割り出し,位置情報検索
 gem 'geocoder'
 gem 'geokit-rails'
-# 環境変数化
+# 環境変数管理
 gem 'dotenv-rails'
 # 多言語化
 gem 'rails-i18n'
 # ページング
 gem 'kaminari'
-# ダミーデータ作成
+# ダミーデータなど作成
 gem 'faker'
 
-# summernote
+# summernote（エディタ）
 gem 'summernote-rails', '~> 0.8.10.0'
 gem 'simple_form'
 # carrierwave + S3
@@ -80,6 +80,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  # gem 'webdrivers'
 end
 
 group :production do

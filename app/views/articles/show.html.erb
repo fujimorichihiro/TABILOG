@@ -7,14 +7,16 @@
     <h1><%= @article.title %></h1>
   </div>
   <div class="col-3">
+    <!-- 更新ボタン、削除ボタン -->
     <% if @article.user == current_user %>
-      <%= link_to edit_article_path do %>
+      <%= link_to edit_article_path, id: "edit" do %>
         <div class="btn btn-success"><%= t '.edit' %></div>
       <% end %>
-      <%= link_to article_path(@article), method: :delete do %>
+      <%= link_to article_path(@article), id: "delete", method: :delete do %>
         <div class="btn btn-danger"><%= t '.delete' %></div>
       <% end %>
     <% else %>
+      <!-- お気に入りボタン、ストックボタン -->
       <div class="row">
         <div class="col-6" id="favolite-<%= @article.id %>">
           <% if user_signed_in? %>

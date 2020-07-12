@@ -7,10 +7,12 @@ class HomeController < ApplicationController
   end
 
   def map
-    latitude = params[:latitude].to_f
-    longitude = params[:longitude].to_f
-    gon.articles = Article.within_box(6.21371, latitude, longitude)
-    gon.latlng = [latitude, longitude]
+    latitude = params[:latitude].to_f #javascriptから現在地データ受け取り
+    longitude = params[:longitude].to_f #javascriptから現在地データ受け取り
+    articles = Article.within_box(6.21371, latitude, longitude).joins(:stocks).where(stocks: {user_id: current_user}) #周辺のストック記事取得
+    gon.articles = Article.within_box(6.21371, latitude, longitude) - articles
+    gon.stocks = Article.joins(:stocks).where(stocks: {user_id: current_user}) #ストック記事取得
+    gon.latlng = [latitude, longitude] # Mapに現在地受け渡し
     @articles = Article.within_box(6.21371, latitude, longitude)
   end
 

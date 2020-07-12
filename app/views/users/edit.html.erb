@@ -3,11 +3,11 @@
   <div class="col-6">
     <%= form_for @user do |f| %>
       <div class="form-group">
-        <label><%= t '.name'%></label><br>
+        <%= f.label :namem,  "#{t '.name'}" %><br />
         <%= f.text_field :name, class: "form-control" %>
       </div>
       <div class="form-group">
-        <label><%= t '.introduction'%></label>
+        <label><%= f. label :introduction, "#{t '.introduction'}" %></label>
         <%= f.text_area :introduction, class: "form-control", rows: "4"%>
       </div>
       <div class="form-group">

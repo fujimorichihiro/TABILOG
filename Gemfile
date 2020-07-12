@@ -58,9 +58,10 @@ gem 'pry-byebug'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # capistrano,自動デプロイ
+  # テスト
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  # capistrano,自動デプロイ
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano3-puma'

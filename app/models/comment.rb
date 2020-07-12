@@ -3,6 +3,8 @@ class Comment < ApplicationRecord
   belongs_to :article
   has_one :notification
 
+  validates :body, presence: true
+
 # 通知作成メソッド
   def make_notification
     unless self.article.user == self.user

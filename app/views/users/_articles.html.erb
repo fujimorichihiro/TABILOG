@@ -68,11 +68,16 @@
                     </div>
                   </div>
                 </div>
-                <!---------------------------------------------- ---------- ---------------------------------------->
+                <!---------------------------------------------- modal終わり---------------------------------------->
               </div>
+              <!-- いいねボタン -->
               <div class="col-9 pt-2" id="favolite-<%= article.id %>">
                 <% if user_signed_in? %>
-                  <%= render :partial => "articles/favolite", :locals => {:article => article} %>
+                  <% unless current_user = article.user %>
+                    <%= render :partial => "articles/favolite", :locals => {:article => article} %>
+                  <% else %>
+                    <i class="fas fa-heart text-secondary"></i><%= article.favolites.count %>
+                  <% end %>
                 <% else %>
                   <i class="fas fa-heart text-secondary"></i><%= article.favolites.count %>
                 <% end %>

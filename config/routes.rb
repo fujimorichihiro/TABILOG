@@ -42,6 +42,9 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
       resource :favolites, only: [:create, :destroy]
       resource :stocks, only: [:create, :destroy]
+      collection do
+        get :spot_search
+      end
     end
 
     resource :relationships, only: [:create, :destroy]
@@ -60,5 +63,6 @@ Rails.application.routes.draw do
       resources :inquiries, only: [:show, :index, :update]
     end
 #-------------------------------------------------------
+    get '*path', to: 'application#render_404'
   end
 end

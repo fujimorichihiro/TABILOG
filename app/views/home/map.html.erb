@@ -13,10 +13,16 @@
 
 <script>
   let currentmap
-  let marker = []; // 配列にマーカーを複数入れていく
-  let infoWindow = []; // マーカーの吹き出し
+  // 現在地周辺の記事情報
+  let marker = [];
+  let infoWindow = [];
   let markerData = gon.articles;
-  let currentposition = gon.latlng;//コントローラからユーザーの記事情報を受け取る。
+  // ストック記事情報
+  let stockmarker = [];
+  let stockWindow = [];
+  let stockData = gon.stocks;
+  //コントローラからユーザーの位置情報を受け取る。
+  let currentposition = gon.latlng;
 
   $(document).ready(function initMap() {
      currentmap = new google.maps.Map(document.getElementById('current-map'), {
@@ -212,19 +218,12 @@
       // 各地点のマーカーを作成
       marker[i] = new google.maps.Marker({
         position: markerLatLng,
-        map: currentmap,
-        icon: {
-          fillColor: "#c71585",
-          fillOpacity: 0.6,
-          scale: 16,
-          strokeColor: "#c71585",
-          strokeWeight: 0.2
-        }
+        map: currentmap
       });
 
       // 各地点の吹き出しを作成
       infoWindow[i] = new google.maps.InfoWindow({
-        maxWidth: 100
+        maxWidth: 200
       });
       // 吹き出しの内容に記事へのリンクを追加する。
       infoWindow[i].setContent(
@@ -237,12 +236,47 @@
       // マーカーにクリックイベントを追加
       markerEvent(i);
     }
+
+    for (var n = 0; n < stockData.length; n++) {
+      let id = stockData[n]['id']
+
+      // 各地点の緯度経度を算出
+      var markerLatLng= {lat: stockData[n]['latitude'], lng: stockData[n]['longitude']};
+
+      // 各地点のマーカーを作成
+      stockmarker[n] = new google.maps.Marker({
+        position: markerLatLng,
+        map: currentmap,
+        icon: 'https://tabilogarticle.s3-ap-northeast-1.amazonaws.com/uploads/photo/image/5/blue-marker.png'
+      });
+
+      // 各地点の吹き出しを作成
+      stockWindow[n] = new google.maps.InfoWindow({
+        maxWidth: 200
+      });
+      // 吹き出しの内容に記事へのリンクを追加する。
+      stockWindow[n].setContent(
+        '<div class="infowindow container">' +
+        '<a href="/articles/' + stockData[n]['id'] + '">' +
+        stockData[n]['title'] +
+        '</a>' +
+        '</div>'
+      );
+      // マーカーにクリックイベントを追加
+      stockmarkerEvent(n);
+    }
   });
 
   // マーカーをクリックしたら吹き出しを表示
   function markerEvent(i) {
     marker[i].addListener('click', function () {
       infoWindow[i].open(currentmap, marker[i]);
+    });
+  }
+
+  function stockmarkerEvent(n) {
+    stockmarker[n].addListener('click', function () {
+      stockWindow[n].open(currentmap, stockmarker[n]);
     });
   }
 

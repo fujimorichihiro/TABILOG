@@ -18,9 +18,11 @@ class UsersController < ApplicationController
 
   def update #プロフィール編集
     user = User.find(params[:id])
-    user.update(user_params)
-
-    redirect_to user_path(user)
+    if user.update(user_params)
+      redirect_to user_path(user)
+    else
+      render 'edit'
+    end
   end
 
   def following #フォロー一覧
@@ -32,19 +34,20 @@ class UsersController < ApplicationController
   end
 
   def favolite #いいね記事一覧
-    @favolite_articles = Article.joins(:favolites).where(favolites: {user_id: current_user})
+    @favolite_articles = Article.joins(:favolites).where(favolites: {user_id: current_user}).page(params[:page]).per(10).reverse_order
     gon.favolites = Article.joins(:favolites).where(favolites: {user_id: current_user})
   end
 
   def stock #ストック記事一覧
-    @stock_articles = Article.joins(:stocks).where(stocks: {user_id: current_user})
+    @stock_articles = Article.joins(:stocks).where(stocks: {user_id: current_user}).page(params[:page]).per(5).reverse_order
     gon.stocks = Article.joins(:stocks).where(stocks: {user_id: current_user})
+    gon.favolites = Article.joins(:favolites).where(favolites: {user_id: current_user})
   end
 
   def timeline #タイムライン
     followings = current_user.following
     @articles = Article.where(user_id: followings) + Article.where(user_id: current_user.id) #フォロワーの投稿＋自分の投稿
-    @articles = Kaminari.paginate_array(@articles).page(params[:page]).per(20)
+    @articles = Kaminari.paginate_array(@articles).page(params[:page]).per(10).reverse
   end
 
   def gallery
@@ -52,7 +55,7 @@ class UsersController < ApplicationController
 
   def notifications #通知一覧
     @new_notifications = current_user.receive_notifications.where(checked_status: 0).reverse_order
-    @checked_notifications = current_user.receive_notifications.where(checked_status: 1).reverse_order
+    @checked_notifications = current_user.receive_notifications.where(checked_status: 1).page(params[:page]).per(10).reverse_order
     render 'notifications'
     @new_notifications.each do |notification| #viewを表示後、通知を全て確認済に更新
       notification.update(checked_status: 1)

@@ -55,6 +55,15 @@ class ArticlesController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def spot_search
+    results = Geocoder.search(params[:search])
+    latlng = results.first.coordinates
+    gon.stocks = Article.within_box(1.24274, latlng[0], latlng[1]).joins(:stocks).where(stocks: {user_id: current_user}) #周辺のストック記事取得
+    gon.articles = Article.within_box(1.24274, latlng[0], latlng[1]) - gon.stocks
+    @articles = Article.within_box(1.24274, latlng[0], latlng[1])
+    gon.spot = latlng
+  end
+
   private
   def article_params
     params.require(:article).permit(:title, :body, :article_image, :address)

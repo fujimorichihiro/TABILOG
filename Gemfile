@@ -15,16 +15,17 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
-# 追加gem------------------------------------------------------
 # ログイン機能
 gem 'devise'
-#SNS認証
+#SNS認証(google, twitter)
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
-# レイアウト
+# レイアウトなど
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+# font-awesome
+gem 'font-awesome-sass'
 
 gem 'jquery-ui-rails'
 
@@ -34,28 +35,25 @@ gem 'refile-mini_magick'
 # 緯度、経度割り出し,位置情報検索
 gem 'geocoder'
 gem 'geokit-rails'
-# 環境変数化
+# 環境変数管理
 gem 'dotenv-rails'
 # 多言語化
 gem 'rails-i18n'
 # ページング
 gem 'kaminari'
-# ダミーデータ作成
+# ダミーデータなど作成
 gem 'faker'
 
-# summernote
+# summernote（エディタ）
 gem 'summernote-rails', '~> 0.8.10.0'
 gem 'simple_form'
-
+# carrierwave + S3
 gem 'carrierwave'
 gem 'fog-aws'
-
+# javascript 変数受け渡し
 gem 'gon'
-
-
-
-#--------------------------------------------------------------
-
+# デバッグ
+gem 'pry-byebug'
 
 
 group :development, :test do
@@ -82,6 +80,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  # gem 'webdrivers'
 end
 
 group :production do

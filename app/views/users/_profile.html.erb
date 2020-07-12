@@ -25,7 +25,7 @@
     <% else %>
       <!-- DMリンク -->
       <%= link_to rooms_path(user_id: user.id), method: :post do %>
-        <div class="btn btn-danger rounded-circle"><i class="fas fa-envelope text-white"></i></div>
+        <div class="btn btn-secondary rounded-circle"><i class="fas fa-envelope text-white"></i></div>
       <% end %>
     <% end %>
   </div>
@@ -33,7 +33,10 @@
 
 <!-- 自己紹介 -->
 <div class="row mb-5">
-  <%= user.introduction %>
+  <div class="col-1"></div>
+  <div class="col-11">
+    <%= simple_format(user.introduction) %>
+  </div>
 </div>
 
 <!-- bar -->

@@ -1,2 +1,14 @@
-<h1>Admins::Users#show</h1>
-<p>Find me in app/views/admins/users/show.html.erb</p>
+<div class="row mt-5">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <h2 class="border-bottom border-secondary">会員情報</h2>
+    <p>ユーザーネーム： <%= @user.name %></p>
+    <p>メールアドレス： <%= @user.email %></p>
+    <% if @user.confirmed_at %>
+      <p>アカウント確認済み</p>
+    <% else %>
+      <p>アカウント未確認</p>
+    <% end %>
+  </div>
+  <div class="col-2"></div>
+</div>

@@ -2,8 +2,14 @@
   <div class="col-2"></div>
     <div id="map-container"></div>
 </div>
-<%= render 'layouts/search_form' %>
-<%= render 'layouts/search_spot_form'%>
+<div class="row">
+  <div class="col-6">
+    <%= render 'layouts/search_form' %>
+  </div>
+  <div class="col-6">
+    <%= render 'layouts/search_spot_form'%>
+  </div>
+</div>
 
 <div class="row mt-5 mb-2">
   <h2><%= t '.new_article' %></h2>

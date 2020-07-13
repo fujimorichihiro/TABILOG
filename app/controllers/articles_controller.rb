@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  skip_before_action :authenticate_user!, only: ["show", "index"]
+  skip_before_action :authenticate_user!, only: ["show", "index", "spot_search"]
   def new
     @article = Article.new
   end

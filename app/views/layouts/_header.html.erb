@@ -26,10 +26,6 @@
           <%= link_to admins_home_top_path do %>
             <div class="btn btn-outline-warning"><i class="fas fa-home"></i></div>
           <% end%>
-          <%= link_to admins_users_path do %>
-            <div class="btn btn-outline-warning">会員一覧</div>
-          <% end %>
-          <div class="btn btn-outline-danger">お問い合わせ</div>
           <%= link_to destroy_admin_session_path, method: :delete do %>
             <div class="btn btn-outline-warning">Log out</div>
           <% end %>
@@ -47,7 +43,9 @@
         <% end %>
       </div>
       <div class="col-1">
-        <div id="getposition" class="btn btn-outline-light"><i class="fas fa-map-marked-alt"></i></div>
+        <% if user_signed_in? %>
+          <div id="getposition" class="btn btn-outline-light"><i class="fas fa-map-marked-alt"></i></div>
+        <% end %>
       </div>
       <!-- ユーザーメニュー -->
       <div class="col-1">

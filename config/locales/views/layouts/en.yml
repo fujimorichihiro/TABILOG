@@ -15,3 +15,7 @@ en:
       tagsearch: 'Search by Tag name'
       titlesearch: 'Search by Title'
       search: 'Search'
+      tag-title: 'Tag/Title'
+    search_spot_form:
+      search: 'Search'
+      spot: 'Spot'

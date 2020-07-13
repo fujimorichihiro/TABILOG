@@ -15,3 +15,8 @@ ja:
       tagsearch: 'タグ'
       titlesearch: '記事名検索'
       search: '検索'
+      tag-title: 'タグ、記事名検索'
+    search_spot_form:
+      search: '検索'
+      spot: '場所検索'
+

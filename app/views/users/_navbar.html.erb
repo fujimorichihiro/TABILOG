@@ -10,9 +10,6 @@
       <li class="nav-item">
         <%= link_to user_path(user), class: "nav-link text-dark" do %><i class="fas fa-pen"></i>投稿 <%=user.articles.count %>件<% end %>
       </li>
-      <li class="nav-item">
-        <%= link_to gallery_user_path(user), class: "nav-link text-dark"  do %><i class="fas fa-camera"></i><% end %>
-      </li>
     </ul>
   </div>
 </nav>

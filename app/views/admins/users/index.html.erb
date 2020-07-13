@@ -8,12 +8,12 @@
     <div class="col-5 border border-light pt-3 pb-3 mb-5 bg-white">
       <div class="row">
         <div class="col-3">
-          <%= link_to admins_user_path(user) do %>
-            <%= attachment_image_tag user, :profile_image, :fill, 100, 100, class: "rounded-circle"%>
-          <% end %>
+          <%= attachment_image_tag user, :profile_image, :fill, 100, 100, class: "rounded-circle"%>
         </div>
         <div class="col-5">
-          <%= user.name %>
+          <%= link_to admins_user_path(user) do %>
+            <%= user.name %>
+          <% end %>
         </div>
         <div class="col-4">
         </div>
@@ -21,4 +21,5 @@
     </div>
     <div class="col-1 mb-5"></div>
   <% end %>
+  <%= paginate @users %>
 </div>

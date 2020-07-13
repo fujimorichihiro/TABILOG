@@ -1,3 +1,13 @@
+class ErrorAvoid
+  def initialize
+    @url = "attachments/"
+  end
+
+  def matches?(request)
+    @url.include?(request.url)
+  end
+end
+
 Rails.application.routes.draw do
 
   devise_for :users, skip: [ :session, :password, :registratioin, :confirmatioin ],
@@ -63,6 +73,10 @@ Rails.application.routes.draw do
       resources :inquiries, only: [:show, :index, :update]
     end
 #-------------------------------------------------------
-    get '*path', to: 'application#render_404'
   end
+
+  get '*path', to: 'application#render_404',
+    constraints: ErrorAvoid.new
 end
+
+

@@ -1,3 +1,4 @@
+# refileが404Errorとして拾われないようにする制限(railsガイド、ルーティング3.10)
 class ErrorAvoid
   def initialize
     @url = "attachments/"
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
     get '/:locale' => 'home#top'
     root 'home#top'
     get 'map' => 'home#map'
+    get 'home' => 'home#home'
 
     resources :users, only: [:show, :edit, :update] do
       member do

@@ -27,7 +27,7 @@
       <% end %>
     <% else %> <!-- 非会員の場合 -->
       <div class="col-6" id="favolite-<%= @article.id %>">
-        <i class="fas fa-heart text-secondary"></i><%= article.favolites.count %>
+        <i class="fas fa-heart text-secondary"></i><%= @article.favolites.count %>
       </div>
       <div class="col-6" id="stock-<%= @article.id %>">
       </div>

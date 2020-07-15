@@ -141,3 +141,11 @@ left: 0;
   width: 13px;
   height: 13px;
 }
+
+.home-image {
+  background-image: url(homeimage.png);
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}

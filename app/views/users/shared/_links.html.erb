@@ -19,9 +19,10 @@
 <% end %>
 
 <%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to omniauth_authorize_path(resource_name, provider) do %>
-      <button type="button" class="btn btn-info btn-block mt-3"><span><%= t '.sns_sign_in_en' %> <%= OmniAuth::Utils.camelize(provider) %><%= t '.sns_sign_in_ja' %></span></button>
-    <% end %>
+  <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+    <div class="btn btn-block btn-primary mt-2 mb-2"><i class="fab fa-google"></i>　Googleアカウントでログイン</div>
+  <% end %>
+  <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+    <div class="btn btn-block btn-info mt-2"><i class="fab fa-twitter"></i> Twitterアカウントでログイン</div>
   <% end %>
 <% end %>

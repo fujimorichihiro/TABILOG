@@ -12,6 +12,7 @@ class InquiriesController < ApplicationController
   	end
   	if @inquiry.save
   	  InquiryMailer.inquiry_mail(@inquiry).deliver
+      flash[:notice] = "お問い合わせを受け付けました。"
   	  redirect_to root_path
   	else
   	  render 'new'

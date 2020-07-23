@@ -47,4 +47,17 @@ RSpec.describe 'ユーザーのテスト', type: :system do
       expect(page).to have_content 'メールアドレスかパスワードが違います'
     end
   end
+  describe 'ログアウト' do
+    before do
+      user = create(:user, email: 'foo@tabilog.com')
+      visit new_user_session_path
+      fill_in 'user[email]', with: 'foo@tabilog.com'
+      fill_in 'user[password]', with: 'password'
+      click_button 'ログイン'
+    end
+    it 'ログアウトに成功する。' do
+      click_link 'ログアウト'
+      expect(page).to have_content 'ログアウトしました。'
+    end
+  end
 end

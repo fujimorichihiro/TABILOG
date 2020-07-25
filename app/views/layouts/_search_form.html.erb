@@ -6,7 +6,7 @@
   	  <%= text_field_tag :search, "", class: "form-control mb-2", id: "search-form", placeholder: "一人旅" %>
   	  <%= select_tag(:option, options_for_select([["#{t '.tagsearch'}","1"],["#{t '.titlesearch'}","2"]]), class: "form-control form-control-sm mb-2")%>
   	  <div class="d-flex flex-row-reverse">
-  	  	<%= submit_tag "#{t '.search'}", class: "btn btn-info" %>
+  	  	<%= submit_tag "#{t '.search'}", class: "btn btn-info", id: "search-button" %>
   	  </div>
   	<% end %>
   </div>

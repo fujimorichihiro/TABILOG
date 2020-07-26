@@ -24,6 +24,7 @@
           <div class="col-6" id="stock-<%= @article.id %>">
             <%= render :partial => "articles/stock", :locals => {:article => @article} %>
           </div>
+        </div>
       <% end %>
     <% else %> <!-- 非会員の場合 -->
       <div class="col-6" id="favolite-<%= @article.id %>">

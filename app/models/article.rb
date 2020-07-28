@@ -60,7 +60,7 @@ class Article < ApplicationRecord
     self.where('title LIKE ?',"%#{search}%")
   end
 # 現在地周辺の記事検索用メソッド
-   def self.within_box(distance, latitude, longitude)
+  def self.within_box(distance, latitude, longitude)
     distance = distance
     center_point = [latitude, longitude]
     box = Geocoder::Calculations.bounding_box(center_point, distance)

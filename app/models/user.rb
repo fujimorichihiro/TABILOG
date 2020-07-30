@@ -7,8 +7,8 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
-# association---------------------------------------------------------------------
-
+# アソシエーション---------------------------------------------------------------------
+  # フォロー
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
                                   dependent: :destroy
@@ -17,34 +17,36 @@ class User < ApplicationRecord
                                    dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-
+  # 記事
   has_many :articles, dependent: :destroy
-
+  # メッセージ
   has_many :messages, dependent: :destroy
-
+  # 記事へのコメント
   has_many :comments, dependent: :destroy
-
+  # いいね
   has_many :favolites, dependent: :destroy
-
+  # ストック記事
   has_many :stocks, dependent: :destroy
-
+  # 入っているルームID
   has_many :entries, dependent: :destroy
-
+  # 通知（いいね、ストック、コメント、フォロー）
   has_many :receive_notifications, class_name: "Notification",
                                    foreign_key: "receiver_id",
                                    dependent: :destroy
   has_many :send_notifications, class_name: "Notification",
                                    foreign_key: "sender_id",
                                    dependent: :destroy
-
+  # 通知（メッセージ）
   has_many :message_receives, class_name: "MessageNotification",
                                    foreign_key: "receiver_id",
                                    dependent: :destroy
   has_many :message_sends, class_name: "MessageNotification",
                                    foreign_key: "sender_id",
                                    dependent: :destroy
+
 # バリデーション
   validates :name, presence: true, length: { maximum: 20 }
+
 # SNS認証用コールバックメソッド
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

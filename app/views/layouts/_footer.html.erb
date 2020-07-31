@@ -4,12 +4,12 @@
       <div class="col-6">
       </div>
       <div class="col-3">
-        <h5>言語切替</h5>
+        <h5><%= t '.languageswitching' %></h5>
         <a href="/en">English</a>
         <a href="/ja">日本語</a>
       </div>
       <div class="col-3">
-        <%= link_to 'お問い合わせ', new_inquiry_path %></p>
+        <%= link_to "#{t '.inquiry'}", new_inquiry_path %></p>
       </div>
     </div>
   </div>

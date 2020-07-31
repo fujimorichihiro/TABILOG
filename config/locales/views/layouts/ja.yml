@@ -11,6 +11,9 @@ ja:
       login: 'ログイン'
       signup: '新規登録'
       logout: 'ログアウト'
+    footer:
+      languageswitching: '言語切替'
+      inquiry: 'お問い合わせ'
     search_form:
       tagsearch: 'タグ'
       titlesearch: '記事名検索'

@@ -48,6 +48,7 @@ class ApplicationController < ActionController::Base
 
   def render_500(exception = nil)
     if exception
+      ExceptionNotifier.notify_exception(exception, env: request.env, data: {message: 'your error message'})
       logger.info "Rendering 500 with exception: #{exception.message}"
     end
     render template: "errors/error_500", status: 500, layout: 'application'

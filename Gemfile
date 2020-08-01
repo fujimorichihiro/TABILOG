@@ -55,6 +55,9 @@ gem 'fog-aws'
 gem 'gon'
 # デバッグ
 gem 'pry-byebug'
+# 500エラーslack通知用
+gem 'exception_notification', github: 'smartinez87/exception_notification'
+gem 'slack-notifier'
 
 
 group :development, :test do

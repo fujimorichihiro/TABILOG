@@ -11,6 +11,9 @@ en:
       login: 'Log in'
       signup: 'Sign up'
       logout: 'Log Out'
+    footer:
+      languageswitching: 'Language switching'
+      inquiry: 'Inquiry'
     search_form:
       tagsearch: 'Search by Tag name'
       titlesearch: 'Search by Title'

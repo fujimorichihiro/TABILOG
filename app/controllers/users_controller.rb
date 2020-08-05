@@ -54,10 +54,9 @@ class UsersController < ApplicationController
   end
 
   def notifications #通知一覧
-    @new_notifications = current_user.receive_notifications.where(checked_status: 0).reverse_order
-    @checked_notifications = current_user.receive_notifications.where(checked_status: 1).page(params[:page]).per(10).reverse_order
-    render 'notifications'
-    @new_notifications.each do |notification| #viewを表示後、通知を全て確認済に更新
+    @notifications = current_user.receive_notifications.page(params[:page]).per(10).reverse_order
+    render 'notification2'
+    @notifications.each do |notification| #viewを表示後、通知を全て確認済に更新
       notification.update(checked_status: 1)
     end
   end

@@ -60,4 +60,23 @@ RSpec.describe 'ユーザーのテスト', type: :system do
       expect(page).to have_content 'ログアウトしました。'
     end
   end
+  describe 'プロフィール編集' do
+    before do
+      visit new_user_session_path
+      user = create(:user, email: 'foo@tabilog.com')
+      fill_in 'user[email]', with: 'foo@tabilog.com'
+      fill_in 'user[password]', with: 'password'
+      click_button 'ログイン'
+
+      visit edit_user_path
+    end
+    it 'ユーザーネームの変更に成功する' do
+      fill_in 'user[name]', with: '旅ログ太郎'
+      click_link '更新'
+
+      expect(page).to have_content '旅ログ太郎'
+    end
+    it '自己紹介の編集に成功する。' do
+    end
+  end
 end

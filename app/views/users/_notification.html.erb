@@ -1,0 +1,20 @@
+<% if notification.checked_status == '未確認' %>
+  <div class="row border-bottom border-lite bg-warning pt-2 pb-2 notification">
+<% else %><!-- チェック済み -->
+  <div class="row border-bottom border-lite bg-lite pt-2 pb-2 notification">
+ <% end %>
+    <div class="col-1 pt-2">
+      <%= attachment_image_tag notification.sender, :profile_image, :fill, 60, 60, class: "rounded-circle"%>
+    </div>
+    <div class="col-8 pt-2">
+      <% if notification.notification_type == "いいね" %>
+        <p class="text-secondary">@<%= notification.sender.name %>さんが<%= notification.article.title %>をいいねしました。</p>
+      <%elsif notification.notification_type == "コメント" %>
+        <p class="text-secondary">@<%= notification.sender.name %>さんが<%= notification.article.title %>にコメントしました。</p>
+      <% elsif notification.notification_type == "フォロー" %>
+        <p class="text-secondary">@<%= notification.sender.name %>さんがあなたをフォローしました。</p>
+      <% else %>
+        <p class="text-secondary">@<%= notification.sender.name %>さんが<%= notification.article.title %>をストックしました。</p>
+      <% end %>
+    </div>
+  </div>

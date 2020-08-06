@@ -17,6 +17,8 @@
 //= require bootstrap-sprockets
 //= require map
 //= require header
+//= require infinite-scroll.pkgd.min
+//= require infinite-scroll
 //= require summernote/summernote-bs4.min
 //= require summernote-init
 //= require tag-it
@@ -144,3 +146,4 @@ $(document).ready(function(){
                 }
             });
         });
+

@@ -1,10 +1,10 @@
 <!-- いいねボタン -->
 <% if article.favolited_by?(current_user) %>
-  <%= link_to article_favolites_path(article), method: :delete, remote: true do %>
+  <%= link_to article_favolites_path(article), id: "unfollow", method: :delete, remote: true do %>
     <i class="fas fa-heart text-danger"></i>
   <% end %>
 <% else %>
-  <%= link_to article_favolites_path(article), method: :post, remote: true do %>
+  <%= link_to article_favolites_path(article), id: "follow", method: :post, remote: true do %>
     <i class="fas fa-heart text-secondary"></i>
   <% end %>
 <% end %>

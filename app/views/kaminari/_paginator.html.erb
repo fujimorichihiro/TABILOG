@@ -1,5 +1,9 @@
 <%= paginator.render do %>
-  <nav>
+  <% if current_page?(notifications_user_path(current_user)) %>
+    <nav class="d-none">
+  <% else %>
+    <nav>
+  <% end %>
     <ul class="pagination">
       <%= first_page_tag unless current_page.first? %>
       <%= prev_page_tag unless current_page.first? %>

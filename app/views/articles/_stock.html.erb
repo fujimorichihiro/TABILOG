@@ -1,10 +1,10 @@
 <!-- ストックボタン　テンプレート -->
 <% if article.stocked_by?(current_user) %>
-  <%= link_to article_stocks_path(article), method: :delete, remote: true do %>
+  <%= link_to article_stocks_path(article), id: "unstock", method: :delete, remote: true do %>
     <i class="fas fa-bookmark text-danger"></i>
   <% end %>
 <% else %>
-  <%= link_to article_stocks_path(article), method: :post, remote: true do %>
+  <%= link_to article_stocks_path(article), id: "stock", method: :post, remote: true do %>
     <i class="fas fa-bookmark text-secondary"></i>
   <% end %>
 <% end %>

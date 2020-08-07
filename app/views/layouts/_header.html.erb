@@ -53,7 +53,7 @@
         <div class="dropdown">
             <button class="btn btn-dark dropdown-toggle position-relative" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <% if current_user.receive_notifications.not_checked_number != 0 || current_user.unchecked_messages_count != 0 %>
-                <div class="notification-circle rounded-circle"></div>
+                <div class="notification-circle rounded-circle" id="notification-circle" ></div>
               <% end %>
               <%= attachment_image_tag current_user, :profile_image, :fill, 25, 25, class: "rounded-circle" %>
             </button>

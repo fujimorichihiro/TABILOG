@@ -68,15 +68,19 @@ RSpec.describe 'ユーザーのテスト', type: :system do
       fill_in 'user[password]', with: 'password'
       click_button 'ログイン'
 
-      visit edit_user_path
+      visit edit_user_path(id: user.id)
     end
     it 'ユーザーネームの変更に成功する' do
       fill_in 'user[name]', with: '旅ログ太郎'
-      click_link '更新'
+      click_button '更新する'
 
       expect(page).to have_content '旅ログ太郎'
     end
     it '自己紹介の編集に成功する。' do
+      fill_in 'user[introduction]', with: '旅ログ太郎です'
+      click_button '更新する'
+
+      expect(page).to have_content '旅ログ太郎です'
     end
   end
 end

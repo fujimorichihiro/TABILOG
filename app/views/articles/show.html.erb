@@ -13,7 +13,7 @@
         <%= link_to edit_article_path, id: "edit" do %>
           <div class="btn btn-success"><%= t '.edit' %></div>
         <% end %>
-        <%= link_to article_path(@article), id: "delete", method: :delete do %>
+        <%= link_to article_path(@article), id: "delete", method: :delete, data: {confirm: "削除しますか？"}  do %>
           <div class="btn btn-danger"><%= t '.delete' %></div>
         <% end %>
       <% else %>　<!-- 投稿者以外のユーザーの場合 -->

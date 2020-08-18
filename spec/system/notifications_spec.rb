@@ -35,8 +35,9 @@ RSpec.describe '通知テスト', type: :system do
     end
     it 'コメントした時、通知が作成される' do
       visit article_path(id: 1)
-      fill_in 'comment[body]', with: "コメントテスト"
-      click_button('コメントする')
+      find_by_id('comment_body')
+      fill_in 'comment_body', with: 'コメントテスト'
+      click_button 'コメントする'
       click_link 'ログアウト'
       visit new_user_session_path
       fill_in 'user[email]', with: user2.email

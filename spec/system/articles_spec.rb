@@ -31,15 +31,12 @@ RSpec.describe '投稿のテスト', type: :system do
       visit article_path(id: 1)
     end
     it 'タイトルの表示' do
-
       expect(page).to have_content '東京'
     end
     it '本文の表示' do
-
       expect(page).to have_content '本文'
     end
     it '位置情報の表示' do
-
       expect(page).to have_content '東京タワー'
     end
     it '記事の削除' do

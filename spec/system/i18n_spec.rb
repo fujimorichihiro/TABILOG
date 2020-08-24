@@ -2,6 +2,24 @@ require 'rails_helper'
 
 RSpec.describe '翻訳のテスト', type: :system do
   let!(:user) { create(:user) }
+  descrice '言語の切り替え' do
+    before do
+      visit root_path
+    end
+    it 'デフォルトが日本語' do
+      expect(page).to have_content '場所検索'
+    end
+    it '日本語 >> 英語' do
+      click_link 'English'
+      expect(page).to have_content 'Spot'
+    end
+    it '日本語 >> 英語' do
+      click_link 'English'
+      click_link '日本語'
+
+      expect(page).to have_content '場所検索'
+    end
+  end
   describe '非ログイン(日本語)' do
     it 'トップページ' do
       visit root_path

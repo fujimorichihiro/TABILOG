@@ -5,3 +5,5 @@ ja:
       introduction: '自己紹介'
       edit: '更新する'
       profileimage: 'プロフィール画像'
+    notifications:
+      notification: '通知'

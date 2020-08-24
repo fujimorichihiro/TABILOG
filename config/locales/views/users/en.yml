@@ -5,3 +5,5 @@ en:
       introduction: 'Introduction'
       edit: 'Edit'
       profileimage: 'Profile Image'
+    notifications:
+      notification: 'Notifications'

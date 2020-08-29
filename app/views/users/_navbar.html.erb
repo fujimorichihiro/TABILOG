@@ -8,7 +8,7 @@
         <%= link_to follower_user_path(user), class: "nav-link text-dark"  do %><%= user.followers.count %> follower<% end %>
       </li>
       <li class="nav-item">
-        <%= link_to user_path(user), class: "nav-link text-dark" do %><i class="fas fa-pen"></i>投稿 <%=user.articles.count %>件<% end %>
+        <%= link_to user_path(user), class: "nav-link text-dark" do %><i class="fas fa-pen"></i><%= t '.post'%> <%=user.articles.count %>件<% end %>
       </li>
     </ul>
   </div>

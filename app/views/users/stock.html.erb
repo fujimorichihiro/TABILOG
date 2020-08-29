@@ -4,7 +4,7 @@
     <div id="stock-map"></div>
   </div>
   <div class="col-lg-6 col-md-12">
-    <h3 class="mt-2 border-bottom border-secondary">あなたのストック記事</h3>
+    <h3 class="mt-2 border-bottom border-secondary"><%= t '.stocked_articles'%></h3>
     <% @stock_articles.each do |article| %>
       <%= render :partial => "users/articles", :locals => {:article => article} %>
     <% end %>

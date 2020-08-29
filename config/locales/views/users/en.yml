@@ -7,3 +7,9 @@ en:
       profileimage: 'Profile Image'
     notifications:
       notification: 'Notifications'
+    favolite:
+      favolite_articles: 'Your Favolite Articles'
+    stock:
+      stocked_articles: 'Stocked Articles by you'
+    navbar:
+      post: 'post'

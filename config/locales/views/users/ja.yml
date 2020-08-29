@@ -7,3 +7,9 @@ ja:
       profileimage: 'プロフィール画像'
     notifications:
       notification: '通知'
+    favolite:
+      favolite_article: 'お気に入り記事'
+    stock:
+      stoked_articles: 'ストックした記事'
+    navbar:
+      post: '投稿'

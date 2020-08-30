@@ -3,7 +3,7 @@
   <div class="col-6">
   	<%= form_tag(articles_path, :method => 'get' ) do %>
       <label><%= t '.tag-title'%></label>
-  	  <%= text_field_tag :search, "", class: "form-control mb-2", id: "search-form", placeholder: "一人旅" %>
+  	  <%= text_field_tag :search, "", class: "form-control mb-2", id: "search-form", placeholder: "#{t '.travelling_alone'}" %>
   	  <%= select_tag(:option, options_for_select([["#{t '.tagsearch'}","1"],["#{t '.titlesearch'}","2"]]), class: "form-control form-control-sm mb-2")%>
   	  <div class="d-flex flex-row-reverse">
   	  	<%= submit_tag "#{t '.search'}", class: "btn btn-info", id: "search-button" %>

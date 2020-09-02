@@ -19,6 +19,8 @@ en:
       titlesearch: 'Search by Title'
       search: 'Search'
       tag-title: 'Tag/Title'
+      travelling_alone: 'Travelling_alone'
     search_spot_form:
       search: 'Search'
       spot: 'Spot'
+      spot_or_address: 'Spot or Address'

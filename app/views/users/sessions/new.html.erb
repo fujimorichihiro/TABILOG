@@ -9,22 +9,22 @@
 
       <div class="field">
         <%= f.label :email, "#{t '.email'}" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-2", placeholder: "テストユーザー：foo@tabilog.com" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-4", placeholder: "テストユーザー：foo@tabilog.com" %>
       </div>
 
       <div class="field">
         <%= f.label :password, "#{t '.password'}" %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control mb-2", placeholder: "テストユーザー：password"  %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control mb-4", placeholder: "テストユーザー：password"  %>
       </div>
 
       <% if devise_mapping.rememberable? %>
-        <div class="field">
+        <div class="field mb-2">
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me, "#{t '.remember'}" %>
         </div>
       <% end %>
 
-      <div class="actions">
+      <div class="actions mb-3">
         <%= f.submit "#{t '.login'}", class: "form-control btn btn-success"%>
       </div>
     <% end %>

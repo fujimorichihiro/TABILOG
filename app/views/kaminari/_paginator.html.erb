@@ -1,6 +1,10 @@
 <%= paginator.render do %>
-  <% if current_page?(notifications_user_path(current_user)) %>
-    <nav class="d-none">
+  <% if user_signed_in? %>
+    <% if current_page?(notifications_user_path(current_user)) %>
+      <nav class="d-none">
+    <% else %>
+      <nav>
+    <% end %>
   <% else %>
     <nav>
   <% end %>

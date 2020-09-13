@@ -8,7 +8,7 @@
     <div class="col-5 border border-light pt-3 pb-3 mb-5 bg-white">
       <div class="row">
         <div class="col-3">
-          <%= attachment_image_tag user, :profile_image, :fill, 100, 100, class: "rounded-circle"%>
+          <%= attachment_image_tag user, :profile_image, :fill, 100, 100, class: "rounded-circle", fallback: "no_image.png", size: '100*100' %>
         </div>
         <div class="col-5">
           <%= link_to admins_user_path(user) do %>

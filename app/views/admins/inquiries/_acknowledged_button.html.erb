@@ -1,0 +1,10 @@
+<!-- お問い合わせステータス変更ボタン -->
+<%= form_with model: inquiry, url: admins_inquiry_path do |f| %>
+  <% if inquiry.status == "対応済み"%>
+    <%= f.hidden_field :status, :value => "未対応" %>
+    <%= f.submit "未対応に戻す", class: "btn btn-danger" %>
+  <% else %>
+    <%= f.hidden_field :status, :value => "対応済み" %>
+    <%= f.submit "対応を完了する", class: "btn btn-danger" %>
+  <% end %>
+<% end %>

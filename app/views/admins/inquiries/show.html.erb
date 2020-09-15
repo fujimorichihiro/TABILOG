@@ -1,6 +1,7 @@
 <div class="row mt-5">
   <div class="col-1"></div>
   <div class="col-10">
+    <!-- テンプレート化 -->
     <h2 class="mb-5">
       お問い合わせ内容
       <% if @inquiry.status == "対応済み"%>
@@ -10,15 +11,8 @@
     <p>件名：<%= @inquiry.title %></p>
     <p>内容:</p>
     <p><%= simple_format(@inquiry.body) %></p>
-    <%= form_with model: @inquiry, url: admins_inquiry_path do |f| %>
-      <% if @inquiry.status == "対応済み"%>
-        <%= f.hidden_field :status, :value => "未対応" %>
-        <%= f.submit "未対応に戻す", class: "btn btn-danger" %>
-      <% else %>
-        <%= f.hidden_field :status, :value => "対応済み" %>
-        <%= f.submit "対応を完了する", class: "btn btn-danger" %>
-      <% end %>
-    <% end %>
+    <!-- テンプレート化 -->
+    <%= render :partial => "inquiries/acknowledged_button", :locals => {:inquiry => @inquiry} %>
   </div>
   <div class="col-1"></div>
 </div>

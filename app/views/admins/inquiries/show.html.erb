@@ -1,18 +1,17 @@
 <div class="row mt-5">
   <div class="col-1"></div>
   <div class="col-10">
-    <!-- テンプレート化 -->
-    <h2 class="mb-5">
-      お問い合わせ内容
-      <% if @inquiry.status == "対応済み"%>
-        <span class="badge badge-success">対応済み</span>
-      <% end %>
-    </h2>
-    <p>件名：<%= @inquiry.title %></p>
+    <h2 class="mb-5">お問い合わせ内容</h2>
+    <p>メールアドレス：<%= @inquiry.email %></p>
+    <div id="inquiry-title">
+      <%= render :partial => "inquiry_title", :locals => {:inquiry => @inquiry}%>
+    </div>
     <p>内容:</p>
     <p><%= simple_format(@inquiry.body) %></p>
-    <!-- テンプレート化 -->
-    <%= render :partial => "inquiries/acknowledged_button", :locals => {:inquiry => @inquiry} %>
+    <!-- 対応ステータス変更ボタン -->
+    <div id="status-button">
+      <%= render :partial => "acknowledged_button", :locals => {:inquiry => @inquiry} %>
+    </div>
   </div>
   <div class="col-1"></div>
 </div>

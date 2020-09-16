@@ -1,0 +1,6 @@
+<p>
+  件名：<%= @inquiry.title %>
+  <% if @inquiry.status == "対応済み"%>
+    <span class="badge badge-success">対応済み</span>
+  <% end %>
+</p>

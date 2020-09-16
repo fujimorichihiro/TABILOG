@@ -12,7 +12,7 @@ class Admins::InquiriesController < ApplicationController
   def update
     @inquiry = Inquiry.find(params[:id])
     @inquiry.update(inquiry_params)
-    redirect_to admins_inquiries_path
+    render 'admins/inquiries/acknowledged'
   end
 
   private

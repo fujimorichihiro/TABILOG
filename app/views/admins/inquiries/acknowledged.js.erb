@@ -1,2 +1,2 @@
-$("<%= @id_name1 %>").html('<%= j(render :partial => 'admins/inquiries/inquiry_status', :locals => {:inquiry => @inquiry}) %>')
-$("<%= @id_name2 %>").html('<%= j(render :partial => 'admins/inquiries/acknowledged_button', :locals => {:inquiry => @inquiry}) %>')
+$("#inquiry-title").html('<%= j(render :partial => 'admins/inquiries/inquiry_title', :locals => {:inquiry => @inquiry}) %>')
+$("#status-button").html('<%= j(render :partial => 'admins/inquiries/acknowledged_button', :locals => {:inquiry => @inquiry}) %>')

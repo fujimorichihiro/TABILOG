@@ -2,7 +2,10 @@
 <div class="mt-5">
   <div class="col-1"></div>
   <div class="col-10">
-  	<table class="table">
+    <%= link_to "未対応", admins_inquiries_path(search_number: 0) %>
+    <%= link_to "対応済み", admins_inquiries_path(search_number: 1) %>
+    <%= link_to "全件", admins_inquiries_path %>
+  	<table class="table table-hover">
   	  <thead>
       <th>お問い合わせ日時</th>
   		<th>問合わせ内容</th>

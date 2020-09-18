@@ -1,13 +1,14 @@
 <div class="row mt-5">
   <div class="col-2"></div>
   <div class="col-8">
-    <h2 class="border-bottom border-secondary">会員情報</h2>
+    <h2 class="border-bottom border-secondary mb-4">会員情報</h2>
     <p>ユーザーネーム： <%= @user.name %></p>
     <p>メールアドレス： <%= @user.email %></p>
+    <p>会員作成日：<%= @user.created_at.to_s(:datetime_jp) %></p>
     <% if @user.confirmed_at %>
-      <p>アカウント確認済み</p>
+      <p class="text-success">アカウント確認済み</p>
     <% else %>
-      <p>アカウント未確認</p>
+      <p class="text-danger">アカウント未確認</p>
     <% end %>
   </div>
   <div class="col-2"></div>

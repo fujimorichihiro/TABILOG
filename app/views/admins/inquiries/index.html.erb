@@ -2,9 +2,8 @@
 <div class="mt-5">
   <div class="col-1"></div>
   <div class="col-10">
-    <%= link_to "未対応", admins_inquiries_path(search_number: 0) %>
-    <%= link_to "対応済み", admins_inquiries_path(search_number: 1) %>
-    <%= link_to "全件", admins_inquiries_path %>
+    <!-- 絞り込みリンク -->
+    <p>フィルター：<%= render :partial => "search_link", :locals => {:search_number => @search_number}%></p>
   	<table class="table table-hover">
   	  <thead>
       <th>お問い合わせ日時</th>

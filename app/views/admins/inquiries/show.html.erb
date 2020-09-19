@@ -6,8 +6,12 @@
     <div id="inquiry-title">
       <%= render :partial => "inquiry_title", :locals => {:inquiry => @inquiry}%>
     </div>
-    <p>内容:</p>
+    <p>内容：</p>
     <p><%= simple_format(@inquiry.body) %></p>
+    <p>お問い合わせ日時：<%= @inquiry.created_at.to_s(:datetime_jp)%></p>
+    <% if @inquiry.status == "対応済み" %>
+      <p>対応完了日時：<span class="text-success"><%= @inquiry.updated_at.to_s(:datetime_jp)%></span></p>
+    <% end %>
     <!-- 対応ステータス変更ボタン -->
     <div id="status-button">
       <%= render :partial => "acknowledged_button", :locals => {:inquiry => @inquiry} %>

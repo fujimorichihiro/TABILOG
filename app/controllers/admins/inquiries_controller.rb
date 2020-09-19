@@ -6,7 +6,8 @@ class Admins::InquiriesController < ApplicationController
   end
 
   def index
-    if params[:search_number] ##未対応 or 対応済のみ表示
+    @search_number = params[:search_number]
+    if @search_number ##未対応 or 対応済のみ表示
       @inquiries = Inquiry.where(status: params[:search_number]).page(params[:page]).per(10).reverse_order
     else #全件表示
   	  @inquiries = Inquiry.page(params[:page]).per(10).reverse_order

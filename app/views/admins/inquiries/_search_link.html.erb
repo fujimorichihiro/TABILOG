@@ -1,0 +1,15 @@
+<% if search_number == "0" %>
+  <span class="text-info">未対応</span>
+<% else %>
+  <%= link_to "未対応", admins_inquiries_path(search_number: 0), class: "text-dark" %>
+<% end %>
+<% if search_number == "1" %>
+  <span class="text-info">対応済み</span>
+<% else %>
+  <%= link_to "対応済み", admins_inquiries_path(search_number: 1), class: "text-dark" %>
+<% end %>
+<% if search_number == nil %>
+  <span class="text-info">全件</span>
+<% else %>
+  <%= link_to "全件", admins_inquiries_path, class: "text-dark" %>
+<% end %>

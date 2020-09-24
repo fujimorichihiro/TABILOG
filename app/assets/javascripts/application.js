@@ -17,6 +17,8 @@
 //= require bootstrap-sprockets
 //= require map
 //= require header
+//= require chartkick
+//= require Chart.bundle
 //= require infinite-scroll.pkgd.min
 //= require infinite-scroll
 //= require summernote/summernote-bs4.min

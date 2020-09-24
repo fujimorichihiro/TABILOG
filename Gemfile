@@ -48,6 +48,9 @@ gem 'faker'
 # summernote（エディタ）
 gem 'summernote-rails', '~> 0.8.10.0'
 gem 'simple_form'
+# グラフ描画
+gem 'chartkick'
+gem 'groupdate'
 # carrierwave + S3
 gem 'carrierwave'
 gem 'fog-aws'

@@ -39,9 +39,13 @@ class UsersController < ApplicationController
   end
 
   def stock #ストック記事一覧
-    @stock_articles = Article.joins(:stocks).where(stocks: {user_id: current_user}).page(params[:page]).per(5).reverse_order
-    gon.stocks = Article.joins(:stocks).where(stocks: {user_id: current_user})
-    gon.favolites = Article.joins(:favolites).where(favolites: {user_id: current_user})
+    search_word = params[:search]
+    if search_word
+      @stock_articles = Article.joins(:stocks).where(stocks: {user_id: current_user}).where("title LIKE?", "%#{search_word}%").page(params[:page]).per(5).reverse_order
+    else
+      @stock_articles = Article.joins(:stocks).where(stocks: {user_id: current_user}).page(params[:page]).per(5).reverse_order
+    end
+    gon.stocks = @stock_articles
   end
 
   def timeline #タイムライン

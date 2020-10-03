@@ -3,6 +3,7 @@
     <h2 class="text-left border-bottom border-lights">会員一覧</h2>
   </div>
 </div>
+<%= line_chart User.group_by_day(:created_at).count %>
 <div class="row pt-2 pb-2">
   <% @users.each do |user| %>
     <div class="col-5 border border-light pt-3 pb-3 mb-5 bg-white">

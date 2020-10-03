@@ -5,6 +5,7 @@
   </div>
   <div class="col-lg-6 col-md-12">
     <h3 class="mt-2 border-bottom border-secondary"><%= t '.stocked_articles'%></h3>
+    <span>ストック記事内検索：</span>
     <%= form_tag(stock_user_path,:method => 'get') do %>
       <%= text_field_tag :search %>
       <%= submit_tag 'Search', :name => nil, :class => "btn btn-outline-info"%>

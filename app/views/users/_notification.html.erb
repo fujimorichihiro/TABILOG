@@ -1,3 +1,4 @@
+<!-- 通知一覧画面/通知内容のテンプレート -->
 <% if notification.checked_status == '未確認' %>
   <div class="row border border-warning bg-light rounded bg-lite mt-1 notification">
 <% else %><!-- チェック済み -->
@@ -12,7 +13,7 @@
         <% if notification.notification_type == "いいね" %>
           <%= notification.article.title %>をいいねしました。
         <%elsif notification.notification_type == "コメント" %>
-          <%= notification.article.title %>にコメントしました。
+          <%= link_to article_path(notification.article), class: "text-info" do %><%= notification.article.title %><% end %>にコメントしました。
         <% elsif notification.notification_type == "フォロー" %>
           あなたをフォローしました。
         <% else %>

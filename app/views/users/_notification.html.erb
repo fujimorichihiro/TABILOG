@@ -1,20 +1,25 @@
+<!-- 通知一覧画面/通知内容のテンプレート -->
 <% if notification.checked_status == '未確認' %>
-  <div class="row border-bottom border-warning bg-lite mt-2 pb-2 notification">
+  <div class="row border border-warning bg-light rounded bg-lite mt-1 notification">
 <% else %><!-- チェック済み -->
-  <div class="row border-bottom border-lite bg-lite mt-2 pb-2 notification">
+  <div class="row border border-secondary bg-light rounded mt-1 notification">
  <% end %>
     <div class="col-2 pt-2 pr-2">
       <%= attachment_image_tag notification.sender, :profile_image, :fill, 60, 60, class: "rounded-circle"%>
     </div>
-    <div class="col-8 pt-2">
-      <% if notification.notification_type == "いいね" %>
-        <p class="text-secondary pt-2">@<%= notification.sender.name %>さんが<%= notification.article.title %>をいいねしました。</p>
-      <%elsif notification.notification_type == "コメント" %>
-        <p class="text-secondary pt-2">@<%= notification.sender.name %>さんが<%= notification.article.title %>にコメントしました。</p>
-      <% elsif notification.notification_type == "フォロー" %>
-        <p class="text-secondary pt-2">@<%= notification.sender.name %>さんがあなたをフォローしました。</p>
-      <% else %>
-        <p class="text-secondary pt-2">@<%= notification.sender.name %>さんが<%= notification.article.title %>をストックしました。</p>
-      <% end %>
+    <div class="col-9 pt-2">
+      <p class="text-secondary pt-2">
+        <%= link_to user_path(notification.sender), class: "text-info" do %>@<%= notification.sender.name %>さん<% end %>が
+        <% if notification.notification_type == "いいね" %>
+          <%= notification.article.title %>をいいねしました。
+        <%elsif notification.notification_type == "コメント" %>
+          <%= link_to article_path(notification.article), class: "text-info" do %><%= notification.article.title %><% end %>にコメントしました。
+        <% elsif notification.notification_type == "フォロー" %>
+          あなたをフォローしました。
+        <% else %>
+          <%= notification.article.title %>をストックしました。
+        <% end %>
+      </p>
+      <p class="text-right"><%= notification.created_at.to_s(:datetime_jp)%></p>
     </div>
   </div>

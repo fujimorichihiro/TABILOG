@@ -1,15 +1,13 @@
-<%= render :partial => "users/profile", :locals => {:user => current_user} %>
-
-<div class="row mt-5">
-  <div class="col-6">
-    <div id="current-map"></div>
+  <div class="row">
+    <div class="col-7">
+      <div id="current-map"></div>
+    </div>
+    <div class="col-5">
+      <% @articles.each do |article| %>
+        <%= render :partial => "users/articles", :locals => {:article => article} %>
+      <% end %>
+    </div>
   </div>
-  <div class="col-6">
-    <% @articles.each do |article| %>
-      <%= render :partial => "users/articles", :locals => {:article => article} %>
-    <% end %>
-  </div>
-</div>
 
 <script>
   let currentmap

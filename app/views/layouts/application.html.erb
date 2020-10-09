@@ -13,10 +13,14 @@
   <body>
     <div class="wrap position-relative">
       <%= render 'layouts/header' %>
-      <div class="container">
-        <%= render 'layouts/flashes' %>
-        <%= yield %>
-      </div>
+      <% if params[:controller] == 'home' && params[:action] == 'map'  %>
+        <div class="container-fluid">
+      <% else %>
+        <div class="container">
+      <% end %>
+          <%= render 'layouts/flashes' %>
+          <%= yield %>
+        </div>
       <%= render 'layouts/footer'%>
       <%= render 'layouts/loading'%>
     </div>

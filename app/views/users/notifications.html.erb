@@ -9,9 +9,9 @@
   <div class="col-3">
     <div class="border border-secondary bg-light p-3">
       <h4>analyze</h4>
-      <p>いいね：　件</p>
-      <p>コメント：　件</p>
-      <p>ストック：　件</p>
+      <p>いいね： <%= @notifications.where(notification_type: "いいね").count %>件</p>
+      <p>コメント： <%= @notifications.where(notification_type: "コメント").count %>件</p>
+      <p>ストック： <%= @notifications.where(notification_type: "ストック").count %>件</p>
     </div>
   </div>
   <div class="col-8" id="notifications">

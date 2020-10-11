@@ -11,4 +11,9 @@ class Notification < ApplicationRecord
   def self.not_checked_number
   	self.where(checked_status: 0).count
   end
+
+  #通知を種類別にカウント
+  def self.number(type)
+    self.where(notification_type: type).count
+  end
 end

@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     @comment = Comment.new
   end
 
-  def map
+  def map ##現在値周辺の記事取得
     latitude = params[:latitude].to_f #javascriptから現在地データ受け取り
     longitude = params[:longitude].to_f #javascriptから現在地データ受け取り
     articles = Article.within_box(6.21371, latitude, longitude).joins(:stocks).where(stocks: {user_id: current_user}) #周辺のストック記事取得
@@ -15,5 +15,4 @@ class HomeController < ApplicationController
     gon.latlng = [latitude, longitude] # Mapに現在地受け渡し
     @articles = Article.within_box(6.21371, latitude, longitude) #6.21371マイル = 10km
   end
-
 end

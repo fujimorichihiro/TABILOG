@@ -76,10 +76,10 @@
                   <% unless current_user = article.user %>
                     <%= render :partial => "articles/favolite", :locals => {:article => article} %>
                   <% else %>
-                    <i class="fas fa-heart text-secondary"></i><%= article.favolites.count %>
+                    <i class="fas fa-heart text-secondary"></i> <%= article.favolites.count %>
                   <% end %>
                 <% else %>
-                  <i class="fas fa-heart text-secondary"></i><%= article.favolites.count %>
+                  <i class="fas fa-heart text-secondary"></i> <%= article.favolites.count %>
                 <% end %>
               </div>
           </div>

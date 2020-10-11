@@ -1,18 +1,25 @@
 <div class="row mt-5">
-  <div class="col-2"></div>
+  <div class="col-3"></div>
   <div class="col-8">
     <h2 class="border-bottom border-secondary"><%= t '.notification' %></h2>
   </div>
 </div>
 <!-- 通知一覧 -->
 <div class="row">
-  <div class="col-2"></div>
+  <div class="col-3">
+    <div class="border border-secondary bg-light p-3">
+      <h4>analyze</h4>
+      <p>いいね：　件</p>
+      <p>コメント：　件</p>
+      <p>ストック：　件</p>
+    </div>
+  </div>
   <div class="col-8" id="notifications">
     <% @notifications.each do |notification| %>
       <%= render :partial => "users/notification", :locals => {:notification => notification} %>
     <% end %>
-    </div>
-  <div class="col-2"></div>
+  </div>
+  <div class="col-1"></div>
 </div>
 <div class="row mt-3">
   <div class="col-5"></div>

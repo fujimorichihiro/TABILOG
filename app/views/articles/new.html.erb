@@ -9,7 +9,7 @@
       </div>
     <!-- タグ入力フォーム by tag-it -->
       <div class="tag-form-field">
-        <%= f.label "#{t '.tag'}" %>
+        <span><i class="fas fa-tags text-info"></i> </span><%= f.label "#{t '.tag'}" , class: "text-secondary" %>
         <ul id="tag-form">
         </ul>
       </div>
@@ -22,10 +22,10 @@
         <%= f.text_field :address, class: "form-control", placeholder: "#{t '.location-text'}" %>
       </div>
       <div class="form-group">
-        <p class="text-secondary"><%= t '.image' %></p>
+        <p class="text-secondary"><i class="fas fa-image text-info"></i> <%= t '.image' %></p>
         <%= f.attachment_field :article_image %>
       </div>
-      <%= f.submit "#{t '.post'}", class: "btn btn-secondary btn-block" %>
+      <%= f.submit "#{t '.post'}", class: "btn btn-info btn-block" %>
     <% end %>
   </div>
   <div class="col-1"></div>

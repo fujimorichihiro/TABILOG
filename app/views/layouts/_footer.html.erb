@@ -1,20 +1,24 @@
-<footer class="bg-light mt-5 p-5 border-top border-light">
+<footer class="bg-secondary mt-5 pt-5 border-top border-light">
   <div class="container">
     <div class="row">
       <div class="col-3">
+        <h4 class="text-light">TABILOG</h4>
+        <div class="tabilog-logo"></div>
       </div>
       <div class="col-3">
-        <h5 class="text-secondary border-bottom border-dark">- ヘルプ</h5>
       </div>
       <div class="col-3">
-        <h5 class="text-secondary border-bottom border-dark">- <%= t '.languageswitching' %></h5>
-        <a href="/en" class="text-info">English</a> |
-        <a href="/ja" class="text-info">日本語</a>
+        <h5 class="text-light border-bottom border-light">- <%= t '.languageswitching' %></h5>
+        <a href="/en" class="text-dark">English</a> <span class="text-light">|</span>
+        <a href="/ja" class="text-dark">日本語</a>
       </div>
       <div class="col-3">
-        <h5 class="text-secondary border-bottom border-dark">- 情報</h5>
-        <%= link_to "#{t '.inquiry'}", new_inquiry_path, class: "text-info" %></p>
+        <h5 class="text-light border-bottom border-light">- 情報</h5>
+        <%= link_to "#{t '.inquiry'}", new_inquiry_path, class: "text-dark" %></p>
       </div>
+    </div>
+    <div class="row">
+      <p class="text-light mt-2">©︎ 2020 Chihiro Fujimori</p>
     </div>
   </div>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap"></script>

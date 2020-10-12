@@ -9,4 +9,14 @@ class Inquiry < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 20 }
   validates :body, presence: true, length: { maximum: 300 }
+
+  # 未対応の問い合わせカウント
+  def self.count_by_status(number)
+    self.where(status: number).count
+  end
+
+  ##その日の問い合わせ件数
+  def self.count_per_day
+    self.where(created_at: Time.zone.today.beginning_of_day..Time.zone.now).count
+  end
 end

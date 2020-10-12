@@ -3,6 +3,8 @@
   <div class="col-1"></div>
   <div class="col-10">
     <!-- 絞り込みリンク -->
+    <p>未対応件数：<%= @inquiries.count_by_status(0) %></p>
+    <p>本日の問い合わせ件数：<%= @inquiries.count_per_day %></p>
     <p>フィルター：<%= render :partial => "search_link", :locals => {:search_number => @search_number}%></p>
   	<table class="table table-hover">
   	  <thead>
@@ -15,7 +17,7 @@
   	      <tr>
             <td><%= inquiry.created_at.to_s(:datetime_jp)%></td>
   	        <td>
-              <%= link_to admins_inquiry_path(inquiry) do %>
+              <%= link_to admins_inquiry_path(inquiry), class: "text-info" do %>
                 <%= inquiry.title %>
               <% end %>
             </td>

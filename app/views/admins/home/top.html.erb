@@ -2,7 +2,7 @@
   <div class="col-4"></div>
   <div class="col-4">
     <%= link_to admins_users_path do %>
-      <div class="btn btn-secondary btn-lg btn-block">会員管理</div>
+      <div class="btn btn-info btn-lg btn-block">会員管理</div>
     <% end %>
   </div>
   <div class="col-4"></div>
@@ -11,10 +11,10 @@
   <div class="col-4"></div>
   <div class="col-4">
     <%= link_to admins_inquiries_path do %>
-      <div class="btn btn-secondary btn-lg btn-block">
+      <div class="btn btn-info btn-lg btn-block">
         お問い合わせ確認
-        <% if @inquiry_number != 0 %>
-          <span class="text-danger">(未対応あり)</span>
+        <% if Inquiry.count_by_status(0) != 0 %>
+          <span class="text-warning"> (<%= Inquiry.count_by_status(0) %>)</span>
         <% end %>
       </div>
     <% end %>

@@ -1,0 +1,10 @@
+ja:
+  admins:
+    shared:
+      links:
+        login: 'ログイン'
+        signup: '新規登録'
+        forget_password: 'パスワードをお忘れですか?'
+        resend_confirmation_mail: '確認メールが届いていない'
+        sns_sign_in_en: ' '
+        sns_sign_in_ja: 'でログインする'

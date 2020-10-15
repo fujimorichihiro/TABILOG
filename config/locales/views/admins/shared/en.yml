@@ -1,0 +1,10 @@
+en:
+  admins:
+    shared:
+      links:
+        login: 'Log in'
+        signup: 'Sign up'
+        forget_password: 'Forgot your password?'
+        resend_confirmation_mail: "Didn't receive confirmation instruction?"
+        sns_sign_in_en: "Sign in with"
+        sns_sign_in_ja: ' '

@@ -2,17 +2,17 @@
   <div class="col-3"></div>
   <div class="col-8 p-5 mt-5 border border-secondary">
     <div class="">
-      <h3 class="text-center mb-5">管理者ログイン</h3>
+      <h3 class="text-center mb-5"><%= t '.login' %></h3>
     </div>
     <%= form_for(resource, as: resource_name,  url: session_path(resource_name)) do |f| %>
 
       <div class="field">
-        <%= f.label :email %><br />
+        <%= f.label :email, "#{t '.email'}" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-2" %>
       </div>
 
       <div class="field">
-        <%= f.label :password %><br />
+        <%= f.label :password, "#{t '.password'}" %><br />
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control mb-2" %>
       </div>
 

@@ -1,0 +1,8 @@
+en:
+  admins:
+    sessions:
+      new:
+        login: 'Log In'
+        email: 'Email'
+        password: 'Password'
+        remember: 'Remember me'

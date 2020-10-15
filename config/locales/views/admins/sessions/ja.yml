@@ -1,0 +1,8 @@
+ja:
+  admins:
+    sessions:
+      new:
+        login: '管理者ログイン'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        remember: 'ログイン状態を保つ'

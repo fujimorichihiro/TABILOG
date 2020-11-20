@@ -1,5 +1,5 @@
 <!-- ユーザーページ　ナビゲーションバー -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-gray">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -9,7 +9,7 @@
         <%= link_to follower_user_path(user), class: "nav-link text-dark"  do %><%= user.followers.count %> follower<% end %>
       </li>
       <li class="nav-item">
-        <%= link_to user_path(user), class: "nav-link text-dark" do %><i class="fas fa-pen text-info"></i> <%= t '.post'%> <%=user.articles.count %>件<% end %>
+        <%= link_to user_path(user), class: "nav-link text-dark" do %><i class="fas fa-pen text-white"></i> <%= t '.post'%> <%=user.articles.count %>件<% end %>
       </li>
     </ul>
   </div>

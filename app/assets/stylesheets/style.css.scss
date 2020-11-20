@@ -28,3 +28,62 @@
   background-size: cover;
   height: 200px;
 }
+
+
+/*--------------------- Color -----------------------*/
+/* China-clay rgb(212, 220, 211) #D4DCD3 */
+
+.bg-china_clay {
+  background-color: rgb(212, 220, 211);
+}
+.c-china_clay {
+  color: rgb(212, 220, 211);
+}
+
+.border-china_clay {
+  border: solid rgb(212, 220, 211) 0.5px;
+}
+
+/* Orange rgb(240, 172, 14) #F0AC0E */
+
+.bg-orange {
+  background-color: rgba(240, 172, 14, 0.5);
+}
+.c-orange {
+  color: rgb(240, 172, 14);
+}
+
+.bg-clear-orange {
+  background-color: rgba(240, 172, 14, 0.5);
+}
+
+.c-clear-orange {
+  color: rgba(240, 172, 14, 0.5);
+}
+
+/* Light Orange rgb(250, 219, 125) #FADB7D */
+
+.bg-light_orange {
+  background-color: rgb(250, 219, 125);
+}
+.c-light_orange {
+  color: rgb(250, 219, 125);
+}
+
+/* Green rgb(93, 204, 73) #5DCC49 */
+
+.bg-green {
+  background-color: rgb(93, 204, 73);
+}
+.c-green {
+  color: rgb(93, 204, 73);
+}
+
+/* Gray rgb(170, 170, 170) #5DCC49 */
+
+.bg-gray {
+  background-color: rgb(170, 170, 170);
+}
+.c-gray {
+  color: rgb(170, 170, 170);
+}

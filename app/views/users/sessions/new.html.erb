@@ -4,13 +4,11 @@
       <%= render "users/shared/error_messages", resource: resource %>
 
       <div class="field">
-        <%= f.label :email, "#{t '.email'}" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-4", placeholder: "テストユーザー：foo@tabilog.com" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-4 border-0", placeholder: "Email" %>
       </div>
 
       <div class="field">
-        <%= f.label :password, "#{t '.password'}" %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control mb-4", placeholder: "テストユーザー：password"  %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control mb-4 border-0", placeholder: "Password"  %>
       </div>
 
       <% if devise_mapping.rememberable? %>
@@ -21,7 +19,7 @@
       <% end %>
 
       <div class=" row actions mb-3">
-        <%= f.submit "#{t '.login'}", class: "btn btn-success mx-auto px-5"%>
+        <%= f.submit "#{t '.login'}", class: "btn btn-outline-warning mx-auto px-5"%>
       </div>
     <% end %>
 

@@ -5,12 +5,12 @@
     <%= form_for @article do |f| %>
     <!-- タイトル -->
       <div class="form-group">
-        <%= f.text_field :title, class: "form-control", placeholder: "#{t '.title'}" %>
+        <%= f.text_field :title, class: "form-control border-0", placeholder: "#{t '.title'}" %>
       </div>
     <!-- タグ入力フォーム by tag-it -->
       <div class="tag-form-field">
-        <span><i class="fas fa-tags text-info"></i> </span><%= f.label "#{t '.tag'}" , class: "text-secondary" %>
-        <ul id="tag-form">
+        <span><i class="fas fa-tags text-dark"></i> </span><%= f.label "#{t '.tag'}" , class: "text-secondary" %>
+        <ul id="tag-form" class="border-0 rounded bg-white">
         </ul>
       </div>
     <!-- 本文（リッチテキストエディタ）by summernote -->
@@ -19,13 +19,13 @@
       </div>
       <div class="form-group">
       <p class="text-secondary"><i class="fas fa-map-marker-alt text-danger"></i> <%= t '.location' %></p>
-        <%= f.text_field :address, class: "form-control", placeholder: "#{t '.location-text'}" %>
+        <%= f.text_field :address, class: "form-control border-0", placeholder: "#{t '.location-text'}" %>
       </div>
       <div class="form-group">
-        <p class="text-secondary"><i class="fas fa-image text-info"></i> <%= t '.image' %></p>
+        <p class="text-secondary"><i class="fas fa-image text-dark"></i> <%= t '.image' %></p>
         <%= f.attachment_field :article_image %>
       </div>
-      <%= f.submit "#{t '.post'}", class: "btn btn-info btn-block" %>
+      <%= f.submit "#{t '.post'}", class: "btn btn-dark btn-block" %>
     <% end %>
   </div>
   <div class="col-1"></div>

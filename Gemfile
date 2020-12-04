@@ -22,7 +22,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 # レイアウトなど
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.5.3'
 gem 'jquery-rails'
 # font-awesome
 gem 'font-awesome-sass'

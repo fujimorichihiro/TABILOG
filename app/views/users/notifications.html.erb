@@ -7,11 +7,11 @@
 <!-- 通知一覧 -->
 <div class="row">
   <div class="col-3">
-    <div class="border border-secondary bg-light p-3">
-      <h4>analyze</h4>
-      <p>いいね： <%= @notifications.number(0) %>件</p>
-      <p>コメント： <%= @notifications.number(1) %>件</p>
-      <p>ストック： <%= @notifications.number(3) %>件</p>
+    <div class="bg-dark rounded p-3">
+      <h4 class="text-light">analyze</h4>
+      <p class="text-light">いいね： <%= @notifications.number(0) %>件</p>
+      <p class="text-light">コメント： <%= @notifications.number(1) %>件</p>
+      <p class="text-light">ストック： <%= @notifications.number(3) %>件</p>
     </div>
   </div>
   <div class="col-8" id="notifications">

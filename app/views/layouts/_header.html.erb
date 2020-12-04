@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-3">
-        <%= link_to root_path, class: "text-light btn" do %><h3 class="text-white">TABILOG</h3><% end %>
+        <%= link_to root_path, class: "text-dark btn" do %><h3 class="text-dark">TABILOG</h3><% end %>
       </div>
       <div class="col-3">
       </div>
@@ -10,42 +10,42 @@
         <!-- user側header -->
         <% if user_signed_in? %>
           <%= link_to timeline_user_path(current_user) do %>
-            <div class="btn btn-outline-light"><%= t '.timeline' %></div>
+            <div class="btn btn-outline-dark"><%= t '.timeline' %></div>
           <% end %>
           <%= link_to new_article_path do %>
-            <div class="btn btn-info"><i class="fas fa-pen"></i></div>
+            <div class="btn btn-dark"><i class="fas fa-pen"></i></div>
           <% end %>
           <%= link_to destroy_user_session_path, method: :delete do %>
-            <div class="btn btn-outline-light"><%= t '.logout' %></div>
+            <div class="btn btn-outline-dark"><%= t '.logout' %></div>
           <% end %>
         <!-- admin側header -->
         <% elsif admin_signed_in? %>
           <%= link_to admins_home_top_path do %>
-            <div class="btn btn-outline-light"><i class="fas fa-home"></i></div>
+            <div class="btn btn-outline-dark"><i class="fas fa-home"></i></div>
           <% end%>
           <%= link_to destroy_admin_session_path, method: :delete do %>
-            <div class="btn btn-outline-light">Log out</div>
+            <div class="btn btn-outline-dark">Log out</div>
           <% end %>
         <!-- 非会員header -->
         <% else %>
           <%= link_to new_user_session_path do %>
-            <div class="btn btn-outline-light"><%= t '.login' %></div>
+            <div class="btn btn-outline-dark"><%= t '.login' %></div>
           <% end %>
           <%= link_to new_user_registration_path do %>
-            <div class="btn btn-outline-light"><%= t '.signup' %></div>
+            <div class="btn btn-outline-dark"><%= t '.signup' %></div>
           <% end %>
         <% end %>
       </div>
       <div class="col-1">
         <% if user_signed_in? %>
-          <div id="getposition" class="btn btn-outline-light"><i class="fas fa-map-marked-alt"></i></div>
+          <div id="getposition" class="btn btn-outline-dark"><i class="fas fa-map-marked-alt"></i></div>
         <% end %>
       </div>
       <!-- ユーザーメニュー -->
       <div class="col-1">
         <% if user_signed_in? %>
         <div class="dropdown">
-            <button class="btn btn-dark dropdown-toggle position-relative" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-outline-dark dropdown-toggle position-relative" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <% if current_user.receive_notifications.not_checked_number != 0 || current_user.unchecked_messages_count != 0 %>
                 <div class="notification-circle rounded-circle" id="notification-circle" ></div>
               <% end %>

@@ -21,7 +21,7 @@
           </div>
           <div class="row mt-2">
               <div class="col-3">
-                <button type="button" class="btn btn-link text-secondary" data-toggle="modal" data-target="#commentModal<%= article.id%>" data-whatever="@mdo">
+                <button type="button" class="btn btn-link text-dark" data-toggle="modal" data-target="#commentModal<%= article.id%>" data-whatever="@mdo">
                   <i class="fas fa-comment"></i> <%= article.comments.count %>
                 </button>
           <!---------------------------------- コメントmodal -------------------------------------------------->
@@ -75,7 +75,7 @@
                 <% if user_signed_in? %>
                   <%= render :partial => "articles/favolite", :locals => {:article => article} %>
                 <% else %>
-                  <i class="fas fa-heart text-secondary"></i> <%= article.favolites.count %>
+                  <i class="fas fa-heart text-dark"></i> <%= article.favolites.count %>
                 <% end %>
               </div>
           </div>

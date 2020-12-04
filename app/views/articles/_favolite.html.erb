@@ -5,7 +5,7 @@
   <% end %>
 <% else %>
   <%= link_to article_favolites_path(article), id: "favolite", method: :post, remote: true do %>
-    <i class="fas fa-heart text-secondary"></i>
+    <i class="fas fa-heart text-dark"></i>
   <% end %>
 <% end %>
 <%= article.favolites.count %>

@@ -3,7 +3,7 @@
   <div class="col-6">
     <%= form_tag(spot_search_articles_path, :method => 'get' ) do %>
       <label><%= t '.spot'%></label>
-      <%= text_field_tag :search, "", class: "form-control mb-2", placeholder: "#{t '.spot_or_address'}" %>
+      <%= text_field_tag :search, "", class: "form-control mb-2 border-0", placeholder: "#{t '.spot_or_address'}" %>
       <div class="d-flex flex-row-reverse">
         <%= submit_tag "#{t '.search'}", class: "btn btn-dark" %>
       </div>

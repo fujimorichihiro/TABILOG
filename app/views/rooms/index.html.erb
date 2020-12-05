@@ -2,7 +2,7 @@
 	<div class="col-1"></div>
 	<div class="col-10">
 		<% @other_entries.each do |another_entry| %>
-		  <div class="row mb-2 pb-2 pt-2 bg-light position-relative">
+		  <div class="row mb-2 pb-2 pt-2 bg-white rounded position-relative">
 		  	<div class="col-1">
 		      <%= attachment_image_tag another_entry.user, :profile_image , :fill, 50, 50, class: "rounded-circle" %>
 		  	</div>
@@ -18,7 +18,7 @@
 		  	  <% end %>
 		  	</div>
 		  	<%= link_to room_path(another_entry.room), style: "text-decoration: none;", class: "text-secondary" do %>
-		  	  <div class="position-absolute link-box"></div>
+		  	  <div class="position-absolute link-box rounded"></div>
 		  	<% end %>
 		   </div>
 		<% end %>

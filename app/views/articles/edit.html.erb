@@ -4,11 +4,11 @@
   <div class="col-10">
     <%= form_for @article do |f| %>
       <div class="form-group">
-        <%= f.text_field :title, class: "form-control", placeholder: "#{t '.title'}" %>
+        <%= f.text_field :title, class: "form-control border-0 ", placeholder: "#{t '.title'}" %>
       </div>
       <div class="tag-form-field">
         <%= f.label "#{t '.tag'}", class: "text-secondary" %>
-        <ul id="tag-form">
+        <ul id="tag-form" class="border-0 bg-white rounded">
         </ul>
         <%= hidden_field_tag :tags_hidden, @tag_list %>
       </div>
@@ -17,13 +17,13 @@
       </div>
       <div class="form-group">
       <p class="text-secondary"><i class="fas fa-map-marker-alt text-danger"></i> <%= t '.location' %></p>
-        <%= f.text_field :address, class: "form-control", placeholder: "#{t '.location-text'}" %>
+        <%= f.text_field :address, class: "form-control border-0", placeholder: "#{t '.location-text'}" %>
       </div>
       <div class="form-group">
         <p class="text-secondary"><%= t '.image' %></p>
         <%= f.attachment_field :article_image %>
       </div>
-      <%= f.submit "#{t '.edit'}", class: "btn btn-secondary btn-block" %>
+      <%= f.submit "#{t '.edit'}", class: "btn btn-dark btn-block" %>
     <% end %>
   </div>
   <div class="col-1"></div>

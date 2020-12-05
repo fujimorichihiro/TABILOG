@@ -20,9 +20,9 @@
             </div>
           </div>
           <div class="row mt-2">
-              <div class="col-3">
-                <button type="button" class="btn btn-link text-dark" data-toggle="modal" data-target="#commentModal<%= article.id%>" data-whatever="@mdo">
-                  <i class="fas fa-comment"></i> <%= article.comments.count %>
+              <div class="col-3 pl-4 pr-0">
+                <button type="button" class="btn btn-link text-dark px-0" data-toggle="modal" data-target="#commentModal<%= article.id%>">
+                  <i class="fas fa-comment"></i> <span><%= article.comments.count %></span>
                 </button>
           <!---------------------------------- コメントmodal -------------------------------------------------->
                 <div class="modal fade" id="commentModal<%= article.id%>" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel" aria-hidden="true">

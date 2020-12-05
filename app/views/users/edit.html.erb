@@ -4,18 +4,18 @@
     <%= form_for @user do |f| %>
       <div class="form-group">
         <%= f.label :namem,  "#{t '.name'}" %><br />
-        <%= f.text_field :name, class: "form-control" %>
+        <%= f.text_field :name, class: "form-control border-0" %>
       </div>
       <div class="form-group">
         <label><%= f. label :introduction, "#{t '.introduction'}" %></label>
-        <%= f.text_area :introduction, class: "form-control", rows: "4"%>
+        <%= f.text_area :introduction, class: "form-control border-0", rows: "4"%>
       </div>
       <div class="form-group">
         <%= f.label :profile_image, "#{t '.profileimage'}" %><br />
         <%= f.attachment_field :profile_image %>
       </div>
       <div class="form-group">
-        <%= f.submit "#{t '.edit'}", class: "btn btn-info btn-block" %>
+        <%= f.submit "#{t '.edit'}", class: "btn btn-dark btn-block" %>
       </div>
     <% end %>
   </div>

@@ -14,6 +14,7 @@ en:
     footer:
       languageswitching: 'Language switching'
       inquiry: 'Inquiry'
+      information: 'Information'
     search_form:
       tagsearch: 'Search by Tag name'
       titlesearch: 'Search by Title'

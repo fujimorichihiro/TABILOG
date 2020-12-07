@@ -10,7 +10,9 @@
 		      <%= another_entry.user.name %>
 		  	</div>
 		  	<div class="col-7">
+		  		<% if another_entry.room.messages.last.body %>
 		  	  <span><%= another_entry.room.messages.last.body %></span>
+		  	  <% end %>
 		  	</div>
 		  	<div class="col-2">
 		  	  <% unless current_user.room_message_count(another_entry.room) == 0 %>

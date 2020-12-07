@@ -1,2 +1,3 @@
+// id="message-area"の中を@messagesで書き換える
 $("#message-area").html('<%= j(render :partial => 'messages/message', :locals => {:messages => @messages})%>')
 $("textarea").val('')

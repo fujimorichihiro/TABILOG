@@ -7,7 +7,7 @@
   <div class="col-lg-6 col-md-12">
     <div id="user-show-map"></div>
   </div>
-  <div class="col-lg-6 col-md-12">
+  <div id="article-template" class="col-lg-6 col-md-12">
     <% @articles.each do |article| %>
       <%= render :partial => "users/articles", :locals => {:article => article} %>
     <% end %>

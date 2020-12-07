@@ -1,18 +1,21 @@
+<!-- メッセージボディ部分 -->
 <% messages.each do |message| %>
+　<!-- 　本人のメッセージは右　 -->
   <% if message.user.id == current_user.id %>
     <div class="row">
       <div class="col-7"></div>
       <div class="col-5 ">
         <div class="d-flex flex-row-reverse">
-          <div class="alert alert-info pt-3 pl-3 pr-3 mr-2"><%= simple_format(message.body) %></div>
+          <div class="alert alert-warning pt-3 pl-3 pr-3 pb-0 mr-2"><%= simple_format(message.body) %></div>
         </div>
       </div>
     </div>
+  <!-- 相手のメッセージは左 -->
   <% else %>
     <div class="row">
       <div class="col-5">
         <div class="d-flex flex-row">
-          <div class="alert alert-dark pt-3 pl-3 pr-3 ml-2"><%= simple_format(message.body) %></div>
+          <div class="alert alert-dark pt-3 pl-3 pr-3 pb-0 ml-2"><%= simple_format(message.body) %></div>
         </div>
       </div>
       <div class="col-7"></div>

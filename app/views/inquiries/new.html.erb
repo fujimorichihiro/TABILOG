@@ -1,8 +1,8 @@
-<div class="row mt-5">
+<div class="row mt-2">
   <div class="col-2"></div>
-  <div class="col-8 p-5 mt-5 border border-secondary">
+  <div class="col-8 p-5 mt-5">
     <div class="">
-      <h3 class="text-center mb-5"><%= t '.inquiry' %></h3>
+      <h3 class="text-center mb-5 border-bottom"><%= t '.inquiry' %></h3>
     </div>
     <!-- 問い合わせフォーム -->
     <%= form_for @inquiry do |f| %>
@@ -11,23 +11,23 @@
         <div class="field">
           <%= f.label :email, "#{t '.email'}"  %>
           <span class="badge badge-danger"><%= t '.required' %></span><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-3" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-3 border-0" %>
         </div>
       <% end %>
       <div class="field mb-5">
         <%= f.label :title, "#{t '.title'}" %>
         <span class="badge badge-danger"><%= t '.required' %></span><br />
-        <%= f.text_field :title, class: "form-control" %>
+        <%= f.text_field :title, class: "form-control border-0" %>
       </div>
      <!-- 問い合わせ内容入力欄 -->
       <div class="field mb-5">
         <%= f.label :body, "#{t '.body'}" %>
         <span class="badge badge-danger"><%= t '.required' %></span><br />
-        <%= f.text_area :body, class: "form-control" %>
+        <%= f.text_area :body, class: "form-control border-0" %>
       </div>
 
       <div class="actions">
-        <%= f.submit "#{t '.button'}", class: "form-control btn btn-success" %>
+        <%= f.submit "#{t '.button'}", class: "form-control btn btn-dark" %>
       </div>
     <% end %>
   </div>

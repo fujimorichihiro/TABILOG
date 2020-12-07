@@ -14,6 +14,7 @@ ja:
     footer:
       languageswitching: '言語切替'
       inquiry: 'お問い合わせ'
+      information: '情報'
     search_form:
       tagsearch: 'タグ'
       titlesearch: '記事名検索'

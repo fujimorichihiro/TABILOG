@@ -1,8 +1,10 @@
+<!-- メッセージやりとりページ -->
 <%= render :partial => "users/profile", :locals => {:user => @user} %>
 <div class="mt-5"></div>
 <div class="border bg-light" id="message-area">
   <%= render :partial => "messages/message", :locals => {:messages => @messages} %>
 </div>
+
 <div class="row mt-5">
   <div class="col-12">
   <%= form_with model: @message do |f| %>

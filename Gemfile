@@ -62,6 +62,10 @@ gem 'pry-byebug'
 gem 'exception_notification', github: 'smartinez87/exception_notification'
 gem 'slack-notifier'
 
+#APIモード用 JSONデータ作成
+gem 'jbuilder', '~> 2.5'
+
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

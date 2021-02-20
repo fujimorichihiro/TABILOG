@@ -76,6 +76,14 @@ Rails.application.routes.draw do
     end
 #-------------------------------------------------------
   end
+  
+
+  #API用
+  namespace :api, { format: 'json' } do
+    namespace :v1 do
+      resources :articles
+    end
+  end
 
   get '*path', to: 'application#render_404',
     constraints: ErrorAvoid.new

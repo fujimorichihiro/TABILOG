@@ -17,7 +17,7 @@ class Article < ApplicationRecord
   validates :address, length: { maximum: 50 }
 
 
-  mount_uploader :article_image, ImageUploader
+  mount_uploader :article_image, ArticleImageUploader
 
 # いいねしているかどうか判別
   def favolited_by?(user)

@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: %i[twitter google_oauth2]
 
-  mount_uploader :profile_image, ImageUploader
+  mount_uploader :profile_image, ProfileImageUploader
 
 # アソシエーション---------------------------------------------------------------------
   # フォロー

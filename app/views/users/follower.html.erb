@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-3">
           <%= link_to user_path(follower) do %>
-            <%= attachment_image_tag follower, :profile_image, :fill, 100, 100, class: "rounded-circle"%>
+            <%= image_tag follower.profile_image.thumb_100.to_s, class: "rounded-circle" %>
           <% end %>
         </div>
         <div class="col-5">

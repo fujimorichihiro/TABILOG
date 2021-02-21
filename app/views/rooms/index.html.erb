@@ -4,7 +4,7 @@
 		<% @other_entries.each do |another_entry| %>
 		  <div class="row mb-2 pb-2 pt-2 bg-white rounded position-relative">
 		  	<div class="col-1">
-		      <%= attachment_image_tag another_entry.user, :profile_image , :fill, 50, 50, class: "rounded-circle" %>
+		      <%= image_tag another_entry.user.profile_image.thumb_50.to_s, class: "rounded-circle" %>
 		  	</div>
 		  	<div class="col-2">
 		      <%= another_entry.user.name %>

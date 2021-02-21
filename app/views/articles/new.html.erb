@@ -23,7 +23,7 @@
       </div>
       <div class="form-group">
         <p class="text-secondary"><i class="fas fa-image text-dark"></i> <%= t '.image' %></p>
-        <%= f.attachment_field :article_image %>
+        <%= f.file_field :article_image %>
       </div>
       <%= f.submit "#{t '.post'}", class: "btn btn-dark btn-block" %>
     <% end %>

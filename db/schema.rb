@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_065753) do
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "article_image_id"
+    t.string "article_image"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
@@ -167,7 +167,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_065753) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "introduction"
-    t.string "profile_image_id"
+    t.string "profile_image"
     t.string "provider"
     t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -49,7 +49,7 @@
                <% if current_user.receive_notifications.not_checked_number != 0 || current_user.unchecked_messages_count != 0 %>
                 <div class="notification-circle rounded-circle" id="notification-circle" ></div>
               <% end %>
-              <%= attachment_image_tag current_user, :profile_image, :fill, 25, 25, class: "rounded-circle" %>
+              <%= image_tag current_user.profile_image.thumb_25.to_s, class: "rounded-circle" %>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <%= link_to "#{t '.mypage'}", user_path(current_user), class: "dropdown-item" %>

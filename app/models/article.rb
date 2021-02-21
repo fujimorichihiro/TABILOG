@@ -16,8 +16,8 @@ class Article < ApplicationRecord
   validates :body, presence: true
   validates :address, length: { maximum: 50 }
 
-# refile用
-  attachment :article_image
+
+  mount_uploader :article_image, ImageUploader
 
 # いいねしているかどうか判別
   def favolited_by?(user)

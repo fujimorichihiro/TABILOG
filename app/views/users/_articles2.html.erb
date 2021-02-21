@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-12">
               <%= link_to user_path(article.user) do %>
-                <%= attachment_image_tag article.user, :profile_image, :fill, 50, 50, class: "rounded-circle"%>
+                <%= image_tag article.user.profile_image.thumb_50.to_s, class: "rounded-circle"%>
               <% end %>
             </div>
           </div>
@@ -33,7 +33,7 @@
                         <div class="row">
                           <div class="col-2">
                             <%= link_to user_path(article.user) do %>
-                              <%= attachment_image_tag article.user, :profile_image, :fill, 50, 50, class: "rounded-circle"%>
+                              <%= image_tag article.user.profile_image.thumb_50.to_s, class: "rounded-circle", width: "50px", height: "50px"%>
                             <% end %>
                           </div>
                           <div class="col-10">
@@ -51,7 +51,7 @@
                           <div class="row">
                             <div class="col-1">
                               <%= link_to user_path(comment.user) do %>
-                                <%= attachment_image_tag comment.user, :profile_image, :fill, 30, 30, class: "rounded-circle"%>
+                                <%= image_tag comment.user.profile_image.thumb_30.to_s, class: "rounded-circle" %>
                               <% end %>
                             </div>
                             <div class="col-11 pt-1">
@@ -87,7 +87,7 @@
           </div>
         </div>
         <div class="col-6">
-          <%= attachment_image_tag article, :article_image, :fill, 250, 250 %>
+          <%= image_tag article.article_image.thumb.to_s %>
         </div>
       </div>
     </div>

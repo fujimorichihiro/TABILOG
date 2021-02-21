@@ -1,15 +1,10 @@
-class ImageUploader < CarrierWave::Uploader::Base
+class ProfileImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  if Rails.env.development? # 開発環境の場合
-    storage :file
-  elsif Rails.env.test? # テスト環境の場合
-    storage :file
-  else # 本番環境の場合
-    storage :fog
-  end
+  storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -18,6 +13,25 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  version :thumb_25 do
+    process resize_to_fill: [25, 25]
+  end
+
+  version :thumb_30 do
+    process resize_to_fill: [30, 30]
+  end
+
+  version :thumb_50 do
+    process resize_to_fill: [50, 50]
+  end
+
+  version :thumb_100 do
+    process resize_to_fill: [30, 30]
+  end
+
+  version :thumb_130 do
+    process resize_to_fill: [130, 130]
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:

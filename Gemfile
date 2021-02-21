@@ -53,6 +53,7 @@ gem 'chartkick'
 gem 'groupdate'
 # carrierwave + S3
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'fog-aws'
 # javascript 変数受け渡し
 gem 'gon'

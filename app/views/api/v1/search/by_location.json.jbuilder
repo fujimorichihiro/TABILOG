@@ -1,0 +1,1 @@
+json.article @article, :id, :title, :body, :address, :latitude, :longitude

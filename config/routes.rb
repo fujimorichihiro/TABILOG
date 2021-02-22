@@ -82,6 +82,11 @@ Rails.application.routes.draw do
   namespace :api, { format: 'json' } do
     namespace :v1 do
       resources :articles
+      namespace :search do
+        get 'by_location' => "search#by_location"
+        get 'by_title' => "search#by_title"
+        get 'by_current_location' => "search#by_current_location"
+      end
     end
   end
 

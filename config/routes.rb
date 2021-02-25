@@ -78,7 +78,7 @@ Rails.application.routes.draw do
   end
   
 
-  #API用
+  #API用-----------------------------------------------------
   namespace :api, { format: 'json' } do
     namespace :v1 do
       resources :articles
